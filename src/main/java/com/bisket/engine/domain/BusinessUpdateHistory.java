@@ -1,0 +1,28 @@
+package com.bisket.engine.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class BusinessUpdateHistory extends BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false)
+    private String businessCategory;
+    @Column(nullable = false)
+    private LocalDateTime executeDate = LocalDateTime.now();
+    @Column(nullable = false)
+    private boolean successFlag = false;
+    @Column
+    private Integer dataCount;
+}
