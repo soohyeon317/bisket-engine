@@ -127,7 +127,7 @@ public class SafetyOffinialSaleParser {
                             break;
                         case 51:
                             // 업태구분명
-                            safetyOfficinalSale.setBusinessConditionsName(itemValue);
+                            safetyOfficinalSale.setBusinessConditionsClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)

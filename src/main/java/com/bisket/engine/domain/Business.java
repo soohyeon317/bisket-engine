@@ -42,7 +42,7 @@ public abstract class Business extends BaseEntity {
     private String lastModificationTime;
     private String dataUpdateClassification;
     private String dataUpdateDate;
-    private String businessConditionsName;
+    private String businessConditionsClassificationName;
     private String xCoordinate;
     private String yCoordinate;
 }

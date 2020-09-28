@@ -34,7 +34,7 @@ public class SafetyOfficinalSale extends Business {
         // 영업상태코드
         this.setBusinessStatusCode(safetyOfficinalSale.getOpenServiceName());
         // 영업상태명
-        this.setBusinessConditionsName(safetyOfficinalSale.getOpenServiceName());
+        this.setBusinessConditionsClassificationName(safetyOfficinalSale.getOpenServiceName());
         // 상세영업상태코드
         this.setDetailedBusinessStatusCode(safetyOfficinalSale.getOpenServiceName());
         // 상세영업상태명
@@ -68,7 +68,7 @@ public class SafetyOfficinalSale extends Business {
         // 데이터갱신일자
         this.setDataUpdateDate(safetyOfficinalSale.getOpenServiceName());
         // 업태구분명
-        this.setBusinessConditionsName(safetyOfficinalSale.getOpenServiceName());
+        this.setBusinessConditionsClassificationName(safetyOfficinalSale.getOpenServiceName());
         // 좌표정보(X)
         this.setXCoordinate(safetyOfficinalSale.getOpenServiceName());
         // 좌표정보(Y)
