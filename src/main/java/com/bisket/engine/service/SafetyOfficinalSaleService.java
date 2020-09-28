@@ -16,7 +16,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Service
@@ -34,27 +36,34 @@ public class SafetyOfficinalSaleService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<SafetyOfficinalSale> safetyOfficinalSaleList = SafetyOffinialSaleParser.getSafetyOffinialSaleListFromXml(xml);
+        List<SafetyOfficinalSale> parsedSafetyOfficinalSaleList = SafetyOffinialSaleParser.getSafetyOffinialSaleListFromXml(xml);
 
-        if (!safetyOfficinalSaleList.isEmpty()) {
-            for (int i = 0; i < safetyOfficinalSaleList.size(); i++) {
-                SafetyOfficinalSale safetyOfficinalSale = safetyOfficinalSaleList.get(i);
-                log.info("=======\nSafetyOfficinalSale\nSequence: {}\nManagementCode: {}", i+1, safetyOfficinalSale.getManagementCode());
-                SafetyOfficinalSale foundSafetyOfficinalSale =
-                        safetyOfficinalSaleRepository.findOneByManagementCode(safetyOfficinalSale.getManagementCode());
-                if (foundSafetyOfficinalSale != null) {
+        if (!parsedSafetyOfficinalSaleList.isEmpty()) {
+            Map<String, SafetyOfficinalSale> managementCodeToSafetyOfficinalSaleMap = new HashMap<>();
+            List<SafetyOfficinalSale> foundSafetyOfficinalSaleList = safetyOfficinalSaleRepository.findAll();
+            if (!foundSafetyOfficinalSaleList.isEmpty()) {
+                for (SafetyOfficinalSale foundSafetyOfficinalSale : foundSafetyOfficinalSaleList) {
+                    managementCodeToSafetyOfficinalSaleMap.put(foundSafetyOfficinalSale.getManagementCode(), foundSafetyOfficinalSale);
+                }
+            }
+            for (int i = 0; i < parsedSafetyOfficinalSaleList.size(); i++) {
+                SafetyOfficinalSale parsedSafetyOfficinalSale = parsedSafetyOfficinalSaleList.get(i);
+                String managementCode = parsedSafetyOfficinalSale.getManagementCode();
+                log.info("=======\nSafetyOfficinalSale\nSequence: {}\nManagementCode: {}", i+1, managementCode);
+                if (managementCodeToSafetyOfficinalSaleMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    safetyOfficinalSale.getAndSetIdentification(foundSafetyOfficinalSale);
-                    if (!Objects.equals(foundSafetyOfficinalSale, safetyOfficinalSale)) {
-                        foundSafetyOfficinalSale.update(safetyOfficinalSale);
+                    SafetyOfficinalSale foundSafetyOfficinalSale = managementCodeToSafetyOfficinalSaleMap.get(managementCode);
+                    parsedSafetyOfficinalSale.getAndSetIdentification(foundSafetyOfficinalSale);
+                    if (!Objects.equals(foundSafetyOfficinalSale, parsedSafetyOfficinalSale)) {
+                        foundSafetyOfficinalSale.update(parsedSafetyOfficinalSale);
                     }
                 } else {
                     /* 인서트 진행 */
-                    safetyOfficinalSaleRepository.save(safetyOfficinalSale);
+                    safetyOfficinalSaleRepository.save(parsedSafetyOfficinalSale);
                 }
             }
         }
 
-        return safetyOfficinalSaleList.size();
+        return parsedSafetyOfficinalSaleList.size();
     }
 }
