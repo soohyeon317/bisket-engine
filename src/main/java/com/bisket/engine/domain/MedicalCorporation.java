@@ -1,26 +1,47 @@
 package com.bisket.engine.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("safety_officinal_sale")
+@DiscriminatorValue("medical_corporation")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SafetyOfficinalSale extends Business {
-    private String storeBusinessArea;
+public class MedicalCorporation extends Business {
+    private String medicalOrganizationAssortmentName;
+    private String medicalPersonnelCount;
+    private String hospitalRoomCount;
+    private String sickbedCount;
+    private String totalArea;
+    @Column(columnDefinition = "TEXT")
+    private String treatmentSubjectCode;
+    @Column(columnDefinition = "TEXT")
+    private String treatmentSubjectName;
+    private String assignmentCancelDate;
+    private String palliativeMedicineAssignmentType;
+    private String palliativeMedicineDepartmentName;
+    private String specialAmbulanceCount;
+    private String generalAmbulanceCount;
+    private String employeeCount;
+    private String paramedicCount;
+    private String allowedSickbedCount;
+    private String firstAssignmentDate;
 
-    public void getAndSetIdentification(SafetyOfficinalSale other) {
+    public void getAndSetIdentification(MedicalCorporation other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(SafetyOfficinalSale other) {
+    public void update(MedicalCorporation other) {
         // 개방서비스ID
         this.setOpenServiceId(other.getOpenServiceId());
         // 개방자치단체코드
@@ -73,7 +94,37 @@ public class SafetyOfficinalSale extends Business {
         this.setXCoordinate(other.getOpenServiceName());
         // 좌표정보(Y)
         this.setYCoordinate(other.getOpenServiceName());
-        // 판매점영업면적
-        this.setStoreBusinessArea(other.getStoreBusinessArea());
+        // 의료기관종별명
+        this.setMedicalOrganizationAssortmentName(other.getMedicalOrganizationAssortmentName());
+        // 의료인수
+        this.setMedicalPersonnelCount(other.getMedicalPersonnelCount());
+        // 입원실수
+        this.setHospitalRoomCount(other.getHospitalRoomCount());
+        // 병상수
+        this.setSickbedCount(other.getSickbedCount());
+        // 총면적
+        this.setTotalArea(other.getTotalArea());
+        // 진료과목내용
+        this.setTreatmentSubjectCode(other.getTreatmentSubjectCode());
+        // 진료과목내용명
+        this.setTreatmentSubjectName(other.getTreatmentSubjectName());
+        // 지정취소일자
+        this.setAssignmentCancelDate(other.getAssignmentCancelDate());
+        // 완화의료지정형태
+        this.setPalliativeMedicineAssignmentType(other.getPalliativeMedicineAssignmentType());
+        // 완화의료담당부서명
+        this.setPalliativeMedicineDepartmentName(other.getPalliativeMedicineDepartmentName());
+        // 구급차특수
+        this.setSpecialAmbulanceCount(other.getSpecialAmbulanceCount());
+        // 구급차일반
+        this.setGeneralAmbulanceCount(other.getGeneralAmbulanceCount());
+        // 총인원
+        this.setEmployeeCount(other.getEmployeeCount());
+        // 구조사수
+        this.setParamedicCount(other.getParamedicCount());
+        // 허가병상수
+        this.setAllowedSickbedCount(other.getAllowedSickbedCount());
+        // 최초지정일자
+        this.setFirstAssignmentDate(other.getFirstAssignmentDate());
     }
 }

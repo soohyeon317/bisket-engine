@@ -12,7 +12,7 @@ import java.util.List;
 @Slf4j
 public class SafetyOffinialSaleParser {
 
-    public static List<SafetyOfficinalSale> getSafetyOffinialSaleListFromXml(Document xml) {
+    public static List<SafetyOfficinalSale> getListFromXml(Document xml) {
         List<SafetyOfficinalSale> safetyOfficinalSaleList = new ArrayList<>();
 
         // root element 구하기

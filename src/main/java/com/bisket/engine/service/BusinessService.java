@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.NoResultException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.security.InvalidParameterException;
@@ -29,12 +28,20 @@ public class BusinessService {
     private final Pattern XML_FILE_BUSINESS_NAME_PATTERN = Pattern.compile("P_(?<businessCategory>.*).xml");
 
     private final SafetyOfficinalSaleService safetyOfficinalSaleService;
+    private final HospitalService hospitalService;
+    private final MedicalCorporationService medicalCorporationService;
+    private final ClinicService clinicService;
+    private final EmergencyPatientTransferService emergencyPatientTransferService;
     private final BusinessUpdateHistoryService businessUpdateHistoryService;
 
     private final BusinessRepository businessRepository;
 
-    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
+    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
         this.safetyOfficinalSaleService = safetyOfficinalSaleService;
+        this.hospitalService = hospitalService;
+        this.medicalCorporationService = medicalCorporationService;
+        this.clinicService = clinicService;
+        this.emergencyPatientTransferService = emergencyPatientTransferService;
         this.businessUpdateHistoryService = businessUpdateHistoryService;
         this.businessRepository = businessRepository;
     }
@@ -86,10 +93,55 @@ public class BusinessService {
                                         String businessCategoryName = businessCategoryMatcher.group("businessCategory");
                                         String filePath = String.format("%s/%s", resourceFolderPath, fileName);
                                         BusinessCategory businessCategory = BusinessCategory.getByCode(businessCategoryName);
+                                        Integer updateCount = null;
                                         switch (businessCategory) {
                                             case SAFETY_OFFICINAL_SALE:
                                                 // 업데이트
-                                                Integer updateCount = safetyOfficinalSaleService.updateListFromXmlFile(filePath);
+                                                updateCount = safetyOfficinalSaleService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategory(businessCategoryName);
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case HOSPITAL:
+                                                // 업데이트
+                                                updateCount = hospitalService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategory(businessCategoryName);
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case MEDICAL_CORPORATION:
+                                                // 업데이트
+                                                updateCount = medicalCorporationService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategory(businessCategoryName);
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case CLINIC:
+                                                // 업데이트
+                                                updateCount = clinicService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategory(businessCategoryName);
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case EMERGENCY_PATIENT_TRANSFER:
+                                                // 업데이트
+                                                updateCount = emergencyPatientTransferService.updateListFromXmlFile(filePath);
                                                 // 업체업데이트히스토리 저장
                                                 businessUpdateHistory.setBusinessCategory(businessCategoryName);
                                                 businessUpdateHistory.setSuccessFlag(true);

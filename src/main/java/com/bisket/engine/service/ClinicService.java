@@ -1,8 +1,8 @@
 package com.bisket.engine.service;
 
-import com.bisket.engine.domain.SafetyOfficinalSale;
-import com.bisket.engine.parser.SafetyOffinialSaleParser;
-import com.bisket.engine.repository.SafetyOfficinalSaleRepository;
+import com.bisket.engine.domain.Clinic;
+import com.bisket.engine.parser.ClinicParser;
+import com.bisket.engine.repository.ClinicRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +24,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class SafetyOfficinalSaleService {
-    private final SafetyOfficinalSaleRepository safetyOfficinalSaleRepository;
+public class ClinicService {
+    private final ClinicRepository clinicRepository;
 
-    public SafetyOfficinalSaleService(SafetyOfficinalSaleRepository safetyOfficinalSaleRepository) {
-        this.safetyOfficinalSaleRepository = safetyOfficinalSaleRepository;
+    public ClinicService(ClinicRepository clinicRepository) {
+        this.clinicRepository = clinicRepository;
     }
 
     @Transactional
@@ -36,30 +36,30 @@ public class SafetyOfficinalSaleService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<SafetyOfficinalSale> parsedList = SafetyOffinialSaleParser.getListFromXml(xml);
+        List<Clinic> parsedList = ClinicParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, SafetyOfficinalSale> managementCodeToSafetyOfficinalSaleMap = new HashMap<>();
-            List<SafetyOfficinalSale> foundList = safetyOfficinalSaleRepository.findAll();
+            Map<String, Clinic> managementCodeToClinicMap = new HashMap<>();
+            List<Clinic> foundList = clinicRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (SafetyOfficinalSale found : foundList) {
-                    managementCodeToSafetyOfficinalSaleMap.put(found.getManagementCode(), found);
+                for (Clinic found : foundList) {
+                    managementCodeToClinicMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                SafetyOfficinalSale parsed = parsedList.get(i);
+                Clinic parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nSafetyOfficinalSale\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToSafetyOfficinalSaleMap.containsKey(managementCode)) {
+                log.info("=======\nClinic\nSequence: {}\nManagementCode: {}", i+1, managementCode);
+                if (managementCodeToClinicMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    SafetyOfficinalSale found = managementCodeToSafetyOfficinalSaleMap.get(managementCode);
+                    Clinic found = managementCodeToClinicMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    safetyOfficinalSaleRepository.save(parsed);
+                    clinicRepository.save(parsed);
                 }
             }
         }

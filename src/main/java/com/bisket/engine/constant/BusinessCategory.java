@@ -1,7 +1,11 @@
 package com.bisket.engine.constant;
 
 public enum BusinessCategory {
-    SAFETY_OFFICINAL_SALE("안전상비의약품판매업소");
+    HOSPITAL("병원"),
+    CLINIC("의원"),
+    SAFETY_OFFICINAL_SALE("안전상비의약품판매업소"),
+    EMERGENCY_PATIENT_TRANSFER("응급환자이송업"),
+    MEDICAL_CORPORATION("의료법인");
 
     private final String code;
 
