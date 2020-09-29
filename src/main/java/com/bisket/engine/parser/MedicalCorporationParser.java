@@ -13,7 +13,7 @@ import java.util.List;
 public class MedicalCorporationParser {
 
     public static List<MedicalCorporation> getListFromXml(Document xml) {
-        List<MedicalCorporation> MedicalCorporationList = new ArrayList<>();
+        List<MedicalCorporation> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class MedicalCorporationParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            MedicalCorporation medicalCorporation = new MedicalCorporation();
+            MedicalCorporation object = new MedicalCorporation();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -31,175 +31,175 @@ public class MedicalCorporationParser {
                     switch (j) {
                         case 3:
                             // 개방서비스명
-                            medicalCorporation.setOpenServiceName(itemValue);
+                            object.setOpenServiceName(itemValue);
                             break;
                         case 5:
                             // 개방서비스ID
-                            medicalCorporation.setOpenServiceId(itemValue);
+                            object.setOpenServiceId(itemValue);
                             break;
                         case 7:
                             // 개방자치단체코드
-                            medicalCorporation.setOpenAutonomousEntityCode(itemValue);
+                            object.setOpenAutonomousEntityCode(itemValue);
                             break;
                         case 9:
                             // 관리번호
-                            medicalCorporation.setManagementCode(itemValue);
+                            object.setManagementCode(itemValue);
                             break;
                         case 11:
                             // 인허가일자
-                            medicalCorporation.setLicensingDate(itemValue);
+                            object.setLicensingDate(itemValue);
                             break;
                         case 13:
                             // 인허가취소일자
-                            medicalCorporation.setLicensingCancelDate(itemValue);
+                            object.setLicensingCancelDate(itemValue);
                             break;
                         case 15:
                             // 영업상태구분코드
-                            medicalCorporation.setBusinessStatusCode(itemValue);
+                            object.setBusinessStatusCode(itemValue);
                             break;
                         case 17:
                             // 영업상태명
-                            medicalCorporation.setBusinessStatusName(itemValue);
+                            object.setBusinessStatusName(itemValue);
                             break;
                         case 19:
                             // 상세영업상태코드
-                            medicalCorporation.setDetailedBusinessStatusCode(itemValue);
+                            object.setDetailedBusinessStatusCode(itemValue);
                             break;
                         case 21:
                             // 상세영업상태명
-                            medicalCorporation.setDetailedBusinessStatusName(itemValue);
+                            object.setDetailedBusinessStatusName(itemValue);
                             break;
                         case 23:
                             // 폐업일자
-                            medicalCorporation.setCloseDate(itemValue);
+                            object.setCloseDate(itemValue);
                             break;
                         case 25:
                             // 휴업시작일자
-                            medicalCorporation.setIdleStartDate(itemValue);
+                            object.setIdleStartDate(itemValue);
                             break;
                         case 27:
                             // 휴업종료일자
-                            medicalCorporation.setIdleEndDate(itemValue);
+                            object.setIdleEndDate(itemValue);
                             break;
                         case 29:
                             // 재개업일자
-                            medicalCorporation.setReopenDate(itemValue);
+                            object.setReopenDate(itemValue);
                             break;
                         case 31:
                             // 소재지전화
-                            medicalCorporation.setSitePhoneNumber(itemValue);
+                            object.setSitePhoneNumber(itemValue);
                             break;
                         case 33:
                             // 소재지면적
-                            medicalCorporation.setSiteArea(itemValue);
+                            object.setSiteArea(itemValue);
                             break;
                         case 35:
                             // 소재지우편번호
-                            medicalCorporation.setSitePostCode(itemValue);
+                            object.setSitePostCode(itemValue);
                             break;
                         case 37:
                             // 소재지전체주소
-                            medicalCorporation.setSiteFullAddress(itemValue);
+                            object.setSiteFullAddress(itemValue);
                             break;
                         case 39:
                             // 도로명전체주소
-                            medicalCorporation.setRoadNameFullAddress(itemValue);
+                            object.setRoadNameFullAddress(itemValue);
                             break;
                         case 41:
                             // 도로명우편번호
-                            medicalCorporation.setRoadNamePostCode(itemValue);
+                            object.setRoadNamePostCode(itemValue);
                             break;
                         case 43:
                             // 사업장명
-                            medicalCorporation.setBusinessPlaceName(itemValue);
+                            object.setBusinessPlaceName(itemValue);
                             break;
                         case 45:
                             // 최종수정시점
-                            medicalCorporation.setLastModificationTime(itemValue);
+                            object.setLastModificationTime(itemValue);
                             break;
                         case 47:
                             // 데이터갱신구분
-                            medicalCorporation.setDataUpdateClassification(itemValue);
+                            object.setDataUpdateClassification(itemValue);
                             break;
                         case 49:
                             // 데이터갱신일자
-                            medicalCorporation.setDataUpdateDate(itemValue);
+                            object.setDataUpdateDate(itemValue);
                             break;
                         case 51:
                             // 업태구분명
-                            medicalCorporation.setBusinessConditionsClassificationName(itemValue);
+                            object.setBusinessConditionsClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)
-                            medicalCorporation.setXCoordinate(itemValue);
+                            object.setXCoordinate(itemValue);
                             break;
                         case 55:
                             // 좌표정보(Y)
-                            medicalCorporation.setYCoordinate(itemValue);
+                            object.setYCoordinate(itemValue);
                             break;
                         case 57:
                             // 의료기관종별명
-                            medicalCorporation.setMedicalOrganizationAssortmentName(itemValue);
+                            object.setMedicalOrganizationAssortmentName(itemValue);
                             break;
                         case 59:
                             // 의료인수
-                            medicalCorporation.setMedicalPersonnelCount(itemValue);
+                            object.setMedicalPersonnelCount(itemValue);
                             break;
                         case 61:
                             // 입원실수
-                            medicalCorporation.setHospitalRoomCount(itemValue);
+                            object.setHospitalRoomCount(itemValue);
                             break;
                         case 63:
                             // 병상수
-                            medicalCorporation.setSickbedCount(itemValue);
+                            object.setSickbedCount(itemValue);
                             break;
                         case 65:
                             // 총면적
-                            medicalCorporation.setTotalArea(itemValue);
+                            object.setTotalArea(itemValue);
                             break;
                         case 67:
                             // 진료과목내용
-                            medicalCorporation.setTreatmentSubjectCode(itemValue);
+                            object.setTreatmentSubjectCode(itemValue);
                             break;
                         case 69:
                             // 진료과목내용명
-                            medicalCorporation.setTreatmentSubjectName(itemValue);
+                            object.setTreatmentSubjectName(itemValue);
                             break;
                         case 71:
                             // 지정취소일자
-                            medicalCorporation.setAssignmentCancelDate(itemValue);
+                            object.setAssignmentCancelDate(itemValue);
                             break;
                         case 73:
                             // 완화의료지정형태
-                            medicalCorporation.setPalliativeMedicineAssignmentType(itemValue);
+                            object.setPalliativeMedicineAssignmentType(itemValue);
                             break;
                         case 75:
                             // 완화의료담당부서명
-                            medicalCorporation.setPalliativeMedicineDepartmentName(itemValue);
+                            object.setPalliativeMedicineDepartmentName(itemValue);
                             break;
                         case 77:
                             // 구급차특수
-                            medicalCorporation.setSpecialAmbulanceCount(itemValue);
+                            object.setSpecialAmbulanceCount(itemValue);
                             break;
                         case 79:
                             // 구급차일반
-                            medicalCorporation.setGeneralAmbulanceCount(itemValue);
+                            object.setGeneralAmbulanceCount(itemValue);
                             break;
                         case 81:
                             // 총인원
-                            medicalCorporation.setEmployeeCount(itemValue);
+                            object.setEmployeeCount(itemValue);
                             break;
                         case 83:
                             // 구조사수
-                            medicalCorporation.setParamedicCount(itemValue);
+                            object.setParamedicCount(itemValue);
                             break;
                         case 85:
                             // 허가병상수
-                            medicalCorporation.setAllowedSickbedCount(itemValue);
+                            object.setAllowedSickbedCount(itemValue);
                             break;
                         case 87:
                             // 최초지정일자
-                            medicalCorporation.setFirstAssignmentDate(itemValue);
+                            object.setFirstAssignmentDate(itemValue);
                             break;
                         default:
                             break;
@@ -208,10 +208,10 @@ public class MedicalCorporationParser {
             }
 
             // 리스트에 저장
-            MedicalCorporationList.add(medicalCorporation);
+            objectList.add(object);
         }
 
-        return MedicalCorporationList;
+        return objectList;
     }
 
 }

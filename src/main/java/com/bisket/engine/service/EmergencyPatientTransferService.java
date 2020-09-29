@@ -39,20 +39,20 @@ public class EmergencyPatientTransferService {
         List<EmergencyPatientTransfer> parsedList = EmergencyPatientTransferParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, EmergencyPatientTransfer> managementCodeToClinicMap = new HashMap<>();
+            Map<String, EmergencyPatientTransfer> managementCodeToObjectMap = new HashMap<>();
             List<EmergencyPatientTransfer> foundList = emergencyPatientTransferRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (EmergencyPatientTransfer found : foundList) {
-                    managementCodeToClinicMap.put(found.getManagementCode(), found);
+                    managementCodeToObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 EmergencyPatientTransfer parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nEmergencyPatientTransfer\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToClinicMap.containsKey(managementCode)) {
+                log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
+                if (managementCodeToObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    EmergencyPatientTransfer found = managementCodeToClinicMap.get(managementCode);
+                    EmergencyPatientTransfer found = managementCodeToObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

@@ -39,20 +39,20 @@ public class HospitalService {
         List<Hospital> parsedList = HospitalParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, Hospital> managementCodeToHospitalMap = new HashMap<>();
+            Map<String, Hospital> managementCodeToObjectMap = new HashMap<>();
             List<Hospital> foundList = hospitalRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (Hospital found : foundList) {
-                    managementCodeToHospitalMap.put(found.getManagementCode(), found);
+                    managementCodeToObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 Hospital parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nHospital\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToHospitalMap.containsKey(managementCode)) {
+                log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
+                if (managementCodeToObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    Hospital found = managementCodeToHospitalMap.get(managementCode);
+                    Hospital found = managementCodeToObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

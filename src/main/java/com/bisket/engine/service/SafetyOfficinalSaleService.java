@@ -39,20 +39,20 @@ public class SafetyOfficinalSaleService {
         List<SafetyOfficinalSale> parsedList = SafetyOffinialSaleParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, SafetyOfficinalSale> managementCodeToSafetyOfficinalSaleMap = new HashMap<>();
+            Map<String, SafetyOfficinalSale> managementCodeToObjectMap = new HashMap<>();
             List<SafetyOfficinalSale> foundList = safetyOfficinalSaleRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (SafetyOfficinalSale found : foundList) {
-                    managementCodeToSafetyOfficinalSaleMap.put(found.getManagementCode(), found);
+                    managementCodeToObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 SafetyOfficinalSale parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nSafetyOfficinalSale\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToSafetyOfficinalSaleMap.containsKey(managementCode)) {
+                log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
+                if (managementCodeToObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    SafetyOfficinalSale found = managementCodeToSafetyOfficinalSaleMap.get(managementCode);
+                    SafetyOfficinalSale found = managementCodeToObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

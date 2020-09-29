@@ -39,20 +39,20 @@ public class MedicalCorporationService {
         List<MedicalCorporation> parsedList = MedicalCorporationParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, MedicalCorporation> managementCodeToMedicalCorporationMap = new HashMap<>();
+            Map<String, MedicalCorporation> managementCodeToObjectMap = new HashMap<>();
             List<MedicalCorporation> foundList = medicalCorporationRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (MedicalCorporation found : foundList) {
-                    managementCodeToMedicalCorporationMap.put(found.getManagementCode(), found);
+                    managementCodeToObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 MedicalCorporation parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nMedicalCorporation\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToMedicalCorporationMap.containsKey(managementCode)) {
+                log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
+                if (managementCodeToObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    MedicalCorporation found = managementCodeToMedicalCorporationMap.get(managementCode);
+                    MedicalCorporation found = managementCodeToObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

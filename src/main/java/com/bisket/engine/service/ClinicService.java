@@ -39,20 +39,20 @@ public class ClinicService {
         List<Clinic> parsedList = ClinicParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, Clinic> managementCodeToClinicMap = new HashMap<>();
+            Map<String, Clinic> managementCodeToObjectMap = new HashMap<>();
             List<Clinic> foundList = clinicRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (Clinic found : foundList) {
-                    managementCodeToClinicMap.put(found.getManagementCode(), found);
+                    managementCodeToObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 Clinic parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nClinic\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToClinicMap.containsKey(managementCode)) {
+                log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
+                if (managementCodeToObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    Clinic found = managementCodeToClinicMap.get(managementCode);
+                    Clinic found = managementCodeToObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

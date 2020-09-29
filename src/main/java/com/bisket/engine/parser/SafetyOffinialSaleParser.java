@@ -13,7 +13,7 @@ import java.util.List;
 public class SafetyOffinialSaleParser {
 
     public static List<SafetyOfficinalSale> getListFromXml(Document xml) {
-        List<SafetyOfficinalSale> safetyOfficinalSaleList = new ArrayList<>();
+        List<SafetyOfficinalSale> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class SafetyOffinialSaleParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            SafetyOfficinalSale safetyOfficinalSale = new SafetyOfficinalSale();
+            SafetyOfficinalSale object = new SafetyOfficinalSale();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -31,115 +31,115 @@ public class SafetyOffinialSaleParser {
                     switch (j) {
                         case 3:
                             // 개방서비스명
-                            safetyOfficinalSale.setOpenServiceName(itemValue);
+                            object.setOpenServiceName(itemValue);
                             break;
                         case 5:
                             // 개방서비스ID
-                            safetyOfficinalSale.setOpenServiceId(itemValue);
+                            object.setOpenServiceId(itemValue);
                             break;
                         case 7:
                             // 개방자치단체코드
-                            safetyOfficinalSale.setOpenAutonomousEntityCode(itemValue);
+                            object.setOpenAutonomousEntityCode(itemValue);
                             break;
                         case 9:
                             // 관리번호
-                            safetyOfficinalSale.setManagementCode(itemValue);
+                            object.setManagementCode(itemValue);
                             break;
                         case 11:
                             // 인허가일자
-                            safetyOfficinalSale.setLicensingDate(itemValue);
+                            object.setLicensingDate(itemValue);
                             break;
                         case 13:
                             // 인허가취소일자
-                            safetyOfficinalSale.setLicensingCancelDate(itemValue);
+                            object.setLicensingCancelDate(itemValue);
                             break;
                         case 15:
                             // 영업상태구분코드
-                            safetyOfficinalSale.setBusinessStatusCode(itemValue);
+                            object.setBusinessStatusCode(itemValue);
                             break;
                         case 17:
                             // 영업상태명
-                            safetyOfficinalSale.setBusinessStatusName(itemValue);
+                            object.setBusinessStatusName(itemValue);
                             break;
                         case 19:
                             // 상세영업상태코드
-                            safetyOfficinalSale.setDetailedBusinessStatusCode(itemValue);
+                            object.setDetailedBusinessStatusCode(itemValue);
                             break;
                         case 21:
                             // 상세영업상태명
-                            safetyOfficinalSale.setDetailedBusinessStatusName(itemValue);
+                            object.setDetailedBusinessStatusName(itemValue);
                             break;
                         case 23:
                             // 폐업일자
-                            safetyOfficinalSale.setCloseDate(itemValue);
+                            object.setCloseDate(itemValue);
                             break;
                         case 25:
                             // 휴업시작일자
-                            safetyOfficinalSale.setIdleStartDate(itemValue);
+                            object.setIdleStartDate(itemValue);
                             break;
                         case 27:
                             // 휴업종료일자
-                            safetyOfficinalSale.setIdleEndDate(itemValue);
+                            object.setIdleEndDate(itemValue);
                             break;
                         case 29:
                             // 재개업일자
-                            safetyOfficinalSale.setReopenDate(itemValue);
+                            object.setReopenDate(itemValue);
                             break;
                         case 31:
                             // 소재지전화
-                            safetyOfficinalSale.setSitePhoneNumber(itemValue);
+                            object.setSitePhoneNumber(itemValue);
                             break;
                         case 33:
                             // 소재지면적
-                            safetyOfficinalSale.setSiteArea(itemValue);
+                            object.setSiteArea(itemValue);
                             break;
                         case 35:
                             // 소재지우편번호
-                            safetyOfficinalSale.setSitePostCode(itemValue);
+                            object.setSitePostCode(itemValue);
                             break;
                         case 37:
                             // 소재지전체주소
-                            safetyOfficinalSale.setSiteFullAddress(itemValue);
+                            object.setSiteFullAddress(itemValue);
                             break;
                         case 39:
                             // 도로명전체주소
-                            safetyOfficinalSale.setRoadNameFullAddress(itemValue);
+                            object.setRoadNameFullAddress(itemValue);
                             break;
                         case 41:
                             // 도로명우편번호
-                            safetyOfficinalSale.setRoadNamePostCode(itemValue);
+                            object.setRoadNamePostCode(itemValue);
                             break;
                         case 43:
                             // 사업장명
-                            safetyOfficinalSale.setBusinessPlaceName(itemValue);
+                            object.setBusinessPlaceName(itemValue);
                             break;
                         case 45:
                             // 최종수정시점
-                            safetyOfficinalSale.setLastModificationTime(itemValue);
+                            object.setLastModificationTime(itemValue);
                             break;
                         case 47:
                             // 데이터갱신구분
-                            safetyOfficinalSale.setDataUpdateClassification(itemValue);
+                            object.setDataUpdateClassification(itemValue);
                             break;
                         case 49:
                             // 데이터갱신일자
-                            safetyOfficinalSale.setDataUpdateDate(itemValue);
+                            object.setDataUpdateDate(itemValue);
                             break;
                         case 51:
                             // 업태구분명
-                            safetyOfficinalSale.setBusinessConditionsClassificationName(itemValue);
+                            object.setBusinessConditionsClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)
-                            safetyOfficinalSale.setXCoordinate(itemValue);
+                            object.setXCoordinate(itemValue);
                             break;
                         case 55:
                             // 좌표정보(Y)
-                            safetyOfficinalSale.setYCoordinate(itemValue);
+                            object.setYCoordinate(itemValue);
                             break;
                         case 57:
                             // 판매점영업면적
-                            safetyOfficinalSale.setStoreBusinessArea(itemValue);
+                            object.setStoreBusinessArea(itemValue);
                             break;
                         default:
                             break;
@@ -148,10 +148,10 @@ public class SafetyOffinialSaleParser {
             }
 
             // 리스트에 저장
-            safetyOfficinalSaleList.add(safetyOfficinalSale);
+            objectList.add(object);
         }
 
-        return safetyOfficinalSaleList;
+        return objectList;
     }
 
 }
