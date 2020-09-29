@@ -6,7 +6,8 @@ public enum BusinessCategory {
     SAFETY_OFFICINAL_SALE("안전상비의약품판매업소"),
     EMERGENCY_PATIENT_TRANSFER("응급환자이송업"),
     MEDICAL_CORPORATION("의료법인"),
-    POSTPARTUM_CARE("산후조리업");
+    POSTPARTUM_CARE("산후조리업"),
+    PHARMACY("약국");
 
     private final String code;
 
