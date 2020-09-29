@@ -1,8 +1,8 @@
 package com.bisket.engine.service;
 
-import com.bisket.engine.domain.PostpartumCare;
-import com.bisket.engine.parser.PostpartumCareParser;
-import com.bisket.engine.repository.PostpartumCareRepository;
+import com.bisket.engine.domain.SimilarMedicalTreatment;
+import com.bisket.engine.parser.SimilarMedicalTreatmentParser;
+import com.bisket.engine.repository.SimilarMedicalTreatmentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +24,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class PostpartumCareService {
-    private final PostpartumCareRepository postpartumCareRepository;
+public class SimilarMedicalTreatmentService {
+    private final SimilarMedicalTreatmentRepository similarMedicalTreatmentRepository;
 
-    public PostpartumCareService(PostpartumCareRepository postpartumCareRepository) {
-        this.postpartumCareRepository = postpartumCareRepository;
+    public SimilarMedicalTreatmentService(SimilarMedicalTreatmentRepository similarMedicalTreatmentRepository) {
+        this.similarMedicalTreatmentRepository = similarMedicalTreatmentRepository;
     }
 
     @Transactional
@@ -36,11 +36,11 @@ public class PostpartumCareService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<PostpartumCare> parsedList = PostpartumCareParser.getListFromXml(xml);
+        List<SimilarMedicalTreatment> parsedList = SimilarMedicalTreatmentParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, PostpartumCare> managementCodeToParsedObjectMap = new HashMap<>();
-            for (PostpartumCare parsed : parsedList) {
+            Map<String, SimilarMedicalTreatment> managementCodeToParsedObjectMap = new HashMap<>();
+            for (SimilarMedicalTreatment parsed : parsedList) {
                 String parsedManagementCode = parsed.getManagementCode();
                 if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
                     managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
@@ -50,27 +50,27 @@ public class PostpartumCareService {
                     break;
                 }
             }
-            Map<String, PostpartumCare> managementCodeToFoundObjectMap = new HashMap<>();
-            List<PostpartumCare> foundList = postpartumCareRepository.findAll();
+            Map<String, SimilarMedicalTreatment> managementCodeToFoundObjectMap = new HashMap<>();
+            List<SimilarMedicalTreatment> foundList = similarMedicalTreatmentRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (PostpartumCare found : foundList) {
+                for (SimilarMedicalTreatment found : foundList) {
                     managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                PostpartumCare parsed = parsedList.get(i);
+                SimilarMedicalTreatment parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
                 log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
                 if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    PostpartumCare found = managementCodeToFoundObjectMap.get(managementCode);
+                    SimilarMedicalTreatment found = managementCodeToFoundObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    postpartumCareRepository.save(parsed);
+                    similarMedicalTreatmentRepository.save(parsed);
                 }
             }
         }

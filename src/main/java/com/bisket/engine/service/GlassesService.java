@@ -1,8 +1,8 @@
 package com.bisket.engine.service;
 
-import com.bisket.engine.domain.PostpartumCare;
-import com.bisket.engine.parser.PostpartumCareParser;
-import com.bisket.engine.repository.PostpartumCareRepository;
+import com.bisket.engine.domain.Glasses;
+import com.bisket.engine.parser.GlassesParser;
+import com.bisket.engine.repository.GlassesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +24,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class PostpartumCareService {
-    private final PostpartumCareRepository postpartumCareRepository;
+public class GlassesService {
+    private final GlassesRepository glassesRepository;
 
-    public PostpartumCareService(PostpartumCareRepository postpartumCareRepository) {
-        this.postpartumCareRepository = postpartumCareRepository;
+    public GlassesService(GlassesRepository glassesRepository) {
+        this.glassesRepository = glassesRepository;
     }
 
     @Transactional
@@ -36,11 +36,11 @@ public class PostpartumCareService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<PostpartumCare> parsedList = PostpartumCareParser.getListFromXml(xml);
+        List<Glasses> parsedList = GlassesParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, PostpartumCare> managementCodeToParsedObjectMap = new HashMap<>();
-            for (PostpartumCare parsed : parsedList) {
+            Map<String, Glasses> managementCodeToParsedObjectMap = new HashMap<>();
+            for (Glasses parsed : parsedList) {
                 String parsedManagementCode = parsed.getManagementCode();
                 if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
                     managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
@@ -50,27 +50,27 @@ public class PostpartumCareService {
                     break;
                 }
             }
-            Map<String, PostpartumCare> managementCodeToFoundObjectMap = new HashMap<>();
-            List<PostpartumCare> foundList = postpartumCareRepository.findAll();
+            Map<String, Glasses> managementCodeToFoundObjectMap = new HashMap<>();
+            List<Glasses> foundList = glassesRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (PostpartumCare found : foundList) {
+                for (Glasses found : foundList) {
                     managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                PostpartumCare parsed = parsedList.get(i);
+                Glasses parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
                 log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
                 if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    PostpartumCare found = managementCodeToFoundObjectMap.get(managementCode);
+                    Glasses found = managementCodeToFoundObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    postpartumCareRepository.save(parsed);
+                    glassesRepository.save(parsed);
                 }
             }
         }

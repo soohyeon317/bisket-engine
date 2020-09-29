@@ -39,20 +39,31 @@ public class SafetyOfficinalSaleService {
         List<SafetyOfficinalSale> parsedList = SafetyOffinialSaleParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, SafetyOfficinalSale> managementCodeToObjectMap = new HashMap<>();
+            Map<String, SafetyOfficinalSale> managementCodeToParsedObjectMap = new HashMap<>();
+            for (SafetyOfficinalSale parsed : parsedList) {
+                String parsedManagementCode = parsed.getManagementCode();
+                if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
+                    managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
+                } else {
+                    // 관리코드 중복건은 순서상 가장 나중인 것을 리스트에서 제거
+                    parsedList.remove(parsed);
+                    break;
+                }
+            }
+            Map<String, SafetyOfficinalSale> managementCodeToFoundObjectMap = new HashMap<>();
             List<SafetyOfficinalSale> foundList = safetyOfficinalSaleRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (SafetyOfficinalSale found : foundList) {
-                    managementCodeToObjectMap.put(found.getManagementCode(), found);
+                    managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 SafetyOfficinalSale parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
                 log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToObjectMap.containsKey(managementCode)) {
+                if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    SafetyOfficinalSale found = managementCodeToObjectMap.get(managementCode);
+                    SafetyOfficinalSale found = managementCodeToFoundObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

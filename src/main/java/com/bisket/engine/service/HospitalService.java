@@ -39,20 +39,31 @@ public class HospitalService {
         List<Hospital> parsedList = HospitalParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, Hospital> managementCodeToObjectMap = new HashMap<>();
+            Map<String, Hospital> managementCodeToParsedObjectMap = new HashMap<>();
+            for (Hospital parsed : parsedList) {
+                String parsedManagementCode = parsed.getManagementCode();
+                if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
+                    managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
+                } else {
+                    // 관리코드 중복건은 순서상 가장 나중인 것을 리스트에서 제거
+                    parsedList.remove(parsed);
+                    break;
+                }
+            }
+            Map<String, Hospital> managementCodeToFoundObjectMap = new HashMap<>();
             List<Hospital> foundList = hospitalRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (Hospital found : foundList) {
-                    managementCodeToObjectMap.put(found.getManagementCode(), found);
+                    managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 Hospital parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
                 log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToObjectMap.containsKey(managementCode)) {
+                if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    Hospital found = managementCodeToObjectMap.get(managementCode);
+                    Hospital found = managementCodeToFoundObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

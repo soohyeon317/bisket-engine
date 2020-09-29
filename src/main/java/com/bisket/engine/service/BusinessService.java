@@ -34,11 +34,13 @@ public class BusinessService {
     private final EmergencyPatientTransferService emergencyPatientTransferService;
     private final PostpartumCareService postpartumCareService;
     private final PharmacyService pharmacyService;
+    private final SimilarMedicalTreatmentService similarMedicalTreatmentService;
+    private final GlassesService glassesService;
     private final BusinessUpdateHistoryService businessUpdateHistoryService;
 
     private final BusinessRepository businessRepository;
 
-    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, PostpartumCareService postpartumCareService, PharmacyService pharmacyService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
+    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, PostpartumCareService postpartumCareService, PharmacyService pharmacyService, SimilarMedicalTreatmentService similarMedicalTreatmentService, GlassesService glassesService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
         this.safetyOfficinalSaleService = safetyOfficinalSaleService;
         this.hospitalService = hospitalService;
         this.medicalCorporationService = medicalCorporationService;
@@ -46,6 +48,8 @@ public class BusinessService {
         this.emergencyPatientTransferService = emergencyPatientTransferService;
         this.postpartumCareService = postpartumCareService;
         this.pharmacyService = pharmacyService;
+        this.similarMedicalTreatmentService = similarMedicalTreatmentService;
+        this.glassesService = glassesService;
         this.businessUpdateHistoryService = businessUpdateHistoryService;
         this.businessRepository = businessRepository;
     }
@@ -98,6 +102,12 @@ public class BusinessService {
                                             break;
                                         case PHARMACY:
                                             updateCount = pharmacyService.updateListFromXmlFile(filePath);
+                                            break;
+                                        case SIMILAR_MEDICAL_TREATMENT:
+                                            updateCount = similarMedicalTreatmentService.updateListFromXmlFile(filePath);
+                                            break;
+                                        case GLASSES:
+                                            updateCount = glassesService.updateListFromXmlFile(filePath);
                                             break;
                                         default:
                                             throw new NotFoundException("Business Category - NotFoundException");
@@ -201,6 +211,30 @@ public class BusinessService {
                                             case PHARMACY:
                                                 // 업데이트
                                                 updateCount = pharmacyService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
+                                                businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case SIMILAR_MEDICAL_TREATMENT:
+                                                // 업데이트
+                                                updateCount = similarMedicalTreatmentService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
+                                                businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case GLASSES:
+                                                // 업데이트
+                                                updateCount = glassesService.updateListFromXmlFile(filePath);
                                                 // 업체업데이트히스토리 저장
                                                 businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
                                                 businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());

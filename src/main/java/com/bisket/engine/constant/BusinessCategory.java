@@ -7,7 +7,9 @@ public enum BusinessCategory {
     EMERGENCY_PATIENT_TRANSFER("응급환자이송업"),
     MEDICAL_CORPORATION("의료법인"),
     POSTPARTUM_CARE("산후조리업"),
-    PHARMACY("약국");
+    PHARMACY("약국"),
+    SIMILAR_MEDICAL_TREATMENT("의료유사업"),
+    GLASSES("안경업");
 
     private final String code;
 

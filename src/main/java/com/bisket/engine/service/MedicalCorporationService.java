@@ -39,20 +39,31 @@ public class MedicalCorporationService {
         List<MedicalCorporation> parsedList = MedicalCorporationParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, MedicalCorporation> managementCodeToObjectMap = new HashMap<>();
+            Map<String, MedicalCorporation> managementCodeToParsedObjectMap = new HashMap<>();
+            for (MedicalCorporation parsed : parsedList) {
+                String parsedManagementCode = parsed.getManagementCode();
+                if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
+                    managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
+                } else {
+                    // 관리코드 중복건은 순서상 가장 나중인 것을 리스트에서 제거
+                    parsedList.remove(parsed);
+                    break;
+                }
+            }
+            Map<String, MedicalCorporation> managementCodeToFoundObjectMap = new HashMap<>();
             List<MedicalCorporation> foundList = medicalCorporationRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (MedicalCorporation found : foundList) {
-                    managementCodeToObjectMap.put(found.getManagementCode(), found);
+                    managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 MedicalCorporation parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
                 log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToObjectMap.containsKey(managementCode)) {
+                if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    MedicalCorporation found = managementCodeToObjectMap.get(managementCode);
+                    MedicalCorporation found = managementCodeToFoundObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
