@@ -5,43 +5,43 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("medical_corporation")
+@DiscriminatorValue("postpartum_care")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MedicalCorporation extends Business {
-    private String medicalOrganizationAssortmentName;
-    private String medicalPersonnelCount;
-    private String hospitalRoomCount;
-    private String sickbedCount;
-    private String totalArea;
-    @Column(columnDefinition = "TEXT")
-    private String treatmentSubjectCode;
-    @Column(columnDefinition = "TEXT")
-    private String treatmentSubjectName;
-    private String assignmentCancelDate;
-    private String palliativeMedicineAssignmentType;
-    private String palliativeMedicineDepartmentName;
-    private String specialAmbulanceCount;
-    private String generalAmbulanceCount;
-    private String employeeCount;
-    private String paramedicCount;
-    private String allowedSickbedCount;
-    private String firstAssignmentDate;
+public class PostpartumCare extends Business {
+    private String pregnantWomanCapacity;
+    private String babyCapacity;
+    private String pregnantWomanRoomArea;
+    private String babyRoomArea;
+    private String nursingRoomArea;
+    private String foodServiceFacilityArea;
+    private String laundryRoomArea;
+    private String bathRoomArea;
+    private String careCenterRestRoomArea;
+    private String officeArea;
+    private String nurseCount;
+    private String nurseAidCount;
+    private String nutritionistCount;
+    private String cookingPersonnelCount;
+    private String cleaningPersonnelCount;
+    private String otherStaffCount;
+    private String buildingFloorCount;
+    private String groundFloorCount;
+    private String basementFloorCount;
 
-    public void getAndSetIdentification(MedicalCorporation other) {
+    public void getAndSetIdentification(PostpartumCare other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(MedicalCorporation other) {
+    public void update(PostpartumCare other) {
         // 개방서비스ID
         this.setOpenServiceId(other.getOpenServiceId());
         // 개방자치단체코드
@@ -94,37 +94,43 @@ public class MedicalCorporation extends Business {
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
-        // 의료기관종별명
-        this.setMedicalOrganizationAssortmentName(other.getMedicalOrganizationAssortmentName());
-        // 의료인수
-        this.setMedicalPersonnelCount(other.getMedicalPersonnelCount());
-        // 입원실수
-        this.setHospitalRoomCount(other.getHospitalRoomCount());
-        // 병상수
-        this.setSickbedCount(other.getSickbedCount());
-        // 총면적
-        this.setTotalArea(other.getTotalArea());
-        // 진료과목내용
-        this.setTreatmentSubjectCode(other.getTreatmentSubjectCode());
-        // 진료과목내용명
-        this.setTreatmentSubjectName(other.getTreatmentSubjectName());
-        // 지정취소일자
-        this.setAssignmentCancelDate(other.getAssignmentCancelDate());
-        // 완화의료지정형태
-        this.setPalliativeMedicineAssignmentType(other.getPalliativeMedicineAssignmentType());
-        // 완화의료담당부서명
-        this.setPalliativeMedicineDepartmentName(other.getPalliativeMedicineDepartmentName());
-        // 구급차특수
-        this.setSpecialAmbulanceCount(other.getSpecialAmbulanceCount());
-        // 구급차일반
-        this.setGeneralAmbulanceCount(other.getGeneralAmbulanceCount());
-        // 총인원
-        this.setEmployeeCount(other.getEmployeeCount());
-        // 구조사수
-        this.setParamedicCount(other.getParamedicCount());
-        // 허가병상수
-        this.setAllowedSickbedCount(other.getAllowedSickbedCount());
-        // 최초지정일자
-        this.setFirstAssignmentDate(other.getFirstAssignmentDate());
+        // 임산부정원수
+        this.setPregnantWomanCapacity(other.getPregnantWomanCapacity());
+        // 영유아정원수
+        this.setBabyCapacity(other.getBabyCapacity());
+        // 임산부실면적
+        this.setPregnantWomanRoomArea(other.getPregnantWomanRoomArea());
+        // 영유아실면적
+        this.setBabyRoomArea(other.getBabyRoomArea());
+        // 모유수유실면적
+        this.setNursingRoomArea(other.getNursingRoomArea());
+        // 급식시설면적
+        this.setFoodServiceFacilityArea(other.getFoodServiceFacilityArea());
+        // 세탁실면적
+        this.setLaundryRoomArea(other.getLaundryRoomArea());
+        // 목욕실면적
+        this.setBabyRoomArea(other.getBabyRoomArea());
+        // 조리원화장실면적
+        this.setCareCenterRestRoomArea(other.getCareCenterRestRoomArea());
+        // 사무실면적
+        this.setOfficeArea(other.getOfficeArea());
+        // 간호사수
+        this.setNurseCount(other.getNurseCount());
+        // 간호조무사수
+        this.setNurseAidCount(other.getNurseAidCount());
+        // 영양사수
+        this.setNutritionistCount(other.getNutritionistCount());
+        // 취사부수
+        this.setCookingPersonnelCount(other.getCookingPersonnelCount());
+        // 미화원수
+        this.setCleaningPersonnelCount(other.getCleaningPersonnelCount());
+        // 기타인원수
+        this.setOtherStaffCount(other.getOtherStaffCount());
+        // 건물층수
+        this.setBuildingFloorCount(other.getBuildingFloorCount());
+        // 지상층수
+        this.setGroundFloorCount(other.getGroundFloorCount());
+        // 지하층수
+        this.setBasementFloorCount(other.getBasementFloorCount());
     }
 }

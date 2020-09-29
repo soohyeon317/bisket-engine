@@ -32,16 +32,18 @@ public class BusinessService {
     private final MedicalCorporationService medicalCorporationService;
     private final ClinicService clinicService;
     private final EmergencyPatientTransferService emergencyPatientTransferService;
+    private final PostpartumCareService postpartumCareService;
     private final BusinessUpdateHistoryService businessUpdateHistoryService;
 
     private final BusinessRepository businessRepository;
 
-    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
+    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, PostpartumCareService postpartumCareService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
         this.safetyOfficinalSaleService = safetyOfficinalSaleService;
         this.hospitalService = hospitalService;
         this.medicalCorporationService = medicalCorporationService;
         this.clinicService = clinicService;
         this.emergencyPatientTransferService = emergencyPatientTransferService;
+        this.postpartumCareService = postpartumCareService;
         this.businessUpdateHistoryService = businessUpdateHistoryService;
         this.businessRepository = businessRepository;
     }
@@ -142,6 +144,17 @@ public class BusinessService {
                                             case EMERGENCY_PATIENT_TRANSFER:
                                                 // 업데이트
                                                 updateCount = emergencyPatientTransferService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategory(businessCategoryName);
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case POSTPARTUM_CARE:
+                                                // 업데이트
+                                                updateCount = postpartumCareService.updateListFromXmlFile(filePath);
                                                 // 업체업데이트히스토리 저장
                                                 businessUpdateHistory.setBusinessCategory(businessCategoryName);
                                                 businessUpdateHistory.setSuccessFlag(true);
