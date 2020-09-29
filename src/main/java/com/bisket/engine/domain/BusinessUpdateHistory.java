@@ -18,11 +18,11 @@ public class BusinessUpdateHistory extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String businessCategory;
+    private String businessCategoryName;
+    private String businessCategoryTableName;
     @Column(nullable = false)
     private LocalDateTime executeDate = LocalDateTime.now();
     @Column(nullable = false)
     private boolean successFlag = false;
-    @Column
     private Integer dataCount;
 }
