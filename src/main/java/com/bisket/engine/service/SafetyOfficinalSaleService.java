@@ -1,7 +1,8 @@
 package com.bisket.engine.service;
 
+import com.bisket.engine.common.Commons;
 import com.bisket.engine.domain.SafetyOfficinalSale;
-import com.bisket.engine.parser.SafetyOffinialSaleParser;
+import com.bisket.engine.parser.SafetyOfficialSaleParser;
 import com.bisket.engine.repository.SafetyOfficinalSaleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -36,34 +37,31 @@ public class SafetyOfficinalSaleService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<SafetyOfficinalSale> parsedList = SafetyOffinialSaleParser.getListFromXml(xml);
+        List<SafetyOfficinalSale> parsedList = SafetyOfficialSaleParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, SafetyOfficinalSale> managementCodeToParsedObjectMap = new HashMap<>();
-            for (SafetyOfficinalSale parsed : parsedList) {
-                String parsedManagementCode = parsed.getManagementCode();
-                if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
-                    managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
-                } else {
-                    // 관리코드 중복건은 순서상 가장 나중인 것을 리스트에서 제거
-                    parsedList.remove(parsed);
-                    break;
-                }
-            }
-            Map<String, SafetyOfficinalSale> managementCodeToFoundObjectMap = new HashMap<>();
+            Map<String, SafetyOfficinalSale> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
             List<SafetyOfficinalSale> foundList = safetyOfficinalSaleRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (SafetyOfficinalSale found : foundList) {
-                    managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
+                    String openServiceId = found.getOpenServiceId();
+                    String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
+                    String managementCode = found.getManagementCode();
+                    String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                    compositeUniqueKeyToFoundObjectMap.put(compositeUniqueKey, found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 SafetyOfficinalSale parsed = parsedList.get(i);
+                String openServiceId = parsed.getOpenServiceId();
+                String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
+                String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                log.info("=======\nSequence: {}\nopenServiceId={}\nopenAutonomousBodyCode={}\nmanagementCode={}",
+                        i+1, openServiceId, openAutonomousBodyCode, managementCode);
+                if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    SafetyOfficinalSale found = managementCodeToFoundObjectMap.get(managementCode);
+                    SafetyOfficinalSale found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

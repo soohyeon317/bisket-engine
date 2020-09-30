@@ -1,5 +1,6 @@
 package com.bisket.engine.service;
 
+import com.bisket.engine.common.Commons;
 import com.bisket.engine.domain.Clinic;
 import com.bisket.engine.parser.ClinicParser;
 import com.bisket.engine.repository.ClinicRepository;
@@ -39,31 +40,28 @@ public class ClinicService {
         List<Clinic> parsedList = ClinicParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, Clinic> managementCodeToParsedObjectMap = new HashMap<>();
-            for (Clinic parsed : parsedList) {
-                String parsedManagementCode = parsed.getManagementCode();
-                if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
-                    managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
-                } else {
-                    // 관리코드 중복건은 순서상 가장 나중인 것을 리스트에서 제거
-                    parsedList.remove(parsed);
-                    break;
-                }
-            }
-            Map<String, Clinic> managementCodeToFoundObjectMap = new HashMap<>();
+            Map<String, Clinic> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
             List<Clinic> foundList = clinicRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (Clinic found : foundList) {
-                    managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
+                    String openServiceId = found.getOpenServiceId();
+                    String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
+                    String managementCode = found.getManagementCode();
+                    String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                    compositeUniqueKeyToFoundObjectMap.put(compositeUniqueKey, found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
                 Clinic parsed = parsedList.get(i);
+                String openServiceId = parsed.getOpenServiceId();
+                String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
-                log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
-                if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
+                String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                log.info("=======\nSequence: {}\nopenServiceId={}\nopenAutonomousBodyCode={}\nmanagementCode={}",
+                        i+1, openServiceId, openAutonomousBodyCode, managementCode);
+                if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    Clinic found = managementCodeToFoundObjectMap.get(managementCode);
+                    Clinic found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

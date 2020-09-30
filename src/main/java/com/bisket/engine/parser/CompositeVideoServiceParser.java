@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.EmergencyPatientTransfer;
+import com.bisket.engine.domain.CompositeVideoService;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class EmergencyPatientTransferParser {
+public class CompositeVideoServiceParser {
 
-    public static List<EmergencyPatientTransfer> getListFromXml(Document xml) {
-        List<EmergencyPatientTransfer> objectList = new ArrayList<>();
+    public static List<CompositeVideoService> getListFromXml(Document xml) {
+        List<CompositeVideoService> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class EmergencyPatientTransferParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            EmergencyPatientTransfer object = new EmergencyPatientTransfer();
+            CompositeVideoService object = new CompositeVideoService();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,68 +138,128 @@ public class EmergencyPatientTransferParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 의료기관종별명
-                            object.setMedicalOrganizationAssortmentName(itemValue);
+                            // 문화체육업종명
+                            object.setCultureSportsBusinessCategoryName(itemValue);
                             break;
                         case 59:
-                            // 의료인수
-                            object.setMedicalPersonnelCount(itemValue);
+                            // 문화사업자구분명
+                            object.setCultureBusinessPersonClassificationName(itemValue);
                             break;
                         case 61:
-                            // 입원실수
-                            object.setHospitalRoomCount(itemValue);
+                            // 총층수
+                            object.setBuildingFloorCount(itemValue);
                             break;
                         case 63:
-                            // 병상수
-                            object.setSickbedCount(itemValue);
+                            // 주변환경명
+                            object.setEnvironmentName(itemValue);
                             break;
                         case 65:
-                            // 총면적
-                            object.setTotalArea(itemValue);
+                            // 제작취급품목내용
+                            object.setProductionHandlingItemContent(itemValue);
                             break;
                         case 67:
-                            // 진료과목내용
-                            object.setTreatmentSubjectCode(itemValue);
+                            // 시설면적
+                            object.setFacilityArea(itemValue);
                             break;
                         case 69:
-                            // 진료과목내용명
-                            object.setTreatmentSubjectName(itemValue);
+                            // 지상층수
+                            object.setGroundFloorCount(itemValue);
                             break;
                         case 71:
-                            // 지정취소일자
-                            object.setAssignmentCancelDate(itemValue);
+                            // 지하층수
+                            object.setBasementFloorCount(itemValue);
                             break;
                         case 73:
-                            // 완화의료지정형태
-                            object.setPalliativeMedicineAssignmentType(itemValue);
+                            // 건물용도명
+                            object.setBuildingUseName(itemValue);
                             break;
                         case 75:
-                            // 완화의료담당부서명
-                            object.setPalliativeMedicineDepartmentName(itemValue);
+                            // 통로너비
+                            object.setPassageBreadth(itemValue);
                             break;
                         case 77:
-                            // 구급차특수
-                            object.setSpecialAmbulanceCount(itemValue);
+                            // 조명시설조도
+                            object.setLightingFacilityIlluminance(itemValue);
                             break;
                         case 79:
-                            // 구급차일반
-                            object.setGeneralAmbulanceCount(itemValue);
+                            // 노래방실수
+                            object.setSingingRoomCount(itemValue);
                             break;
                         case 81:
-                            // 총인원
-                            object.setEmployeeCount(itemValue);
+                            // 청소년실수
+                            object.setTeenagerRoomCount(itemValue);
                             break;
                         case 83:
-                            // 구조사수
-                            object.setParamedicCount(itemValue);
+                            // 비상계단여부
+                            object.setEmergencyStairsFlag(itemValue);
                             break;
                         case 85:
-                            // 허가병상수
-                            object.setAllowedSickbedCount(itemValue);
+                            // 비상구여부
+                            object.setEmergencyExitFlag(itemValue);
                             break;
                         case 87:
-                            // 최초지정일자
-                            object.setFirstAssignmentDate(itemValue);
+                            // 자동환기여부
+                            object.setAutoVentilationFlag(itemValue);
+                            break;
+                        case 89:
+                            // 청소년실여부
+                            object.setTeenagerRoomFlag(itemValue);
+                            break;
+                        case 91:
+                            // 특수조명여부
+                            object.setSpecialLightingFlag(itemValue);
+                            break;
+                        case 93:
+                            // 방음시설여부
+                            object.setSoundIsolationFacilityFlag(itemValue);
+                            break;
+                        case 95:
+                            // 비디오재생기명
+                            object.setVcrName(itemValue);
+                            break;
+                        case 97:
+                            // 조명시설유무
+                            object.setLightingFacilityFlag(itemValue);
+                            break;
+                        case 99:
+                            // 음향시설여부
+                            object.setSoundFacilityFlag(itemValue);
+                            break;
+                        case 101:
+                            // 편의시설여부
+                            object.setConvenienceFacilityFlag(itemValue);
+                            break;
+                        case 103:
+                            // 소방시설여부
+                            object.setFireProtectionFacilityFlag(itemValue);
+                            break;
+                        case 105:
+                            // 총게임기수
+                            object.setGameDeviceCount(itemValue);
+                            break;
+                        case 107:
+                            // 기존게임업외업종명
+                            object.setOtherBusinessCategoryName(itemValue);
+                            break;
+                        case 109:
+                            // 제공게임물명
+                            object.setProvisionGameName(itemValue);
+                            break;
+                        case 111:
+                            // 공연장형태구분명
+                            object.setStageFormClassificationName(itemValue);
+                            break;
+                        case 113:
+                            // 품목명
+                            object.setItemName(itemValue);
+                            break;
+                        case 115:
+                            // 최초등록시점
+                            object.setFirstRegistrationTime(itemValue);
+                            break;
+                        case 117:
+                            // 지역구분명
+                            object.setRegionClassificationName(itemValue);
                             break;
                         default:
                             break;

@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
-import com.bisket.engine.constant.BusinessCategory;
-import com.bisket.engine.constant.FileExtension;
+import com.bisket.engine.common.BusinessCategory;
+import com.bisket.engine.common.FileExtension;
 import com.bisket.engine.domain.Business;
 import com.bisket.engine.domain.BusinessUpdateHistory;
 import com.bisket.engine.repository.BusinessRepository;
@@ -58,11 +58,12 @@ public class BusinessService {
     private final AnimalMedicineWholesaleStoreService animalMedicineWholesaleStoreService;
     private final MeatPackagingProcessingService meatPackagingProcessingService;
     private final LivestockFarmingService livestockFarmingService;
+    private final CompositeVideoServiceService compositeVideoServiceService;
     private final BusinessUpdateHistoryService businessUpdateHistoryService;
 
     private final BusinessRepository businessRepository;
 
-    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, PostpartumCareService postpartumCareService, PharmacyService pharmacyService, SimilarMedicalTreatmentService similarMedicalTreatmentService, GlassesService glassesService, MedicalOrganizationLaundryProcessingService medicalOrganizationLaundryProcessingService, MedicalDeviceSaleLeaseService medicalDeviceSaleLeaseService, MedicalDeviceRepairService medicalDeviceRepairService, DentalLaboratoryService dentalLaboratoryService, AnimalHospitalService animalHospitalService, AnimalPharmacyService animalPharmacyService, SlaughterService slaughterService, IncubationService incubationService, AnimalMedicalEquipmentSaleService animalMedicalEquipmentSaleService, FeedProductionService feedProductionService, LivestockArtificialInseminationCenterService livestockArtificialInseminationCenterService, AnimalFuneralService animalFuneralService, AnimalSaleService animalSaleService, LivestockBreedingService livestockBreedingService, MilkCollectionService milkCollectionService, LivestockProductTransportService livestockProductTransportService, LivestockProductStorageService livestockProductStorageService, LivestockSaleService livestockSaleService, LivestockProcessingService livestockProcessingService, AnimalMedicineWholesaleStoreService animalMedicineWholesaleStoreService, MeatPackagingProcessingService meatPackagingProcessingService, LivestockFarmingService livestockFarmingService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
+    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, PostpartumCareService postpartumCareService, PharmacyService pharmacyService, SimilarMedicalTreatmentService similarMedicalTreatmentService, GlassesService glassesService, MedicalOrganizationLaundryProcessingService medicalOrganizationLaundryProcessingService, MedicalDeviceSaleLeaseService medicalDeviceSaleLeaseService, MedicalDeviceRepairService medicalDeviceRepairService, DentalLaboratoryService dentalLaboratoryService, AnimalHospitalService animalHospitalService, AnimalPharmacyService animalPharmacyService, SlaughterService slaughterService, IncubationService incubationService, AnimalMedicalEquipmentSaleService animalMedicalEquipmentSaleService, FeedProductionService feedProductionService, LivestockArtificialInseminationCenterService livestockArtificialInseminationCenterService, AnimalFuneralService animalFuneralService, AnimalSaleService animalSaleService, LivestockBreedingService livestockBreedingService, MilkCollectionService milkCollectionService, LivestockProductTransportService livestockProductTransportService, LivestockProductStorageService livestockProductStorageService, LivestockSaleService livestockSaleService, LivestockProcessingService livestockProcessingService, AnimalMedicineWholesaleStoreService animalMedicineWholesaleStoreService, MeatPackagingProcessingService meatPackagingProcessingService, LivestockFarmingService livestockFarmingService, CompositeVideoServiceService compositeVideoServiceService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
         this.safetyOfficinalSaleService = safetyOfficinalSaleService;
         this.hospitalService = hospitalService;
         this.medicalCorporationService = medicalCorporationService;
@@ -94,6 +95,7 @@ public class BusinessService {
         this.animalMedicineWholesaleStoreService = animalMedicineWholesaleStoreService;
         this.meatPackagingProcessingService = meatPackagingProcessingService;
         this.livestockFarmingService = livestockFarmingService;
+        this.compositeVideoServiceService = compositeVideoServiceService;
         this.businessUpdateHistoryService = businessUpdateHistoryService;
 
         this.businessRepository = businessRepository;
@@ -219,6 +221,9 @@ public class BusinessService {
                                             break;
                                         case LIVESTOCK_FARMING:
                                             updateCount = livestockFarmingService.updateListFromXmlFile(filePath);
+                                            break;
+                                        case COMPOSITE_VIDEO_SERVICE:
+                                            updateCount = compositeVideoServiceService.updateListFromXmlFile(filePath);
                                             break;
                                         default:
                                             throw new NotFoundException("Business Category - NotFoundException");
@@ -610,6 +615,18 @@ public class BusinessService {
                                             case LIVESTOCK_FARMING:
                                                 // 업데이트
                                                 updateCount = livestockFarmingService.updateListFromXmlFile(filePath);
+                                                // 업체업데이트히스토리 저장
+                                                businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
+                                                businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
+                                                businessUpdateHistory.setSuccessFlag(true);
+                                                businessUpdateHistory.setDataCount(updateCount);
+                                                businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                                // 업데이트 개수 누적
+                                                updateCountSum += updateCount;
+                                                break;
+                                            case COMPOSITE_VIDEO_SERVICE:
+                                                // 업데이트
+                                                updateCount = compositeVideoServiceService.updateListFromXmlFile(filePath);
                                                 // 업체업데이트히스토리 저장
                                                 businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
                                                 businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());

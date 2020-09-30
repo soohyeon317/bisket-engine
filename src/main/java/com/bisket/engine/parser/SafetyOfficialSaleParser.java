@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class SafetyOffinialSaleParser {
+public class SafetyOfficialSaleParser {
 
     public static List<SafetyOfficinalSale> getListFromXml(Document xml) {
         List<SafetyOfficinalSale> objectList = new ArrayList<>();
@@ -39,7 +39,7 @@ public class SafetyOffinialSaleParser {
                             break;
                         case 7:
                             // 개방자치단체코드
-                            object.setOpenAutonomousEntityCode(itemValue);
+                            object.setOpenAutonomousBodyCode(itemValue);
                             break;
                         case 9:
                             // 관리번호

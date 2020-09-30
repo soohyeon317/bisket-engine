@@ -39,7 +39,7 @@ public class LivestockFarmingParser {
                             break;
                         case 7:
                             // 개방자치단체코드
-                            object.setOpenAutonomousEntityCode(itemValue);
+                            object.setOpenAutonomousBodyCode(itemValue);
                             break;
                         case 9:
                             // 관리번호

@@ -42,10 +42,6 @@ public class EmergencyPatientTransfer extends Business {
     }
     
     public void update(EmergencyPatientTransfer other) {
-        // 개방서비스ID
-        this.setOpenServiceId(other.getOpenServiceId());
-        // 개방자치단체코드
-        this.setOpenAutonomousEntityCode(other.getOpenAutonomousEntityCode());
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자

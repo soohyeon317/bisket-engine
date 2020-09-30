@@ -1,4 +1,4 @@
-package com.bisket.engine.constant;
+package com.bisket.engine.common;
 
 public enum FileExtension {
     XML

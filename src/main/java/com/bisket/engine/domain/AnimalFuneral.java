@@ -28,12 +28,6 @@ public class AnimalFuneral extends Business {
     }
     
     public void update(AnimalFuneral other) {
-        // 개방서비스ID
-        this.setOpenServiceId(other.getOpenServiceId());
-        // 개방자치단체코드
-        this.setOpenAutonomousEntityCode(other.getOpenAutonomousEntityCode());
-        // 개방서비스명
-        this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자
         this.setLicensingDate(other.getLicensingDate());
         // 인허가취소일자

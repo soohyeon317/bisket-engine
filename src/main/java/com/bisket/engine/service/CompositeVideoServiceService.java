@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Pharmacy;
-import com.bisket.engine.parser.PharmacyParser;
-import com.bisket.engine.repository.PharmacyRepository;
+import com.bisket.engine.domain.CompositeVideoService;
+import com.bisket.engine.parser.CompositeVideoServiceParser;
+import com.bisket.engine.repository.CompositeVideoServiceRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,11 +25,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class PharmacyService {
-    private final PharmacyRepository pharmacyRepository;
+public class CompositeVideoServiceService {
+    private final CompositeVideoServiceRepository compositeVideoServiceRepository;
 
-    public PharmacyService(PharmacyRepository pharmacyRepository) {
-        this.pharmacyRepository = pharmacyRepository;
+    public CompositeVideoServiceService(CompositeVideoServiceRepository compositeVideoServiceRepository) {
+        this.compositeVideoServiceRepository = compositeVideoServiceRepository;
     }
 
     @Transactional
@@ -37,13 +37,13 @@ public class PharmacyService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<Pharmacy> parsedList = PharmacyParser.getListFromXml(xml);
+        List<CompositeVideoService> parsedList = CompositeVideoServiceParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, Pharmacy> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<Pharmacy> foundList = pharmacyRepository.findAll();
+            Map<String, CompositeVideoService> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<CompositeVideoService> foundList = compositeVideoServiceRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (Pharmacy found : foundList) {
+                for (CompositeVideoService found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -52,7 +52,7 @@ public class PharmacyService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                Pharmacy parsed = parsedList.get(i);
+                CompositeVideoService parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -61,14 +61,14 @@ public class PharmacyService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    Pharmacy found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    CompositeVideoService found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    pharmacyRepository.save(parsed);
+                    compositeVideoServiceRepository.save(parsed);
                 }
             }
         }

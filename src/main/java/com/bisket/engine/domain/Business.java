@@ -7,6 +7,13 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "discriminator_type")
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        columnNames = {"open_service_id","open_autonomous_body_code","management_code"}
+                )
+        }
+)
 @EqualsAndHashCode(callSuper = true, exclude = {"id"})
 @Data
 @NoArgsConstructor
@@ -15,13 +22,13 @@ public abstract class Business extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true, nullable = false)
-    private String managementCode;
-    @Column(nullable = false)
-    private String openServiceId;
-    @Column(nullable = false)
-    private String openAutonomousEntityCode;
     private String openServiceName;
+    @Column(name = "open_service_id", nullable = false)
+    private String openServiceId;
+    @Column(name = "open_autonomous_body_code", nullable = false)
+    private String openAutonomousBodyCode;
+    @Column(name = "management_code", nullable = false)
+    private String managementCode;
     private String licensingDate;
     private String licensingCancelDate;
     private String businessStatusCode;

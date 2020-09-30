@@ -1,11 +1,12 @@
-package com.bisket.engine.constant;
+package com.bisket.engine.common;
 
 public enum BusinessCategory {
     HOSPITAL("병원"),
     CLINIC("의원"),
-    SAFETY_OFFICINAL_SALE("안전상비의약품판매업소"),
-    EMERGENCY_PATIENT_TRANSFER("응급환자이송업"),
     MEDICAL_CORPORATION("의료법인"),
+    EMERGENCY_PATIENT_TRANSFER("응급환자이송업"),
+    AFFILIATED_MEDICAL_ORGANIZATION("부속의료기관"),
+    SAFETY_OFFICINAL_SALE("안전상비의약품판매업소"),
     POSTPARTUM_CARE("산후조리업"),
     PHARMACY("약국"),
     SIMILAR_MEDICAL_TREATMENT("의료유사업"),
@@ -31,7 +32,8 @@ public enum BusinessCategory {
     LIVESTOCK_PROCESSING("축산가공업"),
     ANIMAL_MEDICINE_WHOLESALE_STORE("동물용의약품도매상"),
     MEAT_PACKAGING_PROCESSING("식육포장처리업"),
-    LIVESTOCK_FARMING("가축사육업");
+    LIVESTOCK_FARMING("가축사육업"),
+    COMPOSITE_VIDEO_SERVICE("복합영상물제공업");
 
     private final String code;
 
