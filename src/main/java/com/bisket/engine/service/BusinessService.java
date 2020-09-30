@@ -126,7 +126,7 @@ public class BusinessService {
                                         case MEDICAL_DEVICE_REPAIR:
                                             updateCount = medicalDeviceRepairService.updateListFromXmlFile(filePath);
                                             break;
-                                        case DENTAL_LAB:
+                                        case DENTAL_LABORATORY:
                                             updateCount = dentalLaboratoryService.updateListFromXmlFile(filePath);
                                             break;
                                         default:
@@ -300,7 +300,7 @@ public class BusinessService {
                                                 // 업데이트 개수 누적
                                                 updateCountSum += updateCount;
                                                 break;
-                                            case DENTAL_LAB:
+                                            case DENTAL_LABORATORY:
                                                 // 업데이트
                                                 updateCount = dentalLaboratoryService.updateListFromXmlFile(filePath);
                                                 // 업체업데이트히스토리 저장

@@ -13,7 +13,7 @@ public enum BusinessCategory {
     MEDICAL_ORGANIZATION_LAUNDRY_PROCESSING("의료기관세탁물처리업"),
     MEDICAL_DEVICE_SALE_LEASE("의료기기판매임대업"),
     MEDICAL_DEVICE_REPAIR("의료기기수리업"),
-    DENTAL_LAB("치과기공소");
+    DENTAL_LABORATORY("치과기공소");
 
     private final String code;
 
