@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.DentalLab;
+import com.bisket.engine.domain.DentalLaboratory;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class DentalLabParser {
+public class DentalLaboratoryParser {
 
-    public static List<DentalLab> getListFromXml(Document xml) {
-        List<DentalLab> objectList = new ArrayList<>();
+    public static List<DentalLaboratory> getListFromXml(Document xml) {
+        List<DentalLaboratory> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class DentalLabParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            DentalLab object = new DentalLab();
+            DentalLaboratory object = new DentalLaboratory();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력

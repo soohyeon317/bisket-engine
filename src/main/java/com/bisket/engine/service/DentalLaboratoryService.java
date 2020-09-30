@@ -1,8 +1,8 @@
 package com.bisket.engine.service;
 
-import com.bisket.engine.domain.DentalLab;
-import com.bisket.engine.parser.DentalLabParser;
-import com.bisket.engine.repository.DentalLabRepository;
+import com.bisket.engine.domain.DentalLaboratory;
+import com.bisket.engine.parser.DentalLaboratoryParser;
+import com.bisket.engine.repository.DentalLaboratoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +24,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class DentalLabService {
-    private final DentalLabRepository dentalLabRepository;
+public class DentalLaboratoryService {
+    private final DentalLaboratoryRepository dentalLaboratoryRepository;
 
-    public DentalLabService(DentalLabRepository dentalLabRepository) {
-        this.dentalLabRepository = dentalLabRepository;
+    public DentalLaboratoryService(DentalLaboratoryRepository dentalLaboratoryRepository) {
+        this.dentalLaboratoryRepository = dentalLaboratoryRepository;
     }
 
     @Transactional
@@ -36,11 +36,11 @@ public class DentalLabService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<DentalLab> parsedList = DentalLabParser.getListFromXml(xml);
+        List<DentalLaboratory> parsedList = DentalLaboratoryParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, DentalLab> managementCodeToParsedObjectMap = new HashMap<>();
-            for (DentalLab parsed : parsedList) {
+            Map<String, DentalLaboratory> managementCodeToParsedObjectMap = new HashMap<>();
+            for (DentalLaboratory parsed : parsedList) {
                 String parsedManagementCode = parsed.getManagementCode();
                 if (!managementCodeToParsedObjectMap.containsKey(parsedManagementCode)) {
                     managementCodeToParsedObjectMap.put(parsed.getManagementCode(), parsed);
@@ -50,27 +50,27 @@ public class DentalLabService {
                     break;
                 }
             }
-            Map<String, DentalLab> managementCodeToFoundObjectMap = new HashMap<>();
-            List<DentalLab> foundList = dentalLabRepository.findAll();
+            Map<String, DentalLaboratory> managementCodeToFoundObjectMap = new HashMap<>();
+            List<DentalLaboratory> foundList = dentalLaboratoryRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (DentalLab found : foundList) {
+                for (DentalLaboratory found : foundList) {
                     managementCodeToFoundObjectMap.put(found.getManagementCode(), found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                DentalLab parsed = parsedList.get(i);
+                DentalLaboratory parsed = parsedList.get(i);
                 String managementCode = parsed.getManagementCode();
                 log.info("=======\nSequence: {}\nManagementCode: {}", i+1, managementCode);
                 if (managementCodeToFoundObjectMap.containsKey(managementCode)) {
                     /* 업데이트 진행 */
-                    DentalLab found = managementCodeToFoundObjectMap.get(managementCode);
+                    DentalLaboratory found = managementCodeToFoundObjectMap.get(managementCode);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    dentalLabRepository.save(parsed);
+                    dentalLaboratoryRepository.save(parsed);
                 }
             }
         }

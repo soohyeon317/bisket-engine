@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DentalLab extends Business {
+public class DentalLaboratory extends Business {
     private String laboratoryLatheCount;
     private String centrifugalCastingMachineCount;
     private String laboratoryMotorCount;
@@ -31,13 +31,13 @@ public class DentalLab extends Business {
     private String vacuumMixerCount;
     private String pindexCount;
 
-    public void getAndSetIdentification(DentalLab other) {
+    public void getAndSetIdentification(DentalLaboratory other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(DentalLab other) {
+    public void update(DentalLaboratory other) {
         // 개방서비스ID
         this.setOpenServiceId(other.getOpenServiceId());
         // 개방자치단체코드

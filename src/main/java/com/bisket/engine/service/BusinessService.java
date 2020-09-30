@@ -39,12 +39,12 @@ public class BusinessService {
     private final MedicalOrganizationLaundryProcessingService medicalOrganizationLaundryProcessingService;
     private final MedicalDeviceSaleLeaseService medicalDeviceSaleLeaseService;
     private final MedicalDeviceRepairService medicalDeviceRepairService;
-    private final DentalLabService dentalLabService;
+    private final DentalLaboratoryService dentalLaboratoryService;
     private final BusinessUpdateHistoryService businessUpdateHistoryService;
 
     private final BusinessRepository businessRepository;
 
-    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, PostpartumCareService postpartumCareService, PharmacyService pharmacyService, SimilarMedicalTreatmentService similarMedicalTreatmentService, GlassesService glassesService, MedicalOrganizationLaundryProcessingService medicalOrganizationLaundryProcessingService, MedicalDeviceSaleLeaseService medicalDeviceSaleLeaseService, MedicalDeviceRepairService medicalDeviceRepairService, DentalLabService dentalLabService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
+    public BusinessService(SafetyOfficinalSaleService safetyOfficinalSaleService, HospitalService hospitalService, MedicalCorporationService medicalCorporationService, ClinicService clinicService, EmergencyPatientTransferService emergencyPatientTransferService, PostpartumCareService postpartumCareService, PharmacyService pharmacyService, SimilarMedicalTreatmentService similarMedicalTreatmentService, GlassesService glassesService, MedicalOrganizationLaundryProcessingService medicalOrganizationLaundryProcessingService, MedicalDeviceSaleLeaseService medicalDeviceSaleLeaseService, MedicalDeviceRepairService medicalDeviceRepairService, DentalLaboratoryService dentalLaboratoryService, BusinessUpdateHistoryService businessUpdateHistoryService, BusinessRepository businessRepository) {
         this.safetyOfficinalSaleService = safetyOfficinalSaleService;
         this.hospitalService = hospitalService;
         this.medicalCorporationService = medicalCorporationService;
@@ -57,7 +57,7 @@ public class BusinessService {
         this.medicalOrganizationLaundryProcessingService = medicalOrganizationLaundryProcessingService;
         this.medicalDeviceSaleLeaseService = medicalDeviceSaleLeaseService;
         this.medicalDeviceRepairService = medicalDeviceRepairService;
-        this.dentalLabService = dentalLabService;
+        this.dentalLaboratoryService = dentalLaboratoryService;
         this.businessUpdateHistoryService = businessUpdateHistoryService;
         this.businessRepository = businessRepository;
     }
@@ -127,7 +127,7 @@ public class BusinessService {
                                             updateCount = medicalDeviceRepairService.updateListFromXmlFile(filePath);
                                             break;
                                         case DENTAL_LAB:
-                                            updateCount = dentalLabService.updateListFromXmlFile(filePath);
+                                            updateCount = dentalLaboratoryService.updateListFromXmlFile(filePath);
                                             break;
                                         default:
                                             throw new NotFoundException("Business Category - NotFoundException");
@@ -302,7 +302,7 @@ public class BusinessService {
                                                 break;
                                             case DENTAL_LAB:
                                                 // 업데이트
-                                                updateCount = dentalLabService.updateListFromXmlFile(filePath);
+                                                updateCount = dentalLaboratoryService.updateListFromXmlFile(filePath);
                                                 // 업체업데이트히스토리 저장
                                                 businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
                                                 businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
