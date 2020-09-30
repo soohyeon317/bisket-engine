@@ -33,7 +33,8 @@ public enum BusinessCategory {
     ANIMAL_MEDICINE_WHOLESALE_STORE("동물용의약품도매상"),
     MEAT_PACKAGING_PROCESSING("식육포장처리업"),
     LIVESTOCK_FARMING("가축사육업"),
-    COMPOSITE_VIDEO_SERVICE("복합영상물제공업");
+    COMPOSITE_VIDEO_SERVICE("복합영상물제공업"),
+    GAME_DISTRIBUTION("게임물배급업");
 
     private final String code;
 

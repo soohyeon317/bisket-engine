@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.LivestockProcessing;
-import com.bisket.engine.parser.LivestockProcessingParser;
-import com.bisket.engine.repository.LivestockProcessingRepository;
+import com.bisket.engine.domain.GameDistribution;
+import com.bisket.engine.parser.GameDistributionParser;
+import com.bisket.engine.repository.GameDistributionRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class LivestockProcessingService implements BusinessBaseService {
-    private final LivestockProcessingRepository livestockProcessingRepository;
+public class GameDistributionService implements BusinessBaseService {
+    private final GameDistributionRepository gameDistributionRepository;
 
-    public LivestockProcessingService(LivestockProcessingRepository livestockProcessingRepository) {
-        this.livestockProcessingRepository = livestockProcessingRepository;
+    public GameDistributionService(GameDistributionRepository gameDistributionRepository) {
+        this.gameDistributionRepository = gameDistributionRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class LivestockProcessingService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<LivestockProcessing> parsedList = LivestockProcessingParser.getListFromXml(xml);
+        List<GameDistribution> parsedList = GameDistributionParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, LivestockProcessing> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<LivestockProcessing> foundList = livestockProcessingRepository.findAll();
+            Map<String, GameDistribution> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<GameDistribution> foundList = gameDistributionRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (LivestockProcessing found : foundList) {
+                for (GameDistribution found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class LivestockProcessingService implements BusinessBaseService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                LivestockProcessing parsed = parsedList.get(i);
+                GameDistribution parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class LivestockProcessingService implements BusinessBaseService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    LivestockProcessing found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    GameDistribution found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    livestockProcessingRepository.save(parsed);
+                    gameDistributionRepository.save(parsed);
                 }
             }
         }
