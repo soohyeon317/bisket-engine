@@ -139,7 +139,7 @@ public class ClinicParser {
                             break;
                         case 57:
                             // 의료기관종별명
-                            object.setMedicalOrganizationAssortmentName(itemValue);
+                            object.setMedicalOrganizationClassificationName(itemValue);
                             break;
                         case 59:
                             // 의료인수
@@ -159,11 +159,11 @@ public class ClinicParser {
                             break;
                         case 67:
                             // 진료과목내용
-                            object.setTreatmentSubjectCode(itemValue);
+                            object.setTreatmentSubjectContent(itemValue);
                             break;
                         case 69:
                             // 진료과목내용명
-                            object.setTreatmentSubjectName(itemValue);
+                            object.setTreatmentSubjectContentName(itemValue);
                             break;
                         case 71:
                             // 지정취소일자

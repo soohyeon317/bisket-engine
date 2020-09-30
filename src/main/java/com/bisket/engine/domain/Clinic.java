@@ -16,15 +16,15 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Clinic extends Business {
-    private String medicalOrganizationAssortmentName;
+    private String medicalOrganizationClassificationName;
     private String medicalPersonnelCount;
     private String hospitalRoomCount;
     private String sickbedCount;
     private String totalArea;
     @Column(columnDefinition = "TEXT")
-    private String treatmentSubjectCode;
+    private String treatmentSubjectContent;
     @Column(columnDefinition = "TEXT")
-    private String treatmentSubjectName;
+    private String treatmentSubjectContentName;
     private String assignmentCancelDate;
     private String palliativeMedicineAssignmentType;
     private String palliativeMedicineDepartmentName;
@@ -40,7 +40,7 @@ public class Clinic extends Business {
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
-    
+
     public void update(Clinic other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
@@ -91,7 +91,7 @@ public class Clinic extends Business {
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
         // 의료기관종별명
-        this.setMedicalOrganizationAssortmentName(other.getMedicalOrganizationAssortmentName());
+        this.setMedicalOrganizationClassificationName(other.getMedicalOrganizationClassificationName());
         // 의료인수
         this.setMedicalPersonnelCount(other.getMedicalPersonnelCount());
         // 입원실수
@@ -101,9 +101,9 @@ public class Clinic extends Business {
         // 총면적
         this.setTotalArea(other.getTotalArea());
         // 진료과목내용
-        this.setTreatmentSubjectCode(other.getTreatmentSubjectCode());
+        this.setTreatmentSubjectContent(other.getTreatmentSubjectContent());
         // 진료과목내용명
-        this.setTreatmentSubjectName(other.getTreatmentSubjectName());
+        this.setTreatmentSubjectContentName(other.getTreatmentSubjectContentName());
         // 지정취소일자
         this.setAssignmentCancelDate(other.getAssignmentCancelDate());
         // 완화의료지정형태

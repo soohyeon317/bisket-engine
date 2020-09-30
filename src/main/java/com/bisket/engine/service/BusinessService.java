@@ -10,8 +10,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.nio.file.NoSuchFileException;
 import java.security.InvalidParameterException;
 import java.util.Arrays;
 import java.util.List;
@@ -79,28 +80,32 @@ public class BusinessService {
                             /* 특정 업종을 대상으로 업데이트 */
                             // 업체업데이트히스토리 정보 세팅
                             businessUpdateHistory = new BusinessUpdateHistory();
-                            for (int i = 0; i < xmlFileNameArray.length; i++) {
-                                String fileName = xmlFileNameArray[i];
-                                if (fileName.equals(targetXmlFileName)) {
-                                    Matcher businessCategoryMatcher = XML_FILE_BUSINESS_NAME_PATTERN.matcher(fileName);
-                                    if (businessCategoryMatcher.find()) {
-                                        String businessCategoryName = businessCategoryMatcher.group("businessCategory");
-                                        String filePath = String.format("%s/%s", resourceFolderPath, fileName);
-                                        BusinessCategory businessCategory = BusinessCategory.getByCode(businessCategoryName);
-                                        BusinessBaseService businessBaseService = businessServiceFactory.getOneBusinessCategoryService(businessCategory);
-                                        // 업데이트
-                                        Integer updateCount = businessBaseService.updateListFromXmlFile(filePath);
-                                        // 업체업데이트히스토리 저장
-                                        businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
-                                        businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
-                                        businessUpdateHistory.setSuccessFlag(true);
-                                        businessUpdateHistory.setDataCount(updateCount);
-                                        businessUpdateHistoryService.createOne(businessUpdateHistory);
-                                        // 업데이트 개수 누적
-                                        updateCountSum += updateCount;
-                                        break;
+                            if (xmlFileNameList.contains(targetXmlFileName)) {
+                                for (int i = 0; i < xmlFileNameArray.length; i++) {
+                                    String fileName = xmlFileNameArray[i];
+                                    if (fileName.equals(targetXmlFileName)) {
+                                        Matcher businessCategoryMatcher = XML_FILE_BUSINESS_NAME_PATTERN.matcher(fileName);
+                                        if (businessCategoryMatcher.find()) {
+                                            String businessCategoryName = businessCategoryMatcher.group("businessCategory");
+                                            String filePath = String.format("%s/%s", resourceFolderPath, fileName);
+                                            BusinessCategory businessCategory = BusinessCategory.getByCode(businessCategoryName);
+                                            BusinessBaseService businessBaseService = businessServiceFactory.getOneBusinessCategoryService(businessCategory);
+                                            // 업데이트
+                                            Integer updateCount = businessBaseService.updateListFromXmlFile(filePath);
+                                            // 업체업데이트히스토리 저장
+                                            businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
+                                            businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
+                                            businessUpdateHistory.setSuccessFlag(true);
+                                            businessUpdateHistory.setDataCount(updateCount);
+                                            businessUpdateHistoryService.createOne(businessUpdateHistory);
+                                            // 업데이트 개수 누적
+                                            updateCountSum += updateCount;
+                                            break;
+                                        }
                                     }
                                 }
+                            } else {
+                                throw new NoSuchFileException("Xml File Resource - NoSuchFileException");
                             }
                         }
                         break;
@@ -108,7 +113,7 @@ public class BusinessService {
                         throw new InvalidParameterException("File Extension - InvalidParameterException");
                 }
             } else {
-                throw new FileNotFoundException("Xml File Resource - FileNotFoundException");
+                throw new NoResultException("Xml File Resource - NoResultException");
             }
         } catch (Exception e) {
             e.printStackTrace();

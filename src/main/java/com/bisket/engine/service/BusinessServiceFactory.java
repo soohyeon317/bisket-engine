@@ -1,10 +1,10 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.BusinessCategory;
-import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.rmi.NoSuchObjectException;
 import java.util.Objects;
 
 @Component
@@ -15,6 +15,7 @@ public class BusinessServiceFactory {
     private final MedicalCorporationService medicalCorporationService;
     private final ClinicService clinicService;
     private final EmergencyPatientTransferService emergencyPatientTransferService;
+    private final AffiliatedMedicalOrganizationService affiliatedMedicalOrganizationService;
     private final PostpartumCareService postpartumCareService;
     private final PharmacyService pharmacyService;
     private final SimilarMedicalTreatmentService similarMedicalTreatmentService;
@@ -43,8 +44,32 @@ public class BusinessServiceFactory {
     private final LivestockFarmingService livestockFarmingService;
     private final CompositeVideoServiceService compositeVideoServiceService;
     private final GameDistributionService gameDistributionService;
+    private final GameProductionService gameProductionService;
+    private final PrintingService printingService;
+    private final PublishingService publishingService;
+    private final MovieProductionService movieProductionService;
+    private final MovieScreeningService movieScreeningService;
+    private final MovieImportService movieImportService;
+    private final MovieTheaterService movieTheaterService;
+    private final VideoProductionService videoProductionService;
+    private final MovieDistributionService movieDistributionService;
+    private final VideoWatchingServiceService videoWatchingServiceService;
+    private final VideoLittleTheaterService videoLittleTheaterService;
+    private final VideoDistributionService videoDistributionService;
+    private final VideoRoomService videoRoomService;
+    private final SingingRoomService singingRoomService;
+    private final TeenagerGameServiceService teenagerGameServiceService;
+    private final GeneralGameServiceService generalGameServiceService;
+    private final InternetComputerGameFacilityServiceService internetComputerGameFacilityServiceService;
+    private final CompositeDistributionGameServiceService compositeDistributionGameServiceService;
+    private final PopularCultureArtsPlanningService popularCultureArtsPlanningService;
+    private final OnlineMusicServiceService onlineMusicServiceService;
+    private final MusicRecordVideoDistributionService musicRecordVideoDistributionService;
+    private final MusicRecordProductionService musicRecordProductionService;
+    private final MusicRecordDistributionService musicRecordDistributionService;
+    private final MusicRecordVideoProductionService musicRecordVideoProductionService;
 
-    public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws Exception {
+    public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
         switch (Objects.requireNonNull(businessCategory)) {
             case SAFETY_OFFICINAL_SALE:
@@ -61,6 +86,9 @@ public class BusinessServiceFactory {
                 break;
             case EMERGENCY_PATIENT_TRANSFER:
                 businessBaseService = emergencyPatientTransferService;
+                break;
+            case AFFILIATED_MEDICAL_ORGANIZATION:
+                businessBaseService = affiliatedMedicalOrganizationService;
                 break;
             case POSTPARTUM_CARE:
                 businessBaseService = postpartumCareService;
@@ -146,8 +174,80 @@ public class BusinessServiceFactory {
             case GAME_DISTRIBUTION:
                 businessBaseService = gameDistributionService;
                 break;
+            case GAME_PRODUCTION:
+                businessBaseService = gameProductionService;
+                break;
+            case PRINTING:
+                businessBaseService = printingService;
+                break;
+            case PUBLISHING:
+                businessBaseService = publishingService;
+                break;
+            case MOVIE_PRODUCTION:
+                businessBaseService = movieProductionService;
+                break;
+            case MOVIE_SCREENING:
+                businessBaseService = movieScreeningService;
+                break;
+            case MOVIE_IMPORT:
+                businessBaseService = movieImportService;
+                break;
+            case MOVIE_THEATER:
+                businessBaseService = movieTheaterService;
+                break;
+            case VIDEO_PRODUCTION:
+                businessBaseService = videoProductionService;
+                break;
+            case MOVIE_DISTRIBUTION:
+                businessBaseService = movieDistributionService;
+                break;
+            case VIDEO_WATCHING_SERVICE:
+                businessBaseService = videoWatchingServiceService;
+                break;
+            case VIDEO_LITTLE_THEATER:
+                businessBaseService = videoLittleTheaterService;
+                break;
+            case VIDEO_DISTRIBUTION:
+                businessBaseService = videoDistributionService;
+                break;
+            case VIDEO_ROOM:
+                businessBaseService = videoRoomService;
+                break;
+            case SINGING_ROOM:
+                businessBaseService = singingRoomService;
+                break;
+            case TEENAGER_GAME_SERVICE:
+                businessBaseService = teenagerGameServiceService;
+                break;
+            case GENERAL_GAME_SERVICE:
+                businessBaseService = generalGameServiceService;
+                break;
+            case INTERNET_COMPUTER_GAME_FACILITY_SERVICE:
+                businessBaseService = internetComputerGameFacilityServiceService;
+                break;
+            case COMPOSITE_DISTRIBUTION_GAME_SERVICE:
+                businessBaseService = compositeDistributionGameServiceService;
+                break;
+            case POPULAR_CULTURE_ARTS_PLANNING:
+                businessBaseService = popularCultureArtsPlanningService;
+                break;
+            case ONLINE_MUSIC_SERVICE:
+                businessBaseService = onlineMusicServiceService;
+                break;
+            case MUSIC_RECORD_VIDEO_DISTRIBUTION:
+                businessBaseService = musicRecordVideoDistributionService;
+                break;
+            case MUSIC_RECORD_PRODUCTION:
+                businessBaseService = musicRecordProductionService;
+                break;
+            case MUSIC_RECORD_DISTRIBUTION:
+                businessBaseService = musicRecordDistributionService;
+                break;
+            case MUSIC_RECORD_VIDEO_PRODUCTION:
+                businessBaseService = musicRecordVideoProductionService;
+                break;
             default:
-                throw new NotFoundException("Business Category - NotFoundException");
+                throw new NoSuchObjectException("Business Category - NoSuchObjectException");
         }
 
         return businessBaseService;

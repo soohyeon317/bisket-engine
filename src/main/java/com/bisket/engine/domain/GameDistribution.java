@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -19,6 +20,7 @@ public class GameDistribution extends Business {
     private String cultureBusinessPersonClassificationName;
     private String buildingFloorCount;
     private String environmentName;
+    @Column(columnDefinition = "TEXT")
     private String productionHandlingItemContent;
     private String facilityArea;
     private String groundFloorCount;
@@ -46,7 +48,6 @@ public class GameDistribution extends Business {
     private String itemName;
     private String firstRegistrationTime;
     private String regionClassificationName;
-
 
     public void getAndSetIdentification(GameDistribution other) {
         this.setId(other.getId());
