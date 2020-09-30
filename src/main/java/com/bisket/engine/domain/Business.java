@@ -35,8 +35,10 @@ public abstract class Business extends BaseEntity {
     private String sitePhoneNumber;
     private String siteArea;
     private String sitePostCode;
+    @Column(columnDefinition = "TEXT")
     private String siteFullAddress;
     private String roadNamePostCode;
+    @Column(columnDefinition = "TEXT")
     private String roadNameFullAddress;
     private String businessPlaceName;
     private String lastModificationTime;
