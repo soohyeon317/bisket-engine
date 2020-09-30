@@ -9,7 +9,11 @@ public enum BusinessCategory {
     POSTPARTUM_CARE("산후조리업"),
     PHARMACY("약국"),
     SIMILAR_MEDICAL_TREATMENT("의료유사업"),
-    GLASSES("안경업");
+    GLASSES("안경업"),
+    MEDICAL_ORGANIZATION_LAUNDRY_PROCESSING("의료기관세탁물처리업"),
+    MEDICAL_DEVICE_SALE_LEASE("의료기기판매임대업"),
+    MEDICAL_DEVICE_REPAIR("의료기기수리업"),
+    DENTAL_LAB("치과기공소");
 
     private final String code;
 
