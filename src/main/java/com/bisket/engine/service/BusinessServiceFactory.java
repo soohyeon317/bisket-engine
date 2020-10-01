@@ -68,6 +68,32 @@ public class BusinessServiceFactory {
     private final MusicRecordProductionService musicRecordProductionService;
     private final MusicRecordDistributionService musicRecordDistributionService;
     private final MusicRecordVideoProductionService musicRecordVideoProductionService;
+    private final ForeignerTourCityAccommodationService foreignerTourCityAccommodationService;
+    private final ForeignerAmusementRestaurantService foreignerAmusementRestaurantService;
+    private final DomesticTravelService domesticTravelService;
+    private final DowntownCircularTourService downtownCircularTourService;
+    private final GeneralAmusementFacilityService generalAmusementFacilityService;
+    private final GeneralCampService generalCampService;
+    private final GeneralTravelService generalTravelService;
+    private final HanokExperienceService hanokExperienceService;
+    private final InternationalConferenceFacilityService internationalConferenceFacilityService;
+    private final InternationalConferencePlanningService internationalConferencePlanningService;
+    private final InternationalTravelService internationalTravelService;
+    private final MotorCampService motorCampService;
+    private final OtherAmusementFacilityService otherAmusementFacilityService;
+    private final OverallAmusementFacilityService overallAmusementFacilityService;
+    private final OverallRecreationService overallRecreationService;
+    private final SpecializedRecreationService specializedRecreationService;
+    private final StageService stageService;
+    private final TourAmusementRestaurantService tourAmusementRestaurantService;
+    private final TourCruiserService tourCruiserService;
+    private final TourBusinessOperatorService tourBusinessOperatorService;
+    private final TourPensionService tourPensionService;
+    private final TourRestaurantService tourRestaurantService;
+    private final TourStageService tourStageService;
+    private final TourTheaterAmusementService tourTheaterAmusementService;
+    private final TourTrackService tourTrackService;
+    private final TourAccommodationService tourAccommodationService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -245,6 +271,84 @@ public class BusinessServiceFactory {
                 break;
             case MUSIC_RECORD_VIDEO_PRODUCTION:
                 businessBaseService = musicRecordVideoProductionService;
+                break;
+            case FOREIGNER_TOUR_CITY_ACCOMMODATION:
+                businessBaseService = foreignerTourCityAccommodationService;
+                break;
+            case FOREIGNER_AMUSEMENT_RESTAURANT:
+                businessBaseService = foreignerAmusementRestaurantService;
+                break;
+            case DOMESTIC_TRAVEL:
+                businessBaseService = domesticTravelService;
+                break;
+            case DOWNTOWN_CIRCULAR_TOUR:
+                businessBaseService = downtownCircularTourService;
+                break;
+            case GENERAL_AMUSEMENT_FACILITY:
+                businessBaseService = generalAmusementFacilityService;
+                break;
+            case GENERAL_CAMP:
+                businessBaseService = generalCampService;
+                break;
+            case GENERAL_TRAVEL:
+                businessBaseService = generalTravelService;
+                break;
+            case HANOK_EXPERIENCE:
+                businessBaseService = hanokExperienceService;
+                break;
+            case INTERNATIONAL_CONFERENCE_FACILITY:
+                businessBaseService = internationalConferenceFacilityService;
+                break;
+            case INTERNATIONAL_CONFERENCE_PLANNING:
+                businessBaseService = internationalConferencePlanningService;
+                break;
+            case INTERNATIONAL_TRAVEL:
+                businessBaseService = internationalTravelService;
+                break;
+            case MOTOR_CAMP:
+                businessBaseService = motorCampService;
+                break;
+            case OTHER_AMUSEMENT_FACILITY:
+                businessBaseService = otherAmusementFacilityService;
+                break;
+            case OVERALL_AMUSEMENT_FACILITY:
+                businessBaseService = overallAmusementFacilityService;
+                break;
+            case OVERALL_RECREATION:
+                businessBaseService = overallRecreationService;
+                break;
+            case SPECIALIZED_RECREATION:
+                businessBaseService = specializedRecreationService;
+                break;
+            case STAGE:
+                businessBaseService = stageService;
+                break;
+            case TOUR_AMUSEMENT_RESTAURANT:
+                businessBaseService = tourAmusementRestaurantService;
+                break;
+            case TOUR_CRUISER:
+                businessBaseService = tourCruiserService;
+                break;
+            case TOUR_BUSINESS_OPERATOR:
+                businessBaseService = tourBusinessOperatorService;
+                break;
+            case TOUR_PENSION:
+                businessBaseService = tourPensionService;
+                break;
+            case TOUR_RESTAURANT:
+                businessBaseService = tourRestaurantService;
+                break;
+            case TOUR_STAGE:
+                businessBaseService = tourStageService;
+                break;
+            case TOUR_THEATER_AMUSEMENT:
+                businessBaseService = tourTheaterAmusementService;
+                break;
+            case TOUR_TRACK:
+                businessBaseService = tourTrackService;
+                break;
+            case TOUR_ACCOMMODATION:
+                businessBaseService = tourAccommodationService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");
