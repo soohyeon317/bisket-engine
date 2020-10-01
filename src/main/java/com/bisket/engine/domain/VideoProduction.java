@@ -17,7 +17,7 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class VideoProduction extends Business {
     private String cultureSportsBusinessCategoryName;
-    private String cultureBusinessPersonClassificationName;
+    private String culturalBusinessOperatorClassificationName;
     private String buildingFloorCount;
     private String environmentName;
     @Column(columnDefinition = "TEXT")
@@ -54,7 +54,7 @@ public class VideoProduction extends Business {
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
-    
+
     public void update(VideoProduction other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
@@ -107,7 +107,7 @@ public class VideoProduction extends Business {
         // 문화체육업종명
         this.setCultureSportsBusinessCategoryName(other.getCultureSportsBusinessCategoryName());
         // 문화사업자구분명
-        this.setCultureBusinessPersonClassificationName(other.getCultureBusinessPersonClassificationName());
+        this.setCulturalBusinessOperatorClassificationName(other.getCulturalBusinessOperatorClassificationName());
         // 총층수
         this.setBuildingFloorCount(other.getBuildingFloorCount());
         // 주변환경명

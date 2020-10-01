@@ -17,7 +17,7 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class SingingRoom extends Business {
     private String cultureSportsBusinessCategoryName;
-    private String cultureBusinessPersonClassificationName;
+    private String culturalBusinessOperatorClassificationName;
     private String buildingFloorCount;
     private String environmentName;
     @Column(columnDefinition = "TEXT")
@@ -107,7 +107,7 @@ public class SingingRoom extends Business {
         // 문화체육업종명
         this.setCultureSportsBusinessCategoryName(other.getCultureSportsBusinessCategoryName());
         // 문화사업자구분명
-        this.setCultureBusinessPersonClassificationName(other.getCultureBusinessPersonClassificationName());
+        this.setCulturalBusinessOperatorClassificationName(other.getCulturalBusinessOperatorClassificationName());
         // 총층수
         this.setBuildingFloorCount(other.getBuildingFloorCount());
         // 주변환경명

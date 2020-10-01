@@ -143,7 +143,7 @@ public class CompositeDistributionGameServiceParser {
                             break;
                         case 59:
                             // 문화사업자구분명
-                            object.setCultureBusinessPersonClassificationName(itemValue);
+                            object.setCulturalBusinessOperatorClassificationName(itemValue);
                             break;
                         case 61:
                             // 총층수
