@@ -43,7 +43,7 @@ public class MovieProduction extends Business {
     private String fireProtectionFacilityFlag;
     private String gameDeviceCount;
     private String otherBusinessCategoryName;
-    private String provisionGameName;
+    private String gameRating;
     private String stageFormClassificationName;
     private String itemName;
     private String firstRegistrationTime;
@@ -157,7 +157,7 @@ public class MovieProduction extends Business {
         // 기존게임업외업종명
         this.setOtherBusinessCategoryName(other.getOtherBusinessCategoryName());
         // 제공게임물명
-        this.setProvisionGameName(other.getProvisionGameName());
+        this.setGameRating(other.getGameRating());
         // 공연장형태구분명
         this.setStageFormClassificationName(other.getStageFormClassificationName());
         // 품목명

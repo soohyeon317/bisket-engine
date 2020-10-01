@@ -243,7 +243,7 @@ public class MovieTheaterParser {
                             break;
                         case 109:
                             // 제공게임물명
-                            object.setProvisionGameName(itemValue);
+                            object.setGameRating(itemValue);
                             break;
                         case 111:
                             // 공연장형태구분명
