@@ -16,7 +16,7 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Pharmacy extends Business {
     private String businessArea;
-    private String assignmentDate;
+    private String appointmentDate;
 
     public void getAndSetIdentification(Pharmacy other) {
         this.setId(other.getId());
@@ -76,6 +76,6 @@ public class Pharmacy extends Business {
         // 약국영업면적
         this.setBusinessArea(other.getBusinessArea());
         // 지정일자
-        this.setAssignmentDate(other.getAssignmentDate());
+        this.setAppointmentDate(other.getAppointmentDate());
     }
 }

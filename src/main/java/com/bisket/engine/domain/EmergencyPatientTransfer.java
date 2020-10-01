@@ -25,15 +25,15 @@ public class EmergencyPatientTransfer extends Business {
     private String treatmentSubjectContent;
     @Column(columnDefinition = "TEXT")
     private String treatmentSubjectContentName;
-    private String assignmentCancelDate;
-    private String palliativeMedicineAssignmentType;
+    private String appointmentCancelDate;
+    private String palliativeMedicineAppointmentType;
     private String palliativeMedicineDepartmentName;
     private String specialAmbulanceCount;
     private String generalAmbulanceCount;
     private String employeeCount;
     private String paramedicCount;
     private String allowedSickbedCount;
-    private String firstAssignmentDate;
+    private String firstAppointmentDate;
 
     public void getAndSetIdentification(EmergencyPatientTransfer other) {
         this.setId(other.getId());
@@ -105,9 +105,9 @@ public class EmergencyPatientTransfer extends Business {
         // 진료과목내용명
         this.setTreatmentSubjectContentName(other.getTreatmentSubjectContentName());
         // 지정취소일자
-        this.setAssignmentCancelDate(other.getAssignmentCancelDate());
+        this.setAppointmentCancelDate(other.getAppointmentCancelDate());
         // 완화의료지정형태
-        this.setPalliativeMedicineAssignmentType(other.getPalliativeMedicineAssignmentType());
+        this.setPalliativeMedicineAppointmentType(other.getPalliativeMedicineAppointmentType());
         // 완화의료담당부서명
         this.setPalliativeMedicineDepartmentName(other.getPalliativeMedicineDepartmentName());
         // 구급차특수
@@ -121,6 +121,6 @@ public class EmergencyPatientTransfer extends Business {
         // 허가병상수
         this.setAllowedSickbedCount(other.getAllowedSickbedCount());
         // 최초지정일자
-        this.setFirstAssignmentDate(other.getFirstAssignmentDate());
+        this.setFirstAppointmentDate(other.getFirstAppointmentDate());
     }
 }

@@ -143,7 +143,7 @@ public class PharmacyParser {
                             break;
                         case 59:
                             // 지정일자
-                            object.setAssignmentDate(itemValue);
+                            object.setAppointmentDate(itemValue);
                             break;
                         default:
                             break;

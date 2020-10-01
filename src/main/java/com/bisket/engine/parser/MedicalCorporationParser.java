@@ -167,11 +167,11 @@ public class MedicalCorporationParser {
                             break;
                         case 71:
                             // 지정취소일자
-                            object.setAssignmentCancelDate(itemValue);
+                            object.setAppointmentCancelDate(itemValue);
                             break;
                         case 73:
                             // 완화의료지정형태
-                            object.setPalliativeMedicineAssignmentType(itemValue);
+                            object.setPalliativeMedicineAppointmentType(itemValue);
                             break;
                         case 75:
                             // 완화의료담당부서명
@@ -199,7 +199,7 @@ public class MedicalCorporationParser {
                             break;
                         case 87:
                             // 최초지정일자
-                            object.setFirstAssignmentDate(itemValue);
+                            object.setFirstAppointmentDate(itemValue);
                             break;
                         default:
                             break;
