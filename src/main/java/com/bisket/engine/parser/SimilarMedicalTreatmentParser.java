@@ -147,7 +147,7 @@ public class SimilarMedicalTreatmentParser {
                             break;
                         case 61:
                             // 자격증소유자수
-                            object.setLicenseOwnerCount(itemValue);
+                            object.setLicenseHolderCount(itemValue);
                             break;
                         case 63:
                             // 보조종업원수

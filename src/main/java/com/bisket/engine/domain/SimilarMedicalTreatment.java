@@ -17,7 +17,7 @@ import javax.persistence.Entity;
 public class SimilarMedicalTreatment extends Business {
     private String medicalOrganizationAssortmentName;
     private String employeeCount;
-    private String licenseOwnerCount;
+    private String licenseHolderCount;
     private String assistantEmployeeCount;
     private String facilityManagerCount;
     private String otherEmployeeCount;
@@ -85,7 +85,7 @@ public class SimilarMedicalTreatment extends Business {
         // 종업원수
         this.setEmployeeCount(other.getEmployeeCount());
         // 자격증소유자수
-        this.setLicenseOwnerCount(other.getLicenseOwnerCount());
+        this.setLicenseHolderCount(other.getLicenseHolderCount());
         // 보조종업원수
         this.setAssistantEmployeeCount(other.getAssistantEmployeeCount());
         // 시설관리자수
