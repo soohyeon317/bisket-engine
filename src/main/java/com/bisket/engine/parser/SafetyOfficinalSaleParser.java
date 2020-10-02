@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.EmergencyPatientTransfer;
+import com.bisket.engine.domain.SafetyOfficinalSale;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class EmergencyPatientTransferParser {
+public class SafetyOfficinalSaleParser {
 
-    public static List<EmergencyPatientTransfer> getListFromXml(Document xml) {
-        List<EmergencyPatientTransfer> objectList = new ArrayList<>();
+    public static List<SafetyOfficinalSale> getListFromXml(Document xml) {
+        List<SafetyOfficinalSale> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class EmergencyPatientTransferParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            EmergencyPatientTransfer object = new EmergencyPatientTransfer();
+            SafetyOfficinalSale object = new SafetyOfficinalSale();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,68 +138,8 @@ public class EmergencyPatientTransferParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 의료기관종별명
-                            object.setMedicalOrganizationClassificationName(itemValue);
-                            break;
-                        case 59:
-                            // 의료인수
-                            object.setMedicalPersonnelCount(itemValue);
-                            break;
-                        case 61:
-                            // 입원실수
-                            object.setHospitalRoomCount(itemValue);
-                            break;
-                        case 63:
-                            // 병상수
-                            object.setSickbedCount(itemValue);
-                            break;
-                        case 65:
-                            // 총면적
-                            object.setTotalArea(itemValue);
-                            break;
-                        case 67:
-                            // 진료과목내용
-                            object.setTreatmentSubjectContent(itemValue);
-                            break;
-                        case 69:
-                            // 진료과목내용명
-                            object.setTreatmentSubjectContentName(itemValue);
-                            break;
-                        case 71:
-                            // 지정취소일자
-                            object.setAppointmentCancelDate(itemValue);
-                            break;
-                        case 73:
-                            // 완화의료지정형태
-                            object.setPalliativeMedicineAppointmentType(itemValue);
-                            break;
-                        case 75:
-                            // 완화의료담당부서명
-                            object.setPalliativeMedicineDepartmentName(itemValue);
-                            break;
-                        case 77:
-                            // 구급차특수
-                            object.setSpecialAmbulanceCount(itemValue);
-                            break;
-                        case 79:
-                            // 구급차일반
-                            object.setGeneralAmbulanceCount(itemValue);
-                            break;
-                        case 81:
-                            // 총인원
-                            object.setEmployeeCount(itemValue);
-                            break;
-                        case 83:
-                            // 구조사수
-                            object.setParamedicCount(itemValue);
-                            break;
-                        case 85:
-                            // 허가병상수
-                            object.setAllowedSickbedCount(itemValue);
-                            break;
-                        case 87:
-                            // 최초지정일자
-                            object.setFirstAppointmentDate(itemValue);
+                            // 판매점영업면적
+                            object.setStoreBusinessArea(itemValue);
                             break;
                         default:
                             break;

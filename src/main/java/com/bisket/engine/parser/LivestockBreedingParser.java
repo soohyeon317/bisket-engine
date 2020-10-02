@@ -127,7 +127,7 @@ public class LivestockBreedingParser {
                             break;
                         case 51:
                             // 업태구분명
-                            object.setBusinessConditionsClassificationName(itemValue);
+                            object.setBusinessCategoryClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)

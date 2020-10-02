@@ -2,7 +2,7 @@ package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
 import com.bisket.engine.domain.SafetyOfficinalSale;
-import com.bisket.engine.parser.SafetyOfficialSaleParser;
+import com.bisket.engine.parser.SafetyOfficinalSaleParser;
 import com.bisket.engine.repository.SafetyOfficinalSaleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -35,7 +35,7 @@ public class SafetyOfficinalSaleService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<SafetyOfficinalSale> parsedList = SafetyOfficialSaleParser.getListFromXml(xml);
+        List<SafetyOfficinalSale> parsedList = SafetyOfficinalSaleParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
             Map<String, SafetyOfficinalSale> compositeUniqueKeyToFoundObjectMap = new HashMap<>();

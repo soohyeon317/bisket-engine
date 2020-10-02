@@ -47,7 +47,7 @@ public class DentalLaboratory extends Business {
         // 영업상태코드
         this.setBusinessStatusCode(other.getBusinessStatusCode());
         // 영업상태명
-        this.setBusinessConditionsClassificationName(other.getBusinessConditionsClassificationName());
+        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
         // 상세영업상태코드
         this.setDetailedBusinessStatusCode(other.getDetailedBusinessStatusCode());
         // 상세영업상태명
@@ -81,7 +81,7 @@ public class DentalLaboratory extends Business {
         // 데이터갱신일자
         this.setDataUpdateDate(other.getDataUpdateDate());
         // 업태구분명
-        this.setBusinessConditionsClassificationName(other.getBusinessConditionsClassificationName());
+        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
         // 좌표정보(X)
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
