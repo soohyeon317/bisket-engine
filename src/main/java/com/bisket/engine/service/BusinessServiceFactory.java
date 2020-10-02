@@ -116,6 +116,20 @@ public class BusinessServiceFactory {
     private final FoodRefrigerationService foodRefrigerationService;
     private final FoodVendingMachineService foodVendingMachineService;
     private final PotteryProductionService potteryProductionService;
+    private final RegisteredSportsFacilityService registeredSportsFacilityService;
+    private final BilliardRoomService billiardRoomService;
+    private final YachtingCourseService yachtingCourseService;
+    private final SleddingSlopeService sleddingSlopeService;
+    private final SkiResortService skiResortService;
+    private final SwimmingPoolService swimmingPoolService;
+    private final IceRinkService iceRinkService;
+    private final GolfCourseService golfCourseService;
+    private final HorseRidingCourseService horseRidingCourseService;
+    private final GolfDrivingRangeService golfDrivingRangeService;
+    private final MartialArtAcademyService martialArtAcademyService;
+    private final MartialArtGymService martialArtGymService;
+    private final PhysicalEducationGymService physicalEducationGymService;
+    private final PhysicalFitnessCenterService physicalFitnessCenterService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -437,6 +451,48 @@ public class BusinessServiceFactory {
                 break;
             case POTTERY_PRODUCTION:
                 businessBaseService = potteryProductionService;
+                break;
+            case REGISTERED_SPORTS_FACILITY:
+                businessBaseService = registeredSportsFacilityService;
+                break;
+            case BILLIARD_ROOM:
+                businessBaseService = billiardRoomService;
+                break;
+            case YACHTING_COURSE:
+                businessBaseService = yachtingCourseService;
+                break;
+            case SLEDDING_SLOPE:
+                businessBaseService = sleddingSlopeService;
+                break;
+            case SKI_RESORT:
+                businessBaseService = skiResortService;
+                break;
+            case SWIMMING_POOL:
+                businessBaseService = swimmingPoolService;
+                break;
+            case ICE_RINK:
+                businessBaseService = iceRinkService;
+                break;
+            case GOLF_COURSE:
+                businessBaseService = golfCourseService;
+                break;
+            case HORSE_RIDING_COURSE:
+                businessBaseService = horseRidingCourseService;
+                break;
+            case GOLF_DRIVING_RANGE:
+                businessBaseService = golfDrivingRangeService;
+                break;
+            case MARTIAL_ART_ACADEMY:
+                businessBaseService = martialArtAcademyService;
+                break;
+            case MARTIAL_ART_GYM:
+                businessBaseService = martialArtGymService;
+                break;
+            case PHYSICAL_EDUCATION_GYM:
+                businessBaseService = physicalEducationGymService;
+                break;
+            case PHYSICAL_FITNESS_CENTER:
+                businessBaseService = physicalFitnessCenterService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");

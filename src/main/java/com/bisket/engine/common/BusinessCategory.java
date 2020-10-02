@@ -106,8 +106,21 @@ public enum BusinessCategory {
     FOOD_ADDITIVES_PRODUCTION("식품첨가물제조업"),
     FOOD_REFRIGERATION("식품냉동냉장업"),
     FOOD_VENDING_MACHINE("식품자동판매기업"),
-    POTTERY_PRODUCTION("옹기류제조업");
-
+    POTTERY_PRODUCTION("옹기류제조업"),
+    REGISTERED_SPORTS_FACILITY("등록체육시설업"),
+    BILLIARD_ROOM("당구장업"),
+    YACHTING_COURSE("요트장업"),
+    SLEDDING_SLOPE("썰매장업"),
+    SKI_RESORT("스키장"),
+    SWIMMING_POOL("수영장업"),
+    ICE_RINK("빙상장업"),
+    GOLF_COURSE("골프장"),
+    HORSE_RIDING_COURSE("승마장업"),
+    GOLF_DRIVING_RANGE("골프연습장업"),
+    MARTIAL_ART_ACADEMY("무도학원업"),
+    MARTIAL_ART_GYM("무도장업"),
+    PHYSICAL_EDUCATION_GYM("체육도장업"),
+    PHYSICAL_FITNESS_CENTER("체력단련장업");
 
     private final String code;
 
