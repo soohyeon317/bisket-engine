@@ -84,7 +84,30 @@ public enum BusinessCategory {
     STAGE("공연장"),
     TOUR_BUSINESS_OPERATOR("관광사업자"),
     OVERALL_AMUSEMENT_FACILITY("종합유원시설업"),
-    TOUR_ACCOMMODATION("관광숙박업");
+    TOUR_ACCOMMODATION("관광숙박업"),
+    REST_RESTAURANT("휴게음식점"),
+    GENERAL_RESTAURANT("일반음식점"),
+    BAKERY("제과점영업"),
+    CONSIGNMENT_FOOD_SERVICE("위탁급식영업"),
+    GROUP_FOOD_SERVICE("집단급식소"),
+    HEALTH_FUNCTIONAL_FOOD_DISTRIBUTION_SALE("건강기능식품유통전문판매업"),
+    CONTAINER_WRAPPER_PRODUCTION("용기·포장지제조업"),
+    AMUSEMENT_BAR("유흥주점영업"),
+    KARAOKE_BAR("단란주점영업"),
+    EDIBLE_ICE_SALE("식용얼음판매업"),
+    INSTANT_SALE_PRODUCTION_PROCESSING("즉석판매제조가공업"),
+    FOOD_PRODUCTION_PROCESSING("식품제조가공업"),
+    DISTRIBUTION_SALE("유통전문판매업"),
+    OTHER_FOOD_SALE("식품판매업기타"),
+    HEALTH_FUNCTIONAL_FOOD_GENERAL_SALE("건강기능식품일반판매업"),
+    GROUP_FOOD_SERVICE_FOOD_SALE("집단급식소식품판매업"),
+    FOOD_SUBDIVISION("식품소분업"),
+    FOOD_TRANSPORT("식품운반업"),
+    FOOD_ADDITIVES_PRODUCTION("식품첨가물제조업"),
+    FOOD_REFRIGERATION("식품냉동냉장업"),
+    FOOD_VENDING_MACHINE("식품자동판매기업"),
+    POTTERY_PRODUCTION("옹기류제조업");
+
 
     private final String code;
 

@@ -94,6 +94,28 @@ public class BusinessServiceFactory {
     private final TourTheaterAmusementService tourTheaterAmusementService;
     private final TourTrackService tourTrackService;
     private final TourAccommodationService tourAccommodationService;
+    private final RestRestaurantService restRestaurantService;
+    private final GeneralRestaurantService generalRestaurantService;
+    private final BakeryService bakeryService;
+    private final ConsignmentFoodServiceService consignmentFoodServiceService;
+    private final GroupFoodServiceService groupFoodServiceService;
+    private final HealthFunctionalFoodDistributionSaleService healthFunctionalFoodDistributionSaleService;
+    private final ContainerWrapperProductionService containerWrapperProductionService;
+    private final AmusementBarService amusementBarService;
+    private final KaraokeBarService karaokeBarService;
+    private final EdibleIceSaleService edibleIceSaleService;
+    private final InstantSaleProductionProcessingService instantSaleProductionProcessingService;
+    private final FoodProductionProcessingService foodProductionProcessingService;
+    private final DistributionSaleService distributionSaleService;
+    private final OtherFoodSaleService otherFoodSaleService;
+    private final HealthFunctionalFoodGeneralSaleService healthFunctionalFoodGeneralSaleService;
+    private final GroupFoodServiceFoodSaleService groupFoodServiceFoodSaleService;
+    private final FoodSubdivisionService foodSubdivisionService;
+    private final FoodTransportService foodTransportService;
+    private final FoodAdditivesProductionService foodAdditivesProductionService;
+    private final FoodRefrigerationService foodRefrigerationService;
+    private final FoodVendingMachineService foodVendingMachineService;
+    private final PotteryProductionService potteryProductionService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -349,6 +371,72 @@ public class BusinessServiceFactory {
                 break;
             case TOUR_ACCOMMODATION:
                 businessBaseService = tourAccommodationService;
+                break;
+            case REST_RESTAURANT:
+                businessBaseService = restRestaurantService;
+                break;
+            case GENERAL_RESTAURANT:
+                businessBaseService = generalRestaurantService;
+                break;
+            case BAKERY:
+                businessBaseService = bakeryService;
+                break;
+            case CONSIGNMENT_FOOD_SERVICE:
+                businessBaseService = consignmentFoodServiceService;
+                break;
+            case GROUP_FOOD_SERVICE:
+                businessBaseService = groupFoodServiceService;
+                break;
+            case HEALTH_FUNCTIONAL_FOOD_DISTRIBUTION_SALE:
+                businessBaseService = healthFunctionalFoodDistributionSaleService;
+                break;
+            case CONTAINER_WRAPPER_PRODUCTION:
+                businessBaseService = containerWrapperProductionService;
+                break;
+            case AMUSEMENT_BAR:
+                businessBaseService = amusementBarService;
+                break;
+            case KARAOKE_BAR:
+                businessBaseService = karaokeBarService;
+                break;
+            case EDIBLE_ICE_SALE:
+                businessBaseService = edibleIceSaleService;
+                break;
+            case INSTANT_SALE_PRODUCTION_PROCESSING:
+                businessBaseService = instantSaleProductionProcessingService;
+                break;
+            case FOOD_PRODUCTION_PROCESSING:
+                businessBaseService = foodProductionProcessingService;
+                break;
+            case DISTRIBUTION_SALE:
+                businessBaseService = distributionSaleService;
+                break;
+            case OTHER_FOOD_SALE:
+                businessBaseService = otherFoodSaleService;
+                break;
+            case HEALTH_FUNCTIONAL_FOOD_GENERAL_SALE:
+                businessBaseService = healthFunctionalFoodGeneralSaleService;
+                break;
+            case GROUP_FOOD_SERVICE_FOOD_SALE:
+                businessBaseService = groupFoodServiceFoodSaleService;
+                break;
+            case FOOD_SUBDIVISION:
+                businessBaseService = foodSubdivisionService;
+                break;
+            case FOOD_TRANSPORT:
+                businessBaseService = foodTransportService;
+                break;
+            case FOOD_ADDITIVES_PRODUCTION:
+                businessBaseService = foodAdditivesProductionService;
+                break;
+            case FOOD_REFRIGERATION:
+                businessBaseService = foodRefrigerationService;
+                break;
+            case FOOD_VENDING_MACHINE:
+                businessBaseService = foodVendingMachineService;
+                break;
+            case POTTERY_PRODUCTION:
+                businessBaseService = potteryProductionService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");
