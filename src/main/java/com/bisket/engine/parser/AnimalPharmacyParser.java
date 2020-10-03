@@ -127,7 +127,7 @@ public class AnimalPharmacyParser {
                             break;
                         case 51:
                             // 업태구분명
-                            object.setBusinessCategoryClassificationName(itemValue);
+                            object.setBusinessTypeClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)

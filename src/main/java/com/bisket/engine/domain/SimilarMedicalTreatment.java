@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SimilarMedicalTreatment extends Business {
-    private String medicalOrganizationAssortmentName;
+    private String medicalOrganizationClassificationName;
     private String employeeCount;
     private String licenseHolderCount;
     private String assistantEmployeeCount;
@@ -41,7 +41,7 @@ public class SimilarMedicalTreatment extends Business {
         // 영업상태코드
         this.setBusinessStatusCode(other.getBusinessStatusCode());
         // 영업상태명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessStatusName(other.getBusinessStatusName());
         // 상세영업상태코드
         this.setDetailedBusinessStatusCode(other.getDetailedBusinessStatusCode());
         // 상세영업상태명
@@ -75,13 +75,13 @@ public class SimilarMedicalTreatment extends Business {
         // 데이터갱신일자
         this.setDataUpdateDate(other.getDataUpdateDate());
         // 업태구분명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessTypeClassificationName(other.getBusinessTypeClassificationName());
         // 좌표정보(X)
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
         // 의료기관종별명
-        this.setMedicalOrganizationAssortmentName(other.getMedicalOrganizationAssortmentName());
+        this.setMedicalOrganizationClassificationName(other.getMedicalOrganizationClassificationName());
         // 종업원수
         this.setEmployeeCount(other.getEmployeeCount());
         // 자격증소유자수

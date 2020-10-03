@@ -127,7 +127,7 @@ public class SimilarMedicalTreatmentParser {
                             break;
                         case 51:
                             // 업태구분명
-                            object.setBusinessCategoryClassificationName(itemValue);
+                            object.setBusinessTypeClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)
@@ -139,7 +139,7 @@ public class SimilarMedicalTreatmentParser {
                             break;
                         case 57:
                             // 의료기관종별명
-                            object.setMedicalOrganizationAssortmentName(itemValue);
+                            object.setMedicalOrganizationClassificationName(itemValue);
                             break;
                         case 59:
                             // 종업원수

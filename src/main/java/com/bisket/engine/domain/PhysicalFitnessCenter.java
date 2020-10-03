@@ -15,14 +15,14 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PhysicalFitnessCenter extends Business {
-    private String cultureSportsBusinessCategoryName;
+    private String cultureSportsBusinessLineName;
     private String publicPrivateClassificationName;
     private String insuranceFlag;
     private String instructorCount;
     private String buildingDongCount;
     private String annualBuildingArea;
     private String memberRecruitmentCapacity;
-    private String detailedBusinessCategoryName;
+    private String detailedBusinessLineName;
     private String corporationName;
 
     public void getAndSetIdentification(PhysicalFitnessCenter other) {
@@ -41,7 +41,7 @@ public class PhysicalFitnessCenter extends Business {
         // 영업상태코드
         this.setBusinessStatusCode(other.getBusinessStatusCode());
         // 영업상태명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessStatusName(other.getBusinessStatusName());
         // 상세영업상태코드
         this.setDetailedBusinessStatusCode(other.getDetailedBusinessStatusCode());
         // 상세영업상태명
@@ -75,13 +75,13 @@ public class PhysicalFitnessCenter extends Business {
         // 데이터갱신일자
         this.setDataUpdateDate(other.getDataUpdateDate());
         // 업태구분명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessTypeClassificationName(other.getBusinessTypeClassificationName());
         // 좌표정보(X)
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
         // 문화체육업종명
-        this.setCultureSportsBusinessCategoryName(other.getCultureSportsBusinessCategoryName());
+        this.setCultureSportsBusinessLineName(other.getCultureSportsBusinessLineName());
         // 공사립구분명
         this.setPublicPrivateClassificationName(other.getPublicPrivateClassificationName());
         // 보험가입여부코드
@@ -95,7 +95,7 @@ public class PhysicalFitnessCenter extends Business {
         // 회원모집총인원
         this.setMemberRecruitmentCapacity(other.getMemberRecruitmentCapacity());
         // 세부업종명
-        this.setDetailedBusinessCategoryName(other.getDetailedBusinessCategoryName());
+        this.setDetailedBusinessLineName(other.getDetailedBusinessLineName());
         // 법인명
         this.setCorporationName(other.getCorporationName());
     }

@@ -127,7 +127,7 @@ public class OtherFoodSaleParser {
                             break;
                         case 51:
                             // 업태구분명
-                            object.setBusinessCategoryClassificationName(itemValue);
+                            object.setBusinessTypeClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)
@@ -139,7 +139,7 @@ public class OtherFoodSaleParser {
                             break;
                         case 57:
                             // 위생업태명
-                            object.setSanitaryBusinessCategoryName(itemValue);
+                            object.setSanitaryBusinessTypeName(itemValue);
                             break;
                         case 59:
                             // 남성종사자수

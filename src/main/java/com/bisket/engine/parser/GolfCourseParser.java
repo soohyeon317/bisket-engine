@@ -127,7 +127,7 @@ public class GolfCourseParser {
                             break;
                         case 51:
                             // 업태구분명
-                            object.setBusinessCategoryClassificationName(itemValue);
+                            object.setBusinessTypeClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)
@@ -139,7 +139,7 @@ public class GolfCourseParser {
                             break;
                         case 57:
                             // 문화체육업종명
-                            object.setCultureSportsBusinessCategoryName(itemValue);
+                            object.setCultureSportsBusinessLineName(itemValue);
                             break;
                         case 59:
                             // 공사립구분명
@@ -167,7 +167,7 @@ public class GolfCourseParser {
                             break;
                         case 71:
                             // 세부업종명
-                            object.setDetailedBusinessCategoryName(itemValue);
+                            object.setDetailedBusinessLineName(itemValue);
                             break;
                         case 73:
                             // 법인명

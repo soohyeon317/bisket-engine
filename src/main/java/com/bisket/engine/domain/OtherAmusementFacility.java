@@ -16,7 +16,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OtherAmusementFacility extends Business {
-    private String cultureSportsBusinessCategoryName;
+    private String cultureSportsBusinessLineName;
     private String culturalBusinessOperatorClassificationName;
     private String regionClassificationName;
     private String buildingFloorCount;
@@ -73,7 +73,7 @@ public class OtherAmusementFacility extends Business {
         // 영업상태코드
         this.setBusinessStatusCode(other.getBusinessStatusCode());
         // 영업상태명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessStatusName(other.getBusinessStatusName());
         // 상세영업상태코드
         this.setDetailedBusinessStatusCode(other.getDetailedBusinessStatusCode());
         // 상세영업상태명
@@ -107,13 +107,13 @@ public class OtherAmusementFacility extends Business {
         // 데이터갱신일자
         this.setDataUpdateDate(other.getDataUpdateDate());
         // 업태구분명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessTypeClassificationName(other.getBusinessTypeClassificationName());
         // 좌표정보(X)
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
         // 문화체육업종명
-        this.setCultureSportsBusinessCategoryName(other.getCultureSportsBusinessCategoryName());
+        this.setCultureSportsBusinessLineName(other.getCultureSportsBusinessLineName());
         // 문화사업자구분명
         this.setCulturalBusinessOperatorClassificationName(other.getCulturalBusinessOperatorClassificationName());
         // 지역구분명

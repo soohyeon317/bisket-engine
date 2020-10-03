@@ -127,7 +127,7 @@ public class MusicRecordVideoDistributionParser {
                             break;
                         case 51:
                             // 업태구분명
-                            object.setBusinessCategoryClassificationName(itemValue);
+                            object.setBusinessTypeClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)
@@ -139,7 +139,7 @@ public class MusicRecordVideoDistributionParser {
                             break;
                         case 57:
                             // 문화체육업종명
-                            object.setCultureSportsBusinessCategoryName(itemValue);
+                            object.setCultureSportsBusinessLineName(itemValue);
                             break;
                         case 59:
                             // 문화사업자구분명
@@ -239,7 +239,7 @@ public class MusicRecordVideoDistributionParser {
                             break;
                         case 107:
                             // 기존게임업외업종명
-                            object.setOtherBusinessCategoryName(itemValue);
+                            object.setOtherBusinessLineName(itemValue);
                             break;
                         case 109:
                             // 제공게임물명

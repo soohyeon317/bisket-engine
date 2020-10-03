@@ -58,8 +58,8 @@ public class BusinessService {
                                 String fileName = xmlFileNameArray[i];
                                 Matcher businessCategoryMatcher = XML_FILE_BUSINESS_NAME_PATTERN.matcher(fileName);
                                 if (businessCategoryMatcher.find()) {
-                                    String businessCategoryName = businessCategoryMatcher.group("businessCategory");
-                                    BusinessCategory businessCategory = BusinessCategory.getByCode(businessCategoryName);
+                                    String businessLineName = businessCategoryMatcher.group("businessCategory");
+                                    BusinessCategory businessCategory = BusinessCategory.getByCode(businessLineName);
                                     String filePath = String.format("%s/%s", resourceFolderPath, fileName);
                                     // 업체업데이트히스토리 기본 정보 세팅
                                     businessUpdateHistory = new BusinessUpdateHistory();
@@ -69,8 +69,8 @@ public class BusinessService {
                                     // 업데이트 총 개수 누적
                                     updateCountSum += updateCount;
                                     // 업체업데이트히스토리 정보 저장
-                                    businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
-                                    businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
+                                    businessUpdateHistory.setBusinessCategoryName(businessLineName);
+                                    businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessLineName)).name());
                                     businessUpdateHistory.setSuccessFlag(true);
                                     businessUpdateHistory.setDataCount(updateCount);
                                     businessUpdateHistoryService.createOne(businessUpdateHistory);
@@ -86,15 +86,15 @@ public class BusinessService {
                                     if (fileName.equals(targetXmlFileName)) {
                                         Matcher businessCategoryMatcher = XML_FILE_BUSINESS_NAME_PATTERN.matcher(fileName);
                                         if (businessCategoryMatcher.find()) {
-                                            String businessCategoryName = businessCategoryMatcher.group("businessCategory");
+                                            String businessLineName = businessCategoryMatcher.group("businessCategory");
                                             String filePath = String.format("%s/%s", resourceFolderPath, fileName);
-                                            BusinessCategory businessCategory = BusinessCategory.getByCode(businessCategoryName);
+                                            BusinessCategory businessCategory = BusinessCategory.getByCode(businessLineName);
                                             BusinessBaseService businessBaseService = businessServiceFactory.getOneBusinessCategoryService(businessCategory);
                                             // 업데이트
                                             Integer updateCount = businessBaseService.updateListFromXmlFile(filePath);
                                             // 업체업데이트히스토리 저장
-                                            businessUpdateHistory.setBusinessCategoryName(businessCategoryName);
-                                            businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessCategoryName)).name());
+                                            businessUpdateHistory.setBusinessCategoryName(businessLineName);
+                                            businessUpdateHistory.setBusinessCategoryTableName(Objects.requireNonNull(BusinessCategory.getByCode(businessLineName)).name());
                                             businessUpdateHistory.setSuccessFlag(true);
                                             businessUpdateHistory.setDataCount(updateCount);
                                             businessUpdateHistoryService.createOne(businessUpdateHistory);

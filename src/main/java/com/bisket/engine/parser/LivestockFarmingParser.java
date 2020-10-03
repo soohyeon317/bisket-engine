@@ -127,7 +127,7 @@ public class LivestockFarmingParser {
                             break;
                         case 51:
                             // 업태구분명
-                            object.setBusinessCategoryClassificationName(itemValue);
+                            object.setBusinessTypeClassificationName(itemValue);
                             break;
                         case 53:
                             // 좌표정보(X)
@@ -159,7 +159,7 @@ public class LivestockFarmingParser {
                             break;
                         case 67:
                             // 주사육업종
-                            object.setMainFarmingBusinessCategory(itemValue);
+                            object.setMainFarmingBusinessLine(itemValue);
                             break;
                         default:
                             break;

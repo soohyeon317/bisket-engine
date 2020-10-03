@@ -20,7 +20,7 @@ public class LivestockFarming extends Business {
     private String livestockSerialNumber;
     private String rightSubjectSerialNumber;
     private String employeeCount;
-    private String mainFarmingBusinessCategory;
+    private String mainFarmingBusinessLine;
 
     public void getAndSetIdentification(LivestockFarming other) {
         this.setId(other.getId());
@@ -38,7 +38,7 @@ public class LivestockFarming extends Business {
         // 영업상태코드
         this.setBusinessStatusCode(other.getBusinessStatusCode());
         // 영업상태명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessStatusName(other.getBusinessStatusName());
         // 상세영업상태코드
         this.setDetailedBusinessStatusCode(other.getDetailedBusinessStatusCode());
         // 상세영업상태명
@@ -72,7 +72,7 @@ public class LivestockFarming extends Business {
         // 데이터갱신일자
         this.setDataUpdateDate(other.getDataUpdateDate());
         // 업태구분명
-        this.setBusinessCategoryClassificationName(other.getBusinessCategoryClassificationName());
+        this.setBusinessTypeClassificationName(other.getBusinessTypeClassificationName());
         // 좌표정보(X)
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
@@ -88,6 +88,6 @@ public class LivestockFarming extends Business {
         // 총종업원수
         this.setEmployeeCount(other.getEmployeeCount());
         // 주사육업종
-        this.setMainFarmingBusinessCategory(other.getMainFarmingBusinessCategory());
+        this.setMainFarmingBusinessLine(other.getMainFarmingBusinessLine());
     }
 }
