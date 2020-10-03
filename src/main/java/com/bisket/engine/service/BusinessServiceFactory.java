@@ -130,6 +130,14 @@ public class BusinessServiceFactory {
     private final MartialArtGymService martialArtGymService;
     private final PhysicalEducationGymService physicalEducationGymService;
     private final PhysicalFitnessCenterService physicalFitnessCenterService;
+    private final OtherWaterPollutantInstallationFacilityService otherWaterPollutantInstallationFacilityService;
+    private final ExcretaCollectionTransportService excretaCollectionTransportService;
+    private final LivestockExcretaCollectionTransportService livestockExcretaCollectionTransportService;
+    private final SewageTreatmentFacilityDesignConstructionService sewageTreatmentFacilityDesignConstructionService;
+    private final LivestockExcretaDischargeFacilityManagementService livestockExcretaDischargeFacilityManagementService;
+    private final AirPollutantDischargeFacilityInstallationService airPollutantDischargeFacilityInstallationService;
+    private final DischargeGasMaintenanceCheckAgencyService dischargeGasMaintenanceCheckAgencyService;
+    private final IndividualSewageTreatmentFacilityManagementService individualSewageTreatmentFacilityManagementService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -493,6 +501,30 @@ public class BusinessServiceFactory {
                 break;
             case PHYSICAL_FITNESS_CENTER:
                 businessBaseService = physicalFitnessCenterService;
+                break;
+            case OTHER_WATER_POLLUTANT_INSTALLATION_FACILITY:
+                businessBaseService = otherWaterPollutantInstallationFacilityService;
+                break;
+            case EXCRETA_COLLECTION_TRANSPORT:
+                businessBaseService = excretaCollectionTransportService;
+                break;
+            case LIVESTOCK_EXCRETA_COLLECTION_TRANSPORT:
+                businessBaseService = livestockExcretaCollectionTransportService;
+                break;
+            case SEWAGE_TREATMENT_FACILITY_DESIGN_CONSTRUCTION:
+                businessBaseService = sewageTreatmentFacilityDesignConstructionService;
+                break;
+            case LIVESTOCK_EXCRETA_DISCHARGE_FACILITY_MANAGEMENT:
+                businessBaseService = livestockExcretaDischargeFacilityManagementService;
+                break;
+            case AIR_POLLUTANT_DISCHARGE_FACILITY_INSTALLATION:
+                businessBaseService = airPollutantDischargeFacilityInstallationService;
+                break;
+            case DISCHARGE_GAS_MAINTENANCE_CHECK_AGENCY:
+                businessBaseService = dischargeGasMaintenanceCheckAgencyService;
+                break;
+            case INDIVIDUAL_SEWAGE_TREATMENT_FACILITY_MANAGEMENT:
+                businessBaseService = individualSewageTreatmentFacilityManagementService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");
