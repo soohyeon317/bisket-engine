@@ -138,6 +138,12 @@ public class BusinessServiceFactory {
     private final AirPollutantDischargeFacilityInstallationService airPollutantDischargeFacilityInstallationService;
     private final DischargeGasMaintenanceCheckAgencyService dischargeGasMaintenanceCheckAgencyService;
     private final IndividualSewageTreatmentFacilityManagementService individualSewageTreatmentFacilityManagementService;
+    private final HaircuttingService haircuttingService;
+    private final LaundryService laundryService;
+    private final BuildingSanitationService buildingSanitationService;
+    private final AccommodationService accommodationService;
+    private final BeautyService beautyService;
+    private final BathhouseService bathhouseService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -525,6 +531,24 @@ public class BusinessServiceFactory {
                 break;
             case INDIVIDUAL_SEWAGE_TREATMENT_FACILITY_MANAGEMENT:
                 businessBaseService = individualSewageTreatmentFacilityManagementService;
+                break;
+            case HAIRCUTTING:
+                businessBaseService = haircuttingService;
+                break;
+            case LAUNDRY:
+                businessBaseService = laundryService;
+                break;
+            case BUILDING_SANITATION:
+                businessBaseService = buildingSanitationService;
+                break;
+            case ACCOMMODATION:
+                businessBaseService = accommodationService;
+                break;
+            case BEAUTY:
+                businessBaseService = beautyService;
+                break;
+            case BATHHOUSE:
+                businessBaseService = bathhouseService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");

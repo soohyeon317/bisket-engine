@@ -195,7 +195,7 @@ public class MedicalCorporationParser {
                             break;
                         case 85:
                             // 허가병상수
-                            object.setAllowedSickbedCount(itemValue);
+                            object.setApprovedSickbedCount(itemValue);
                             break;
                         case 87:
                             // 최초지정일자

@@ -128,7 +128,13 @@ public enum BusinessCategory {
     LIVESTOCK_EXCRETA_DISCHARGE_FACILITY_MANAGEMENT("가축분뇨배출시설관리업사업장"),
     AIR_POLLUTANT_DISCHARGE_FACILITY_INSTALLATION("대기오염물질배출시설설치사업장"),
     DISCHARGE_GAS_MAINTENANCE_CHECK_AGENCY("배출가스전문정비사업자확인검사대행자"),
-    INDIVIDUAL_SEWAGE_TREATMENT_FACILITY_MANAGEMENT("개인하수처리시설관리업사업장");
+    INDIVIDUAL_SEWAGE_TREATMENT_FACILITY_MANAGEMENT("개인하수처리시설관리업사업장"),
+    HAIRCUTTING("이용업"),
+    LAUNDRY("세탁업"),
+    BUILDING_SANITATION("건물위생관리업"),
+    ACCOMMODATION("숙박업"),
+    BEAUTY("미용업"),
+    BATHHOUSE("목욕장업");
 
     private final String code;
 

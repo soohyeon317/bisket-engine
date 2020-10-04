@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.AffiliatedMedicalOrganization;
+import com.bisket.engine.domain.Accommodation;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class AffiliatedMedicalOrganizationParser {
+public class AccommodationParser {
 
-    public static List<AffiliatedMedicalOrganization> getListFromXml(Document xml) {
-        List<AffiliatedMedicalOrganization> objectList = new ArrayList<>();
+    public static List<Accommodation> getListFromXml(Document xml) {
+        List<Accommodation> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class AffiliatedMedicalOrganizationParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            AffiliatedMedicalOrganization object = new AffiliatedMedicalOrganization();
+            Accommodation object = new Accommodation();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,68 +138,92 @@ public class AffiliatedMedicalOrganizationParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 의료기관종별명
-                            object.setMedicalOrganizationClassificationName(itemValue);
+                            // 위생업태명
+                            object.setSanitationBusinessTypeName(itemValue);
                             break;
                         case 59:
-                            // 의료인수
-                            object.setMedicalPersonnelCount(itemValue);
+                            // 건물지상층수
+                            object.setGroundFloorCount(itemValue);
                             break;
                         case 61:
-                            // 입원실수
-                            object.setHospitalRoomCount(itemValue);
+                            // 건물지하층수
+                            object.setBasementFloorCount(itemValue);
                             break;
                         case 63:
-                            // 병상수
-                            object.setSickbedCount(itemValue);
+                            // 사용시작지상층
+                            object.setUseStartGroundFloor(itemValue);
                             break;
                         case 65:
-                            // 총면적
-                            object.setTotalArea(itemValue);
+                            // 사용끝지상층
+                            object.setUseEndGroundFloor(itemValue);
                             break;
                         case 67:
-                            // 진료과목내용
-                            object.setTreatmentSubjectContent(itemValue);
+                            // 사용시작지하층
+                            object.setUseStartBasementFloor(itemValue);
                             break;
                         case 69:
-                            // 진료과목내용명
-                            object.setTreatmentSubjectContentName(itemValue);
+                            // 사용끝지하층
+                            object.setUseEndBasementFloor(itemValue);
                             break;
                         case 71:
-                            // 지정취소일자
-                            object.setAppointmentCancelDate(itemValue);
+                            // 한실수
+                            object.setKoreanStyleRoomCount(itemValue);
                             break;
                         case 73:
-                            // 완화의료지정형태
-                            object.setPalliativeMedicineAppointmentType(itemValue);
+                            // 양실수
+                            object.setWesternStyleRoomCount(itemValue);
                             break;
                         case 75:
-                            // 완화의료담당부서명
-                            object.setPalliativeMedicineDepartmentName(itemValue);
+                            // 욕실수
+                            object.setBathRoomCount(itemValue);
                             break;
                         case 77:
-                            // 구급차특수
-                            object.setSpecialAmbulanceCount(itemValue);
+                            // 발한실여부
+                            object.setSweatingRoomFlag(itemValue);
                             break;
                         case 79:
-                            // 구급차일반
-                            object.setGeneralAmbulanceCount(itemValue);
+                            // 좌석수
+                            object.setSeatingCapacity(itemValue);
                             break;
                         case 81:
-                            // 총인원
-                            object.setEmployeeCount(itemValue);
+                            // 조건부허가신고사유
+                            object.setConditionalApprovalRegistrationReason(itemValue);
                             break;
                         case 83:
-                            // 구조사수
-                            object.setParamedicCount(itemValue);
+                            // 조건부허가시작일자
+                            object.setConditionalApprovalStartDate(itemValue);
                             break;
                         case 85:
-                            // 허가병상수
-                            object.setApprovedSickbedCount(itemValue);
+                            // 조건부허가종료일자
+                            object.setConditionalApprovalEndDate(itemValue);
                             break;
                         case 87:
-                            // 최초지정일자
-                            object.setFirstAppointmentDate(itemValue);
+                            // 건물소유구분명
+                            object.setBuildingPossessionClassificationName(itemValue);
+                            break;
+                        case 89:
+                            // 세탁기수
+                            object.setWashingMachineCount(itemValue);
+                            break;
+                        case 91:
+                            // 여성종사자수
+                            object.setFemaleWorkerCount(itemValue);
+                            break;
+                        case 93:
+                            // 남성종사자수
+                            object.setMaleWorkerCount(itemValue);
+                            break;
+                        case 95:
+                            // 회수건조수
+                            object.setRecoveringDryerCount(itemValue);
+                            break;
+                        case 97:
+                            // 침대수
+                            object.setBedCount(itemValue);
+                            break;
+                        case 99:
+                            // 다중이용업소여부
+                            object.setPubliclyUsedBusinessPlaceFlag(itemValue);
                             break;
                         default:
                             break;

@@ -32,7 +32,7 @@ public class Clinic extends Business {
     private String generalAmbulanceCount;
     private String employeeCount;
     private String paramedicCount;
-    private String allowedSickbedCount;
+    private String approvedSickbedCount;
     private String firstAppointmentDate;
 
     public void getAndSetIdentification(Clinic other) {
@@ -119,7 +119,7 @@ public class Clinic extends Business {
         // 구조사수
         this.setParamedicCount(other.getParamedicCount());
         // 허가병상수
-        this.setAllowedSickbedCount(other.getAllowedSickbedCount());
+        this.setApprovedSickbedCount(other.getApprovedSickbedCount());
         // 최초지정일자
         this.setFirstAppointmentDate(other.getFirstAppointmentDate());
     }
