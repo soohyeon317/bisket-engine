@@ -134,7 +134,11 @@ public enum BusinessCategory {
     BUILDING_SANITATION("건물위생관리업"),
     ACCOMMODATION("숙박업"),
     BEAUTY("미용업"),
-    BATHHOUSE("목욕장업");
+    BATHHOUSE("목욕장업"),
+    ENVIRONMENTAL_CONSULTING("환경컨설팅회사"),
+    ENVIRONMENTAL_MEASUREMENT_AGENCY("환경측정대행업"),
+    ENVIRONMENTAL_MANAGEMENT_AGENCY("환경관리대행기관"),
+    ENVIRONMENTAL_CONSTRUCTION("환경전문공사업");
 
     private final String code;
 
