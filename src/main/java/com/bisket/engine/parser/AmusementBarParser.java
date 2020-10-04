@@ -139,7 +139,7 @@ public class AmusementBarParser {
                             break;
                         case 57:
                             // 위생업태명
-                            object.setSanitaryBusinessTypeName(itemValue);
+                            object.setSanitationBusinessTypeName(itemValue);
                             break;
                         case 59:
                             // 남성종사자수

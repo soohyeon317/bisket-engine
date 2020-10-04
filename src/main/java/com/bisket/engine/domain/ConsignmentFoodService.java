@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ConsignmentFoodService extends Business {
-    private String sanitaryBusinessTypeName;
+    private String sanitationBusinessTypeName;
     private String maleWorkerCount;
     private String femaleWorkerCount;
     private String businessPlaceEnvironmentClassificationName;
@@ -91,7 +91,7 @@ public class ConsignmentFoodService extends Business {
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
         // 위생업태명
-        this.setSanitaryBusinessTypeName(other.getSanitaryBusinessTypeName());
+        this.setSanitationBusinessTypeName(other.getSanitationBusinessTypeName());
         // 남성종사자수
         this.setMaleWorkerCount(other.getMaleWorkerCount());
         // 여성종사자수
