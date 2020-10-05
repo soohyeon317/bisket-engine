@@ -10,32 +10,24 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("liquefied_petroleum_gas_appliance_production")
+@DiscriminatorValue("general_city_gas")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LiquefiedPetroleumGasApplianceProduction extends Business {
-    private String storageFacilityLocation;
-    private String containerStoreroomArea;
-    private String garageArea;
-    private String officeArea;
-    private String plumbingInstallationPlace;
-    private String lengthChangeContent;
-    private String handlingGasCapacity;
-    private String gasApplianceKindName;
-    private String facilityName;
+public class GeneralCityGas extends Business {
+    private String plumbingLength;
     @Column(columnDefinition = "TEXT")
-    private String itemSpecification;
-    private String exemptionRange;
+    private String supplyRuleContent;
+    private String gasKindName;
 
-    public void getAndSetIdentification(LiquefiedPetroleumGasApplianceProduction other) {
+    public void getAndSetIdentification(GeneralCityGas other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(LiquefiedPetroleumGasApplianceProduction other) {
+    public void update(GeneralCityGas other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자
@@ -84,27 +76,11 @@ public class LiquefiedPetroleumGasApplianceProduction extends Business {
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
-        // 저장설비위치
-        this.setStorageFacilityLocation(other.getStorageFacilityLocation());
-        // 용기저장실면적
-        this.setContainerStoreroomArea(other.getContainerStoreroomArea());
-        // 차고지면적
-        this.setGarageArea(other.getGarageArea());
-        // 사무실면적
-        this.setOfficeArea(other.getOfficeArea());
-        // 배관설치장소
-        this.setPlumbingInstallationPlace(other.getPlumbingInstallationPlace());
-        // 길이변경내용
-        this.setLengthChangeContent(other.getLengthChangeContent());
-        // 취급가스용량
-        this.setHandlingGasCapacity(other.getHandlingGasCapacity());
-        // 가스용품종류명
-        this.setGasApplianceKindName(other.getGasApplianceKindName());
-        // 설비명
-        this.setFacilityName(other.getFacilityName());
-        // 물품규격
-        this.setItemSpecification(other.getItemSpecification());
-        // 면제범위
-        this.setExemptionRange(other.getExemptionRange());
+        // 배관길이
+        this.setPlumbingLength(other.getPlumbingLength());
+        // 공급규정내용
+        this.setSupplyRuleContent(other.getSupplyRuleContent());
+        // 가스종류명
+        this.setGasKindName(other.getGasKindName());
     }
 }

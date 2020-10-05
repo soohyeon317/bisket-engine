@@ -148,7 +148,8 @@ public enum BusinessCategory {
     METER_REPAIR("계량기수리업"),
     HIGH_PRESSURE_GAS("고압가스업"),
     COAL_BRIQUETTE_PRODUCTION("석연탄제조업"),
-    LIQUEFIED_PETROLEUM_GAS_APPLIANCE_PRODUCTION("액화석유가스용품제조업체");
+    LIQUEFIED_PETROLEUM_GAS_APPLIANCE_PRODUCTION("액화석유가스용품제조업체"),
+    GENERAL_CITY_GAS("일반도시가스업체");
 
     private final String code;
 
