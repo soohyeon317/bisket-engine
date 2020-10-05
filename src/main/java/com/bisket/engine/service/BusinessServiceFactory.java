@@ -148,6 +148,9 @@ public class BusinessServiceFactory {
     private final EnvironmentalMeasurementAgencyService environmentalMeasurementAgencyService;
     private final EnvironmentalManagementAgencyService environmentalManagementAgencyService;
     private final EnvironmentalConstructionService environmentalConstructionService;
+    private final TimberImportDistributionService timberImportDistributionService;
+    private final LumberingService lumberingService;
+    private final HardwoodProductionService hardwoodProductionService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -565,6 +568,15 @@ public class BusinessServiceFactory {
                 break;
             case ENVIRONMENTAL_CONSTRUCTION:
                 businessBaseService = environmentalConstructionService;
+                break;
+            case TIMBER_IMPORT_DISTRIBUTION:
+                businessBaseService = timberImportDistributionService;
+                break;
+            case LUMBERING:
+                businessBaseService = lumberingService;
+                break;
+            case HARDWOOD_PRODUCTION:
+                businessBaseService = hardwoodProductionService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");

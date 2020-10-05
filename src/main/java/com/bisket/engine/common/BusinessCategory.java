@@ -138,7 +138,10 @@ public enum BusinessCategory {
     ENVIRONMENTAL_CONSULTING("환경컨설팅회사"),
     ENVIRONMENTAL_MEASUREMENT_AGENCY("환경측정대행업"),
     ENVIRONMENTAL_MANAGEMENT_AGENCY("환경관리대행기관"),
-    ENVIRONMENTAL_CONSTRUCTION("환경전문공사업");
+    ENVIRONMENTAL_CONSTRUCTION("환경전문공사업"),
+    TIMBER_IMPORT_DISTRIBUTION("목재수입유통업"),
+    LUMBERING("제재업"),
+    HARDWOOD_PRODUCTION("원목생산업");
 
     private final String code;
 
