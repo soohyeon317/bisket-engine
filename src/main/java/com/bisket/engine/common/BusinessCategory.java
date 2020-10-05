@@ -145,7 +145,8 @@ public enum BusinessCategory {
     METER_VERIFICATION("계량기증명업"),
     METER_PRODUCTION("계량기제조업"),
     METER_IMPORT("계량기수입업"),
-    METER_REPAIR("계량기수리업");
+    METER_REPAIR("계량기수리업"),
+    HIGH_PRESSURE_GAS("고압가스업");
 
     private final String code;
 
