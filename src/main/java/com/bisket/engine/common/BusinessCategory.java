@@ -149,7 +149,8 @@ public enum BusinessCategory {
     HIGH_PRESSURE_GAS("고압가스업"),
     COAL_BRIQUETTE_PRODUCTION("석연탄제조업"),
     LIQUEFIED_PETROLEUM_GAS_APPLIANCE_PRODUCTION("액화석유가스용품제조업체"),
-    GENERAL_CITY_GAS("일반도시가스업체");
+    GENERAL_CITY_GAS("일반도시가스업체"),
+    MUTUAL_AID("상조업");
 
     private final String code;
 

@@ -159,6 +159,7 @@ public class BusinessServiceFactory {
     private final CoalBriquetteProductionService coalBriquetteProductionService;
     private final LiquefiedPetroleumGasApplianceProductionService liquefiedPetroleumGasApplianceProductionService;
     private final GeneralCityGasService generalCityGasService;
+    private final MutualAidService mutualAidService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -609,6 +610,9 @@ public class BusinessServiceFactory {
                 break;
             case GENERAL_CITY_GAS:
                 businessBaseService = generalCityGasService;
+                break;
+            case MUTUAL_AID:
+                businessBaseService = mutualAidService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");
