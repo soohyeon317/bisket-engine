@@ -141,7 +141,11 @@ public enum BusinessCategory {
     ENVIRONMENTAL_CONSTRUCTION("환경전문공사업"),
     TIMBER_IMPORT_DISTRIBUTION("목재수입유통업"),
     LUMBERING("제재업"),
-    HARDWOOD_PRODUCTION("원목생산업");
+    HARDWOOD_PRODUCTION("원목생산업"),
+    METER_VERIFICATION("계량기증명업"),
+    METER_PRODUCTION("계량기제조업"),
+    METER_IMPORT("계량기수입업"),
+    METER_REPAIR("계량기수리업");
 
     private final String code;
 

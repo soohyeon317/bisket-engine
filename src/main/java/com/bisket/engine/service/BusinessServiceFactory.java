@@ -151,6 +151,10 @@ public class BusinessServiceFactory {
     private final TimberImportDistributionService timberImportDistributionService;
     private final LumberingService lumberingService;
     private final HardwoodProductionService hardwoodProductionService;
+    private final MeterVerificationService meterVerificationService;
+    private final MeterProductionService meterProductionService;
+    private final MeterImportService meterImportService;
+    private final MeterRepairService meterRepairService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -577,6 +581,18 @@ public class BusinessServiceFactory {
                 break;
             case HARDWOOD_PRODUCTION:
                 businessBaseService = hardwoodProductionService;
+                break;
+            case METER_VERIFICATION:
+                businessBaseService = meterVerificationService;
+                break;
+            case METER_PRODUCTION:
+                businessBaseService = meterProductionService;
+                break;
+            case METER_IMPORT:
+                businessBaseService = meterImportService;
+                break;
+            case METER_REPAIR:
+                businessBaseService = meterRepairService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");
