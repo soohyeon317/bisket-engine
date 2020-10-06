@@ -152,7 +152,8 @@ public enum BusinessCategory {
     GENERAL_CITY_GAS("일반도시가스업체"),
     MUTUAL_AID("상조업"),
     ELECTRIC_TECHNOLOGY_SUPERVISION("전력기술감리업체"),
-    ELECTRIC_TECHNOLOGY_DESIGN("전력기술설계업체");
+    ELECTRIC_TECHNOLOGY_DESIGN("전력기술설계업체"),
+    SPECIFIC_PRESSURE_GAS("특정고압가스업");
 
     private final String code;
 
