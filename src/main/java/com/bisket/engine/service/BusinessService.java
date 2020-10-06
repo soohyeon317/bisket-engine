@@ -124,9 +124,9 @@ public class BusinessService {
             }
             // TODO: 업데이트 오류 알림 구현
         }
-        // TODO: 업데이트 완료 알림 구현
+        // TODO: 업데이트 작업 종료 알림 구현
 
-        log.info("=======업체 업데이트 완료=======");
+        log.info("=======업체 업데이트 작업 종료=======");
 
         return updateCountSum;
     }
