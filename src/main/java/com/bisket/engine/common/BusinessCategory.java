@@ -150,7 +150,9 @@ public enum BusinessCategory {
     COAL_BRIQUETTE_PRODUCTION("석연탄제조업"),
     LIQUEFIED_PETROLEUM_GAS_APPLIANCE_PRODUCTION("액화석유가스용품제조업체"),
     GENERAL_CITY_GAS("일반도시가스업체"),
-    MUTUAL_AID("상조업");
+    MUTUAL_AID("상조업"),
+    ELECTRIC_TECHNOLOGY_SUPERVISION("전력기술감리업체"),
+    ELECTRIC_TECHNOLOGY_DESIGN("전력기술설계업체");
 
     private final String code;
 
