@@ -163,6 +163,9 @@ public class BusinessServiceFactory {
     private final ElectricTechnologySupervisionService electricTechnologySupervisionService;
     private final ElectricTechnologyDesignService electricTechnologyDesignService;
     private final SpecificPressureGasService specificPressureGasService;
+    private final UndergroundWaterConstructionService undergroundWaterConstructionService;
+    private final UndergroundWaterPurificationService undergroundWaterPurificationService;
+    private final UndergroundWaterImpactAssessmentOrganizationService undergroundWaterImpactAssessmentOrganizationService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -625,6 +628,15 @@ public class BusinessServiceFactory {
                 break;
             case SPECIFIC_PRESSURE_GAS:
                 businessBaseService = specificPressureGasService;
+                break;
+            case UNDERGROUND_WATER_CONSTRUCTION:
+                businessBaseService = undergroundWaterConstructionService;
+                break;
+            case UNDERGROUND_WATER_PURIFICATION:
+                businessBaseService = undergroundWaterPurificationService;
+                break;
+            case UNDERGROUND_WATER_IMPACT_ASSESSMENT_ORGANIZATION:
+                businessBaseService = undergroundWaterImpactAssessmentOrganizationService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");

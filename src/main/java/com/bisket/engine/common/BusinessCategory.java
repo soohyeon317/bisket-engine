@@ -153,7 +153,10 @@ public enum BusinessCategory {
     MUTUAL_AID("상조업"),
     ELECTRIC_TECHNOLOGY_SUPERVISION("전력기술감리업체"),
     ELECTRIC_TECHNOLOGY_DESIGN("전력기술설계업체"),
-    SPECIFIC_PRESSURE_GAS("특정고압가스업");
+    SPECIFIC_PRESSURE_GAS("특정고압가스업"),
+    UNDERGROUND_WATER_CONSTRUCTION("지하수시공업체"),
+    UNDERGROUND_WATER_PURIFICATION("지하수정화업체"),
+    UNDERGROUND_WATER_IMPACT_ASSESSMENT_ORGANIZATION("지하수영향조사기관");
 
     private final String code;
 
