@@ -158,7 +158,8 @@ public enum BusinessCategory {
     UNDERGROUND_WATER_PURIFICATION("지하수정화업체"),
     UNDERGROUND_WATER_IMPACT_ASSESSMENT_ORGANIZATION("지하수영향조사기관"),
     TRADITIONAL_TEMPLE("전통사찰"),
-    CONTAINER_FREEZER_SPECIFIC_FACILITY("용기냉동기특정설비");
+    CONTAINER_FREEZER_SPECIFIC_FACILITY("용기냉동기특정설비"),
+    WATER_SUPPLY_CONSTRUCTION_AGENCY("급수공사대행업");
 
     private final String code;
 
