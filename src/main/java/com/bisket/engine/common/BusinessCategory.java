@@ -160,7 +160,8 @@ public enum BusinessCategory {
     TRADITIONAL_TEMPLE("전통사찰"),
     CONTAINER_FREEZER_SPECIFIC_FACILITY("용기냉동기특정설비"),
     WATER_SUPPLY_CONSTRUCTION_AGENCY("급수공사대행업"),
-    DISINFECTION("소독업");
+    DISINFECTION("소독업"),
+    BIG_SCALE_STORE("대규모점포");
 
     private final String code;
 
