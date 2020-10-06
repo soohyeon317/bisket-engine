@@ -175,7 +175,7 @@ public class LiquefiedPetroleumGasApplianceProductionParser {
                             break;
                         case 75:
                             // 물품규격
-                            object.setItemSpecification(itemValue);
+                            object.setItemStandard(itemValue);
                             break;
                         case 77:
                             // 면제범위

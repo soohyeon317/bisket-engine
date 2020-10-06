@@ -26,7 +26,7 @@ public class LiquefiedPetroleumGasApplianceProduction extends Business {
     private String gasApplianceKindName;
     private String facilityName;
     @Column(columnDefinition = "TEXT")
-    private String itemSpecification;
+    private String itemStandard;
     private String exemptionRange;
 
     public void getAndSetIdentification(LiquefiedPetroleumGasApplianceProduction other) {
@@ -103,7 +103,7 @@ public class LiquefiedPetroleumGasApplianceProduction extends Business {
         // 설비명
         this.setFacilityName(other.getFacilityName());
         // 물품규격
-        this.setItemSpecification(other.getItemSpecification());
+        this.setItemStandard(other.getItemStandard());
         // 면제범위
         this.setExemptionRange(other.getExemptionRange());
     }
