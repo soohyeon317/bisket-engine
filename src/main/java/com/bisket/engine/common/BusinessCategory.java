@@ -165,7 +165,9 @@ public enum BusinessCategory {
     OVERALL_SPORTS_FACILITY("종합체육시설업"),
     STANDARD_PLASTIC_GARBAGE_BAG_SALE("쓰레기종량제봉투판매업"),
     WATER_STORAGE_TANK_CLEANING("저수조청소업"),
-    CONSTRUCTION_WASTE_TREATMENT("건설폐기물처리업");
+    CONSTRUCTION_WASTE_TREATMENT("건설폐기물처리업"),
+    CULTURE_ARTS_CORPORATION("문화예술법인"),
+    MUSEUM_ART_GALLERY("박물관,미술관");
 
     private final String code;
 
