@@ -162,7 +162,8 @@ public enum BusinessCategory {
     WATER_SUPPLY_CONSTRUCTION_AGENCY("급수공사대행업"),
     DISINFECTION("소독업"),
     BIG_SCALE_STORE("대규모점포"),
-    OVERALL_SPORTS_FACILITY("종합체육시설업");
+    OVERALL_SPORTS_FACILITY("종합체육시설업"),
+    STANDARD_PLASTIC_GARBAGE_BAG_SALE("쓰레기종량제봉투판매업");
 
     private final String code;
 
