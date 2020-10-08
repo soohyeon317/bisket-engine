@@ -759,7 +759,7 @@ public class BusinessServiceFactory {
             case SPONSORED_DOOR_TO_DOOR_SALE:
                 businessBaseService = sponsoredDoorToDoorSaleService;
                 break;
-            case LOCAL_CULTURAL_CENTER:
+            case LOCAL_CULTURE_CENTER:
                 businessBaseService = localCultureCenterService;
                 break;
             default:

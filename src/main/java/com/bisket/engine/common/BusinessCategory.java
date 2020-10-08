@@ -187,7 +187,7 @@ public enum BusinessCategory {
     TELEMARKETING("통신판매업"),
     MULTILEVEL_SALE("다단계판매업체"),
     SPONSORED_DOOR_TO_DOOR_SALE("후원방문판매업체"),
-    LOCAL_CULTURAL_CENTER("지방문화원");
+    LOCAL_CULTURE_CENTER("지방문화원");
 
     private final String code;
 
