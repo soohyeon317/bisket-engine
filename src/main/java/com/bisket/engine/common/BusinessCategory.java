@@ -170,7 +170,8 @@ public enum BusinessCategory {
     MUSEUM_ART_GALLERY("박물관,미술관"),
     TOBACCO_IMPORT_SALE("담배수입판매업체"),
     TOBACCO_WHOLESALE("담배도매업"),
-    TOBACCO_RETAIL("담배소매업");
+    TOBACCO_RETAIL("담배소매업"),
+    INTERNATIONAL_LOGISTICS_BROKERAGE("물류주선업국제");
 
     private final String code;
 
