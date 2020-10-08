@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.MeatPackagingProcessing;
+import com.bisket.engine.domain.OutdoorAdvertising;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class MeatPackagingProcessingParser {
+public class OutdoorAdvertisingParser {
 
-    public static List<MeatPackagingProcessing> getListFromXml(Document xml) {
-        List<MeatPackagingProcessing> objectList = new ArrayList<>();
+    public static List<OutdoorAdvertising> getListFromXml(Document xml) {
+        List<OutdoorAdvertising> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class MeatPackagingProcessingParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            MeatPackagingProcessing object = new MeatPackagingProcessing();
+            OutdoorAdvertising object = new OutdoorAdvertising();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,24 +138,8 @@ public class MeatPackagingProcessingParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 축산업무구분명
-                            object.setLivestockJobClassificationName(itemValue);
-                            break;
-                        case 59:
-                            // 축산물가공업구분명
-                            object.setLivestockProductProcessingBusinessClassificationName(itemValue);
-                            break;
-                        case 61:
-                            // 축산일련번호
-                            object.setLivestockSerialNumber(itemValue);
-                            break;
-                        case 63:
-                            // 권리주체일련번호
-                            object.setRightSubjectSerialNumber(itemValue);
-                            break;
-                        case 65:
-                            // 총종업원수
-                            object.setEmployeeCount(itemValue);
+                            // 영업내용
+                            object.setBusinessContent(itemValue);
                             break;
                         default:
                             break;

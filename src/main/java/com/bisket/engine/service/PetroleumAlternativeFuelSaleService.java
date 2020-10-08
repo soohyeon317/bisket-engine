@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MeatPackagingProcessing;
-import com.bisket.engine.parser.MeatPackagingProcessingParser;
-import com.bisket.engine.repository.MeatPackagingProcessingRepository;
+import com.bisket.engine.domain.PetroleumAlternativeFuelSale;
+import com.bisket.engine.parser.PetroleumAlternativeFuelSaleParser;
+import com.bisket.engine.repository.PetroleumAlternativeFuelSaleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class MeatPackagingProcessingService implements BusinessBaseService {
-    private final MeatPackagingProcessingRepository meatPackagingProcessingRepository;
+public class PetroleumAlternativeFuelSaleService implements BusinessBaseService {
+    private final PetroleumAlternativeFuelSaleRepository petroleumAlternativeFuelSaleRepository;
 
-    public MeatPackagingProcessingService(MeatPackagingProcessingRepository meatPackagingProcessingRepository) {
-        this.meatPackagingProcessingRepository = meatPackagingProcessingRepository;
+    public PetroleumAlternativeFuelSaleService(PetroleumAlternativeFuelSaleRepository petroleumAlternativeFuelSaleRepository) {
+        this.petroleumAlternativeFuelSaleRepository = petroleumAlternativeFuelSaleRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class MeatPackagingProcessingService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<MeatPackagingProcessing> parsedList = MeatPackagingProcessingParser.getListFromXml(xml);
+        List<PetroleumAlternativeFuelSale> parsedList = PetroleumAlternativeFuelSaleParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, MeatPackagingProcessing> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<MeatPackagingProcessing> foundList = meatPackagingProcessingRepository.findAll();
+            Map<String, PetroleumAlternativeFuelSale> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<PetroleumAlternativeFuelSale> foundList = petroleumAlternativeFuelSaleRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (MeatPackagingProcessing found : foundList) {
+                for (PetroleumAlternativeFuelSale found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class MeatPackagingProcessingService implements BusinessBaseService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                MeatPackagingProcessing parsed = parsedList.get(i);
+                PetroleumAlternativeFuelSale parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class MeatPackagingProcessingService implements BusinessBaseService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    MeatPackagingProcessing found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    PetroleumAlternativeFuelSale found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    meatPackagingProcessingRepository.save(parsed);
+                    petroleumAlternativeFuelSaleRepository.save(parsed);
                 }
             }
         }

@@ -5,29 +5,28 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("meat_packaging_processing")
+@DiscriminatorValue("petroleum_alternative_fuel_sale")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MeatPackagingProcessing extends Business {
-    private String livestockJobClassificationName;
-    private String livestockProductProcessingBusinessClassificationName;
-    private String livestockSerialNumber;
-    private String rightSubjectSerialNumber;
-    private String employeeCount;
+public class PetroleumAlternativeFuelSale extends Business {
+    private String capital;
+    @Column(columnDefinition = "TEXT")
+    private String customer;
 
-    public void getAndSetIdentification(MeatPackagingProcessing other) {
+    public void getAndSetIdentification(PetroleumAlternativeFuelSale other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(MeatPackagingProcessing other) {
+    public void update(PetroleumAlternativeFuelSale other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자
@@ -76,15 +75,9 @@ public class MeatPackagingProcessing extends Business {
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
-        // 축산업무구분명
-        this.setLivestockJobClassificationName(other.getLivestockJobClassificationName());
-        // 축산물가공업구분명
-        this.setLivestockProductProcessingBusinessClassificationName(other.getLivestockProductProcessingBusinessClassificationName());
-        // 축산일련번호
-        this.setLivestockSerialNumber(other.getLivestockSerialNumber());
-        // 권리주체일련번호
-        this.setRightSubjectSerialNumber(other.getRightSubjectSerialNumber());
-        // 총종업원수
-        this.setEmployeeCount(other.getEmployeeCount());
+        // 자본금
+        this.setCapital(other.getCapital());
+        // 거래처
+        this.setCustomer(other.getCapital());
     }
 }

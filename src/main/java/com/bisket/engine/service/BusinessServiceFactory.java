@@ -40,7 +40,7 @@ public class BusinessServiceFactory {
     private final LivestockSaleService livestockSaleService;
     private final LivestockProcessingService livestockProcessingService;
     private final AnimalMedicineWholesaleStoreService animalMedicineWholesaleStoreService;
-    private final MeatPackagingProcessingService meatPackagingProcessingService;
+    private final MeatPackagingService meatPackagingService;
     private final LivestockFarmingService livestockFarmingService;
     private final CompositeVideoServiceService compositeVideoServiceService;
     private final GameDistributionService gameDistributionService;
@@ -197,6 +197,9 @@ public class BusinessServiceFactory {
     private final MultilevelSaleService multilevelSaleService;
     private final SponsoredDoorToDoorSaleService sponsoredDoorToDoorSaleService;
     private final LocalCultureCenterService localCultureCenterService;
+    private final OutdoorAdvertisingService outdoorAdvertisingService;
+    private final PetroleumSaleService petroleumSaleService;
+    private final PetroleumAlternativeFuelSaleService petroleumAlternativeFuelSaleService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -291,8 +294,8 @@ public class BusinessServiceFactory {
             case ANIMAL_MEDICINE_WHOLESALE_STORE:
                 businessBaseService = animalMedicineWholesaleStoreService;
                 break;
-            case MEAT_PACKAGING_PROCESSING:
-                businessBaseService = meatPackagingProcessingService;
+            case MEAT_PACKAGING:
+                businessBaseService = meatPackagingService;
                 break;
             case LIVESTOCK_FARMING:
                 businessBaseService = livestockFarmingService;
@@ -761,6 +764,15 @@ public class BusinessServiceFactory {
                 break;
             case LOCAL_CULTURE_CENTER:
                 businessBaseService = localCultureCenterService;
+                break;
+            case OUTDOOR_ADVERTISING:
+                businessBaseService = outdoorAdvertisingService;
+                break;
+            case PETROLEUM_SALE:
+                businessBaseService = petroleumSaleService;
+                break;
+            case PETROLEUM_ALTERNATIVE_FUEL_SALE:
+                businessBaseService = petroleumAlternativeFuelSaleService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");

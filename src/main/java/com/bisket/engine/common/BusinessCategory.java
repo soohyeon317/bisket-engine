@@ -31,7 +31,7 @@ public enum BusinessCategory {
     LIVESTOCK_SALE("축산판매업"),
     LIVESTOCK_PROCESSING("축산가공업"),
     ANIMAL_MEDICINE_WHOLESALE_STORE("동물용의약품도매상"),
-    MEAT_PACKAGING_PROCESSING("식육포장처리업"),
+    MEAT_PACKAGING("식육포장처리업"),
     LIVESTOCK_FARMING("가축사육업"),
     COMPOSITE_VIDEO_SERVICE("복합영상물제공업"),
     GAME_DISTRIBUTION("게임물배급업"),
@@ -148,6 +148,8 @@ public enum BusinessCategory {
     METER_REPAIR("계량기수리업"),
     HIGH_PRESSURE_GAS("고압가스업"),
     COAL_BRIQUETTE_MANUFACTURING("석연탄제조업"),
+    PETROLEUM_SALE("석유판매업"),
+    PETROLEUM_ALTERNATIVE_FUEL_SALE("석유및석유대체연료판매업체"),
     LIQUEFIED_PETROLEUM_GAS_APPLIANCE_MANUFACTURING("액화석유가스용품제조업체"),
     GENERAL_CITY_GAS("일반도시가스업체"),
     MUTUAL_AID("상조업"),
@@ -187,7 +189,8 @@ public enum BusinessCategory {
     TELEMARKETING("통신판매업"),
     MULTILEVEL_SALE("다단계판매업체"),
     SPONSORED_DOOR_TO_DOOR_SALE("후원방문판매업체"),
-    LOCAL_CULTURE_CENTER("지방문화원");
+    LOCAL_CULTURE_CENTER("지방문화원"),
+    OUTDOOR_ADVERTISING("옥외광고업");
 
     private final String code;
 
