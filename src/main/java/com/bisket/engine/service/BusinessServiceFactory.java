@@ -171,6 +171,7 @@ public class BusinessServiceFactory {
     private final WaterSupplyConstructionAgencyService waterSupplyConstructionAgencyService;
     private final DisinfectionService disinfectionService;
     private final BigScaleStoreService bigScaleStoreService;
+    private final OverallSportsFacilityService overallSportsFacilityService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -657,6 +658,9 @@ public class BusinessServiceFactory {
                 break;
             case BIG_SCALE_STORE:
                 businessBaseService = bigScaleStoreService;
+                break;
+            case OVERALL_SPORTS_FACILITY:
+                businessBaseService = overallSportsFacilityService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");

@@ -161,7 +161,8 @@ public enum BusinessCategory {
     CONTAINER_FREEZER_SPECIFIC_FACILITY("용기냉동기특정설비"),
     WATER_SUPPLY_CONSTRUCTION_AGENCY("급수공사대행업"),
     DISINFECTION("소독업"),
-    BIG_SCALE_STORE("대규모점포");
+    BIG_SCALE_STORE("대규모점포"),
+    OVERALL_SPORTS_FACILITY("종합체육시설업");
 
     private final String code;
 
