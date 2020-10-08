@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HighPressureGas extends Business {
-    private String productionClassificationName;
+    private String manufacturingClassificationName;
     private String businessPlaceSiteUseClassificationName;
 
     public void getAndSetIdentification(HighPressureGas other) {
@@ -74,7 +74,7 @@ public class HighPressureGas extends Business {
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
         // 제조구분명
-        this.setProductionClassificationName(other.getProductionClassificationName());
+        this.setManufacturingClassificationName(other.getManufacturingClassificationName());
         // 사업장부지용도구분명
         this.setBusinessPlaceSiteUseClassificationName(other.getBusinessPlaceSiteUseClassificationName());
     }

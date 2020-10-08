@@ -29,7 +29,7 @@ public class BusinessServiceFactory {
     private final SlaughterService slaughterService;
     private final IncubationService incubationService;
     private final AnimalMedicalEquipmentSaleService animalMedicalEquipmentSaleService;
-    private final FeedProductionService feedProductionService;
+    private final FeedManufacturingService feedManufacturingService;
     private final LivestockArtificialInseminationCenterService livestockArtificialInseminationCenterService;
     private final AnimalFuneralService animalFuneralService;
     private final AnimalSaleService animalSaleService;
@@ -100,22 +100,22 @@ public class BusinessServiceFactory {
     private final ConsignmentFoodServiceService consignmentFoodServiceService;
     private final GroupFoodServiceService groupFoodServiceService;
     private final HealthFunctionalFoodDistributionSaleService healthFunctionalFoodDistributionSaleService;
-    private final ContainerWrapperProductionService containerWrapperProductionService;
+    private final ContainerWrapperManufacturingService containerWrapperManufacturingService;
     private final AmusementBarService amusementBarService;
     private final KaraokeBarService karaokeBarService;
     private final EdibleIceSaleService edibleIceSaleService;
-    private final InstantSaleProductionProcessingService instantSaleProductionProcessingService;
-    private final FoodProductionProcessingService foodProductionProcessingService;
+    private final InstantSaleManufacturingProcessingService instantSaleManufacturingProcessingService;
+    private final FoodManufacturingProcessingService foodManufacturingProcessingService;
     private final DistributionSaleService distributionSaleService;
     private final OtherFoodSaleService otherFoodSaleService;
     private final HealthFunctionalFoodGeneralSaleService healthFunctionalFoodGeneralSaleService;
     private final GroupFoodServiceFoodSaleService groupFoodServiceFoodSaleService;
     private final FoodSubdivisionService foodSubdivisionService;
     private final FoodTransportService foodTransportService;
-    private final FoodAdditivesProductionService foodAdditivesProductionService;
+    private final FoodAdditivesManufacturingService foodAdditivesManufacturingService;
     private final FoodRefrigerationService foodRefrigerationService;
     private final FoodVendingMachineService foodVendingMachineService;
-    private final PotteryProductionService potteryProductionService;
+    private final PotteryManufacturingService potteryManufacturingService;
     private final RegisteredSportsFacilityService registeredSportsFacilityService;
     private final BilliardRoomService billiardRoomService;
     private final YachtingCourseService yachtingCourseService;
@@ -152,12 +152,12 @@ public class BusinessServiceFactory {
     private final LumberingService lumberingService;
     private final HardwoodProductionService hardwoodProductionService;
     private final MeterVerificationService meterVerificationService;
-    private final MeterProductionService meterProductionService;
+    private final MeterManufacturingService meterManufacturingService;
     private final MeterImportService meterImportService;
     private final MeterRepairService meterRepairService;
     private final HighPressureGasService highPressureGasService;
-    private final CoalBriquetteProductionService coalBriquetteProductionService;
-    private final LiquefiedPetroleumGasApplianceProductionService liquefiedPetroleumGasApplianceProductionService;
+    private final CoalBriquetteManufacturingService coalBriquetteManufacturingService;
+    private final LiquefiedPetroleumGasApplianceManufacturingService liquefiedPetroleumGasApplianceManufacturingService;
     private final GeneralCityGasService generalCityGasService;
     private final MutualAidService mutualAidService;
     private final ElectricTechnologySupervisionService electricTechnologySupervisionService;
@@ -182,6 +182,21 @@ public class BusinessServiceFactory {
     private final TobaccoRetailService tobaccoRetailService;
     private final InternationalLogisticsBrokerageService internationalLogisticsBrokerageService;
     private final WarehouseService warehouseService;
+    private final CivilDefenceShelterFacilityService civilDefenceShelterFacilityService;
+    private final CivilDefenceWaterSupplyFacilityService civilDefenceWaterSupplyFacilityService;
+    private final ElevatorManufacturingImportService elevatorManufacturingImportService;
+    private final ElevatorMaintenanceService elevatorMaintenanceService;
+    private final FuneralDirectorEducationOrganizationService funeralDirectorEducationOrganizationService;
+    private final CaregiverEducationOrganizationService caregiverEducationOrganizationService;
+    private final FeeChargingEmploymentAgencyService feeChargingEmploymentAgencyService;
+    private final FreeEmploymentAgencyService freeEmploymentAgencyService;
+    private final AdministrativeAgentService administrativeAgentService;
+    private final DoorToDoorSaleService doorToDoorSaleService;
+    private final ColdCallingSaleService coldCallingSaleService;
+    private final TelemarketingService telemarketingService;
+    private final MultilevelSaleService multilevelSaleService;
+    private final SponsoredDoorToDoorSaleService sponsoredDoorToDoorSaleService;
+    private final LocalCultureCenterService localCultureCenterService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -243,8 +258,8 @@ public class BusinessServiceFactory {
             case ANIMAL_MEDICAL_EQUIPMENT_SALE:
                 businessBaseService = animalMedicalEquipmentSaleService;
                 break;
-            case FEED_PRODUCTION:
-                businessBaseService = feedProductionService;
+            case FEED_MANUFACTURING:
+                businessBaseService = feedManufacturingService;
                 break;
             case LIVESTOCK_ARTIFICIAL_INSEMINATION_CENTER:
                 businessBaseService = livestockArtificialInseminationCenterService;
@@ -456,8 +471,8 @@ public class BusinessServiceFactory {
             case HEALTH_FUNCTIONAL_FOOD_DISTRIBUTION_SALE:
                 businessBaseService = healthFunctionalFoodDistributionSaleService;
                 break;
-            case CONTAINER_WRAPPER_PRODUCTION:
-                businessBaseService = containerWrapperProductionService;
+            case CONTAINER_WRAPPER_MANUFACTURING:
+                businessBaseService = containerWrapperManufacturingService;
                 break;
             case AMUSEMENT_BAR:
                 businessBaseService = amusementBarService;
@@ -468,11 +483,11 @@ public class BusinessServiceFactory {
             case EDIBLE_ICE_SALE:
                 businessBaseService = edibleIceSaleService;
                 break;
-            case INSTANT_SALE_PRODUCTION_PROCESSING:
-                businessBaseService = instantSaleProductionProcessingService;
+            case INSTANT_SALE_MANUFACTURING_PROCESSING:
+                businessBaseService = instantSaleManufacturingProcessingService;
                 break;
-            case FOOD_PRODUCTION_PROCESSING:
-                businessBaseService = foodProductionProcessingService;
+            case FOOD_MANUFACTURING_PROCESSING:
+                businessBaseService = foodManufacturingProcessingService;
                 break;
             case DISTRIBUTION_SALE:
                 businessBaseService = distributionSaleService;
@@ -492,8 +507,8 @@ public class BusinessServiceFactory {
             case FOOD_TRANSPORT:
                 businessBaseService = foodTransportService;
                 break;
-            case FOOD_ADDITIVES_PRODUCTION:
-                businessBaseService = foodAdditivesProductionService;
+            case FOOD_ADDITIVES_MANUFACTURING:
+                businessBaseService = foodAdditivesManufacturingService;
                 break;
             case FOOD_REFRIGERATION:
                 businessBaseService = foodRefrigerationService;
@@ -501,8 +516,8 @@ public class BusinessServiceFactory {
             case FOOD_VENDING_MACHINE:
                 businessBaseService = foodVendingMachineService;
                 break;
-            case POTTERY_PRODUCTION:
-                businessBaseService = potteryProductionService;
+            case POTTERY_MANUFACTURING:
+                businessBaseService = potteryManufacturingService;
                 break;
             case REGISTERED_SPORTS_FACILITY:
                 businessBaseService = registeredSportsFacilityService;
@@ -612,8 +627,8 @@ public class BusinessServiceFactory {
             case METER_VERIFICATION:
                 businessBaseService = meterVerificationService;
                 break;
-            case METER_PRODUCTION:
-                businessBaseService = meterProductionService;
+            case METER_MANUFACTURING:
+                businessBaseService = meterManufacturingService;
                 break;
             case METER_IMPORT:
                 businessBaseService = meterImportService;
@@ -624,11 +639,11 @@ public class BusinessServiceFactory {
             case HIGH_PRESSURE_GAS:
                 businessBaseService = highPressureGasService;
                 break;
-            case COAL_BRIQUETTE_PRODUCTION:
-                businessBaseService = coalBriquetteProductionService;
+            case COAL_BRIQUETTE_MANUFACTURING:
+                businessBaseService = coalBriquetteManufacturingService;
                 break;
-            case LIQUEFIED_PETROLEUM_GAS_APPLIANCE_PRODUCTION:
-                businessBaseService = liquefiedPetroleumGasApplianceProductionService;
+            case LIQUEFIED_PETROLEUM_GAS_APPLIANCE_MANUFACTURING:
+                businessBaseService = liquefiedPetroleumGasApplianceManufacturingService;
                 break;
             case GENERAL_CITY_GAS:
                 businessBaseService = generalCityGasService;
@@ -701,6 +716,51 @@ public class BusinessServiceFactory {
                 break;
             case WAREHOUSE:
                 businessBaseService = warehouseService;
+                break;
+            case CIVIL_DEFENCE_SHELTER_FACILITY:
+                businessBaseService = civilDefenceShelterFacilityService;
+                break;
+            case CIVIL_DEFENCE_WATER_SUPPLY_FACILITY:
+                businessBaseService = civilDefenceWaterSupplyFacilityService;
+                break;
+            case ELEVATOR_MANUFACTURING_IMPORT:
+                businessBaseService = elevatorManufacturingImportService;
+                break;
+            case ELEVATOR_MAINTENANCE:
+                businessBaseService = elevatorMaintenanceService;
+                break;
+            case FUNERAL_DIRECTOR_EDUCATION_ORGANIZATION:
+                businessBaseService = funeralDirectorEducationOrganizationService;
+                break;
+            case CAREGIVER_EDUCATION_ORGANIZATION:
+                businessBaseService = caregiverEducationOrganizationService;
+                break;
+            case FEE_CHARGING_EMPLOYMENT_AGENCY:
+                businessBaseService = feeChargingEmploymentAgencyService;
+                break;
+            case FREE_EMPLOYMENT_AGENCY:
+                businessBaseService = freeEmploymentAgencyService;
+                break;
+            case ADMINISTRATIVE_AGENT:
+                businessBaseService = administrativeAgentService;
+                break;
+            case DOOR_TO_DOOR_SALE:
+                businessBaseService = doorToDoorSaleService;
+                break;
+            case COLD_CALLING_SALE:
+                businessBaseService = coldCallingSaleService;
+                break;
+            case TELEMARKETING:
+                businessBaseService = telemarketingService;
+                break;
+            case MULTILEVEL_SALE:
+                businessBaseService = multilevelSaleService;
+                break;
+            case SPONSORED_DOOR_TO_DOOR_SALE:
+                businessBaseService = sponsoredDoorToDoorSaleService;
+                break;
+            case LOCAL_CULTURAL_CENTER:
+                businessBaseService = localCultureCenterService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");

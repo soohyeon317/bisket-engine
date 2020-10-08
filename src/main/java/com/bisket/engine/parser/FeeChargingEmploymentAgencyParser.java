@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.domain.FeeChargingEmploymentAgency;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class HighPressureGasParser {
+public class FeeChargingEmploymentAgencyParser {
 
-    public static List<HighPressureGas> getListFromXml(Document xml) {
-        List<HighPressureGas> objectList = new ArrayList<>();
+    public static List<FeeChargingEmploymentAgency> getListFromXml(Document xml) {
+        List<FeeChargingEmploymentAgency> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class HighPressureGasParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            HighPressureGas object = new HighPressureGas();
+            FeeChargingEmploymentAgency object = new FeeChargingEmploymentAgency();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,12 @@ public class HighPressureGasParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 제조구분명
-                            object.setManufacturingClassificationName(itemValue);
+                            // 법인구분명
+                            object.setCorporationClassificationName(itemValue);
                             break;
                         case 59:
-                            // 사업장부지용도구분명
-                            object.setBusinessPlaceSiteUseClassificationName(itemValue);
+                            // 구분명
+                            object.setClassificationName(itemValue);
                             break;
                         default:
                             break;

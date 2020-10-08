@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.domain.PotteryManufacturing;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class HighPressureGasParser {
+public class PotteryManufacturingParser {
 
-    public static List<HighPressureGas> getListFromXml(Document xml) {
-        List<HighPressureGas> objectList = new ArrayList<>();
+    public static List<PotteryManufacturing> getListFromXml(Document xml) {
+        List<PotteryManufacturing> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class HighPressureGasParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            HighPressureGas object = new HighPressureGas();
+            PotteryManufacturing object = new PotteryManufacturing();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,80 @@ public class HighPressureGasParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 제조구분명
-                            object.setManufacturingClassificationName(itemValue);
+                            // 위생업태명
+                            object.setSanitationBusinessTypeName(itemValue);
                             break;
                         case 59:
-                            // 사업장부지용도구분명
-                            object.setBusinessPlaceSiteUseClassificationName(itemValue);
+                            // 남성종사자수
+                            object.setMaleWorkerCount(itemValue);
+                            break;
+                        case 61:
+                            // 여성종사자수
+                            object.setFemaleWorkerCount(itemValue);
+                            break;
+                        case 63:
+                            // 영업장주변구분명
+                            object.setBusinessPlaceEnvironmentClassificationName(itemValue);
+                            break;
+                        case 65:
+                            // 등급구분명
+                            object.setGradeClassificationName(itemValue);
+                            break;
+                        case 67:
+                            // 급수시설구분명
+                            object.setWaterSupplyFacilityClassificationName(itemValue);
+                            break;
+                        case 69:
+                            // 총종업원수
+                            object.setEmployeeCount(itemValue);
+                            break;
+                        case 71:
+                            // 본사종업원수
+                            object.setHeadOfficeEmployeeCount(itemValue);
+                            break;
+                        case 73:
+                            // 공장사무직종업원수
+                            object.setFactoryOfficeEmployeeCount(itemValue);
+                            break;
+                        case 75:
+                            // 공장판매직종업원수
+                            object.setFactorySaleEmployeeCount(itemValue);
+                            break;
+                        case 77:
+                            // 공장생산직종업원수
+                            object.setFactoryProductionEmployeeCount(itemValue);
+                            break;
+                        case 79:
+                            // 건물소유구분명
+                            object.setBuildingPossessionClassificationName(itemValue);
+                            break;
+                        case 81:
+                            // 보증액
+                            object.setDeposit(itemValue);
+                            break;
+                        case 83:
+                            // 월세액
+                            object.setMonthlyRent(itemValue);
+                            break;
+                        case 85:
+                            // 다중이용업소여부
+                            object.setPubliclyUsedBusinessPlaceFlag(itemValue);
+                            break;
+                        case 87:
+                            // 시설총규모
+                            object.setFacilityScale(itemValue);
+                            break;
+                        case 89:
+                            // 전통업소지정번호
+                            object.setTraditionalBusinessPlaceAppointmentNumber(itemValue);
+                            break;
+                        case 91:
+                            // 전통업소주된음식
+                            object.setTraditionalBusinessPlaceMainFood(itemValue);
+                            break;
+                        case 93:
+                            // 홈페이지
+                            object.setHomepage(itemValue);
                             break;
                         default:
                             break;

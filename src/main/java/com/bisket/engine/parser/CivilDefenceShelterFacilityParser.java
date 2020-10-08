@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.domain.CivilDefenceShelterFacility;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class HighPressureGasParser {
+public class CivilDefenceShelterFacilityParser {
 
-    public static List<HighPressureGas> getListFromXml(Document xml) {
-        List<HighPressureGas> objectList = new ArrayList<>();
+    public static List<CivilDefenceShelterFacility> getListFromXml(Document xml) {
+        List<CivilDefenceShelterFacility> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class HighPressureGasParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            HighPressureGas object = new HighPressureGas();
+            CivilDefenceShelterFacility object = new CivilDefenceShelterFacility();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,20 @@ public class HighPressureGasParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 제조구분명
-                            object.setManufacturingClassificationName(itemValue);
+                            // 비상시설위치
+                            object.setEmergencyFacilityLocation(itemValue);
                             break;
                         case 59:
-                            // 사업장부지용도구분명
-                            object.setBusinessPlaceSiteUseClassificationName(itemValue);
+                            // 시설구분명
+                            object.setFacilityClassificationName(itemValue);
+                            break;
+                        case 61:
+                            // 시설명_건물명
+                            object.setFacilityNameBuildingName(itemValue);
+                            break;
+                        case 63:
+                            // 해제일자
+                            object.setAppointmentCancelDate(itemValue);
                             break;
                         default:
                             break;

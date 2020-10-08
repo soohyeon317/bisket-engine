@@ -187,7 +187,7 @@ public class WarehouseParser {
                             break;
                         case 81:
                             // 업태_제조업
-                            object.setBusinessTypeProduction(itemValue);
+                            object.setBusinessTypeManufacturing(itemValue);
                             break;
                         default:
                             break;

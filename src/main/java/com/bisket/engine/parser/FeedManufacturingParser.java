@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.domain.FeedManufacturing;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class HighPressureGasParser {
+public class FeedManufacturingParser {
 
-    public static List<HighPressureGas> getListFromXml(Document xml) {
-        List<HighPressureGas> objectList = new ArrayList<>();
+    public static List<FeedManufacturing> getListFromXml(Document xml) {
+        List<FeedManufacturing> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class HighPressureGasParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            HighPressureGas object = new HighPressureGas();
+            FeedManufacturing object = new FeedManufacturing();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,24 @@ public class HighPressureGasParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 제조구분명
-                            object.setManufacturingClassificationName(itemValue);
+                            // 축산업무구분명
+                            object.setLivestockJobClassificationName(itemValue);
                             break;
                         case 59:
-                            // 사업장부지용도구분명
-                            object.setBusinessPlaceSiteUseClassificationName(itemValue);
+                            // 축산물가공업구분명
+                            object.setLivestockProductProcessingBusinessClassificationName(itemValue);
+                            break;
+                        case 61:
+                            // 축산일련번호
+                            object.setLivestockSerialNumber(itemValue);
+                            break;
+                        case 63:
+                            // 권리주체일련번호
+                            object.setRightSubjectSerialNumber(itemValue);
+                            break;
+                        case 65:
+                            // 총종업원수
+                            object.setEmployeeCount(itemValue);
                             break;
                         default:
                             break;

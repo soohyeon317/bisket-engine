@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.domain.LiquefiedPetroleumGasApplianceManufacturing;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class HighPressureGasParser {
+public class LiquefiedPetroleumGasApplianceManufacturingParser {
 
-    public static List<HighPressureGas> getListFromXml(Document xml) {
-        List<HighPressureGas> objectList = new ArrayList<>();
+    public static List<LiquefiedPetroleumGasApplianceManufacturing> getListFromXml(Document xml) {
+        List<LiquefiedPetroleumGasApplianceManufacturing> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class HighPressureGasParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            HighPressureGas object = new HighPressureGas();
+            LiquefiedPetroleumGasApplianceManufacturing object = new LiquefiedPetroleumGasApplianceManufacturing();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,48 @@ public class HighPressureGasParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 제조구분명
-                            object.setManufacturingClassificationName(itemValue);
+                            // 저장설비위치
+                            object.setStorageFacilityLocation(itemValue);
                             break;
                         case 59:
-                            // 사업장부지용도구분명
-                            object.setBusinessPlaceSiteUseClassificationName(itemValue);
+                            // 용기저장실면적
+                            object.setContainerStoreroomArea(itemValue);
+                            break;
+                        case 61:
+                            // 차고지면적
+                            object.setGarageArea(itemValue);
+                            break;
+                        case 63:
+                            // 사무실면적
+                            object.setOfficeArea(itemValue);
+                            break;
+                        case 65:
+                            // 배관설치장소
+                            object.setPlumbingInstallationPlace(itemValue);
+                            break;
+                        case 67:
+                            // 길이변경내용
+                            object.setLengthChangeContent(itemValue);
+                            break;
+                        case 69:
+                            // 취급가스용량
+                            object.setHandlingGasCapacity(itemValue);
+                            break;
+                        case 71:
+                            // 가스용품종류명
+                            object.setGasApplianceKindName(itemValue);
+                            break;
+                        case 73:
+                            // 설비명
+                            object.setFacilityName(itemValue);
+                            break;
+                        case 75:
+                            // 물품규격
+                            object.setItemStandard(itemValue);
+                            break;
+                        case 77:
+                            // 면제범위
+                            object.setExemptionRange(itemValue);
                             break;
                         default:
                             break;

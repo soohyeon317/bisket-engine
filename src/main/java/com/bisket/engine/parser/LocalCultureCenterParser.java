@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.domain.LocalCultureCenter;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class HighPressureGasParser {
+public class LocalCultureCenterParser {
 
-    public static List<HighPressureGas> getListFromXml(Document xml) {
-        List<HighPressureGas> objectList = new ArrayList<>();
+    public static List<LocalCultureCenter> getListFromXml(Document xml) {
+        List<LocalCultureCenter> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class HighPressureGasParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            HighPressureGas object = new HighPressureGas();
+            LocalCultureCenter object = new LocalCultureCenter();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,24 @@ public class HighPressureGasParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 제조구분명
-                            object.setManufacturingClassificationName(itemValue);
+                            // 문화체육업종명
+                            object.setCultureSportsBusinessLineName(itemValue);
                             break;
                         case 59:
-                            // 사업장부지용도구분명
-                            object.setBusinessPlaceSiteUseClassificationName(itemValue);
+                            // 법인설립목적
+                            object.setCorporationEstablishmentPurpose(itemValue);
+                            break;
+                        case 61:
+                            // 허가조건
+                            object.setApprovalCondition(itemValue);
+                            break;
+                        case 63:
+                            // 법인해산일자
+                            object.setDisincorporationDate(itemValue);
+                            break;
+                        case 65:
+                            // 법인명
+                            object.setCorporationName(itemValue);
                             break;
                         default:
                             break;

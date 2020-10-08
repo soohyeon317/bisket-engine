@@ -10,34 +10,32 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("warehouse")
+@DiscriminatorValue("liquefied_petroleum_gas_appliance_manufacturing")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Warehouse extends Business {
-    private String generalWarehouseDongCount;
-    private String generalWarehouseArea;
-    private String refrigeratorFreezerDongCount;
-    private String refrigeratorFreezerArea;
-    private String storagePlaceArea;
-    private String employeeCount;
+public class LiquefiedPetroleumGasApplianceManufacturing extends Business {
+    private String storageFacilityLocation;
+    private String containerStoreroomArea;
+    private String garageArea;
+    private String officeArea;
+    private String plumbingInstallationPlace;
+    private String lengthChangeContent;
+    private String handlingGasCapacity;
+    private String gasApplianceKindName;
+    private String facilityName;
     @Column(columnDefinition = "TEXT")
-    private String facilityEquipmentStatus;
-    private String storageRate;
-    private String corporationFlagName;
-    private String businessTypeStorageWarehouse;
-    private String businessTypeTransportCourier;
-    private String businessTypeSale;
-    private String businessTypeManufacturing;
+    private String itemStandard;
+    private String exemptionRange;
 
-    public void getAndSetIdentification(Warehouse other) {
+    public void getAndSetIdentification(LiquefiedPetroleumGasApplianceManufacturing other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(Warehouse other) {
+    public void update(LiquefiedPetroleumGasApplianceManufacturing other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자
@@ -86,31 +84,27 @@ public class Warehouse extends Business {
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
-        // 일반창고_동수
-        this.setGeneralWarehouseDongCount(other.getGeneralWarehouseDongCount());
-        // 일반창고_면적
-        this.setGeneralWarehouseArea(other.getGeneralWarehouseArea());
-        // 냉동_냉장창고_동수
-        this.setRefrigeratorFreezerDongCount(other.getRefrigeratorFreezerDongCount());
-        // 냉동_냉장창고_면적
-        this.setRefrigeratorFreezerArea(other.getRefrigeratorFreezerArea());
-        // 보관장소_면적
-        this.setStoragePlaceArea(other.getStoragePlaceArea());
-        // 종업원수
-        this.setEmployeeCount(other.getEmployeeCount());
-        // 시설/장비현황
-        this.setFacilityEquipmentStatus(other.getFacilityEquipmentStatus());
-        // 보관요율
-        this.setStorageRate(other.getStorageRate());
-        // 법인여부명
-        this.setCorporationFlagName(other.getCorporationFlagName());
-        // 업태_보관및창고업
-        this.setBusinessTypeStorageWarehouse(other.getBusinessTypeStorageWarehouse());
-        // 업태_운송및택배업
-        this.setBusinessTypeTransportCourier(other.getBusinessTypeTransportCourier());
-        // 업태_판매업
-        this.setBusinessTypeSale(other.getBusinessTypeSale());
-        // 업태_제조업
-        this.setBusinessTypeManufacturing(other.getBusinessTypeManufacturing());
+        // 저장설비위치
+        this.setStorageFacilityLocation(other.getStorageFacilityLocation());
+        // 용기저장실면적
+        this.setContainerStoreroomArea(other.getContainerStoreroomArea());
+        // 차고지면적
+        this.setGarageArea(other.getGarageArea());
+        // 사무실면적
+        this.setOfficeArea(other.getOfficeArea());
+        // 배관설치장소
+        this.setPlumbingInstallationPlace(other.getPlumbingInstallationPlace());
+        // 길이변경내용
+        this.setLengthChangeContent(other.getLengthChangeContent());
+        // 취급가스용량
+        this.setHandlingGasCapacity(other.getHandlingGasCapacity());
+        // 가스용품종류명
+        this.setGasApplianceKindName(other.getGasApplianceKindName());
+        // 설비명
+        this.setFacilityName(other.getFacilityName());
+        // 물품규격
+        this.setItemStandard(other.getItemStandard());
+        // 면제범위
+        this.setExemptionRange(other.getExemptionRange());
     }
 }

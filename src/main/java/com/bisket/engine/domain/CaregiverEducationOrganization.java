@@ -10,34 +10,25 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("warehouse")
+@DiscriminatorValue("caregiver_education_organization")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Warehouse extends Business {
-    private String generalWarehouseDongCount;
-    private String generalWarehouseArea;
-    private String refrigeratorFreezerDongCount;
-    private String refrigeratorFreezerArea;
-    private String storagePlaceArea;
-    private String employeeCount;
+public class CaregiverEducationOrganization extends Business {
+    private String possessionLicenseName;
+    private String governmentExpenditureSupportFlag;
     @Column(columnDefinition = "TEXT")
-    private String facilityEquipmentStatus;
-    private String storageRate;
-    private String corporationFlagName;
-    private String businessTypeStorageWarehouse;
-    private String businessTypeTransportCourier;
-    private String businessTypeSale;
-    private String businessTypeManufacturing;
+    private String responsibleStaffContent;
+    private String deleteDate;
 
-    public void getAndSetIdentification(Warehouse other) {
+    public void getAndSetIdentification(CaregiverEducationOrganization other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(Warehouse other) {
+    public void update(CaregiverEducationOrganization other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자
@@ -86,31 +77,13 @@ public class Warehouse extends Business {
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
-        // 일반창고_동수
-        this.setGeneralWarehouseDongCount(other.getGeneralWarehouseDongCount());
-        // 일반창고_면적
-        this.setGeneralWarehouseArea(other.getGeneralWarehouseArea());
-        // 냉동_냉장창고_동수
-        this.setRefrigeratorFreezerDongCount(other.getRefrigeratorFreezerDongCount());
-        // 냉동_냉장창고_면적
-        this.setRefrigeratorFreezerArea(other.getRefrigeratorFreezerArea());
-        // 보관장소_면적
-        this.setStoragePlaceArea(other.getStoragePlaceArea());
-        // 종업원수
-        this.setEmployeeCount(other.getEmployeeCount());
-        // 시설/장비현황
-        this.setFacilityEquipmentStatus(other.getFacilityEquipmentStatus());
-        // 보관요율
-        this.setStorageRate(other.getStorageRate());
-        // 법인여부명
-        this.setCorporationFlagName(other.getCorporationFlagName());
-        // 업태_보관및창고업
-        this.setBusinessTypeStorageWarehouse(other.getBusinessTypeStorageWarehouse());
-        // 업태_운송및택배업
-        this.setBusinessTypeTransportCourier(other.getBusinessTypeTransportCourier());
-        // 업태_판매업
-        this.setBusinessTypeSale(other.getBusinessTypeSale());
-        // 업태_제조업
-        this.setBusinessTypeManufacturing(other.getBusinessTypeManufacturing());
+        // 보유자격증명
+        this.setPossessionLicenseName(other.getPossessionLicenseName());
+        // 국비지원여부
+        this.setGovernmentExpenditureSupportFlag(other.getGovernmentExpenditureSupportFlag());
+        // 담당직원내용
+        this.setResponsibleStaffContent(other.getResponsibleStaffContent());
+        // 삭제일자
+        this.setDeleteDate(other.getDeleteDate());
     }
 }

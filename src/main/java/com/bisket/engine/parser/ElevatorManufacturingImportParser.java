@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.domain.ElevatorManufacturingImport;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class HighPressureGasParser {
+public class ElevatorManufacturingImportParser {
 
-    public static List<HighPressureGas> getListFromXml(Document xml) {
-        List<HighPressureGas> objectList = new ArrayList<>();
+    public static List<ElevatorManufacturingImport> getListFromXml(Document xml) {
+        List<ElevatorManufacturingImport> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class HighPressureGasParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            HighPressureGas object = new HighPressureGas();
+            ElevatorManufacturingImport object = new ElevatorManufacturingImport();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,68 @@ public class HighPressureGasParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 제조구분명
-                            object.setManufacturingClassificationName(itemValue);
+                            // 업종구분명
+                            object.setBusinessLineClassificationName(itemValue);
                             break;
                         case 59:
-                            // 사업장부지용도구분명
-                            object.setBusinessPlaceSiteUseClassificationName(itemValue);
+                            // 관리업구분명
+                            object.setManagementBusinessClassificationName(itemValue);
+                            break;
+                        case 61:
+                            // 자본금
+                            object.setCapital(itemValue);
+                            break;
+                        case 63:
+                            // 자산
+                            object.setCapital(itemValue);
+                            break;
+                        case 65:
+                            // 보수범위
+                            object.setMaintenanceRange(itemValue);
+                            break;
+                        case 67:
+                            // 유지관리책임인력수
+                            object.setMaintenanceManCount(itemValue);
+                            break;
+                        case 69:
+                            // 실무기술인력수
+                            object.setPracticalTechnicianCount(itemValue);
+                            break;
+                        case 71:
+                            // 설계책임기술인력수
+                            object.setDesignTechnicianCount(itemValue);
+                            break;
+                        case 73:
+                            // 제조책임기술인력수
+                            object.setManufacturingTechnicianCount(itemValue);
+                            break;
+                        case 75:
+                            // 임원수
+                            object.setOfficialCount(itemValue);
+                            break;
+                        case 77:
+                            // 총직원수
+                            object.setStaffCount(itemValue);
+                            break;
+                        case 79:
+                            // 기술직직원수
+                            object.setTechnicalPostStaffCount(itemValue);
+                            break;
+                        case 81:
+                            // 기능직직원수
+                            object.setSkillPostStaffCount(itemValue);
+                            break;
+                        case 83:
+                            // 사무직직원수
+                            object.setOfficeStaffCount(itemValue);
+                            break;
+                        case 85:
+                            // 기타직원수
+                            object.setOtherStaffCount(itemValue);
+                            break;
+                        case 87:
+                            // 회사구분명
+                            object.setCompanyClassificationName(itemValue);
                             break;
                         default:
                             break;
