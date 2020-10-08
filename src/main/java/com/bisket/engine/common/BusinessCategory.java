@@ -171,7 +171,8 @@ public enum BusinessCategory {
     TOBACCO_IMPORT_SALE("담배수입판매업체"),
     TOBACCO_WHOLESALE("담배도매업"),
     TOBACCO_RETAIL("담배소매업"),
-    INTERNATIONAL_LOGISTICS_BROKERAGE("물류주선업국제");
+    INTERNATIONAL_LOGISTICS_BROKERAGE("물류주선업국제"),
+    WAREHOUSE("물류창고업체");
 
     private final String code;
 
