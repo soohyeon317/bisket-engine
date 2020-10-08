@@ -167,7 +167,10 @@ public enum BusinessCategory {
     WATER_STORAGE_TANK_CLEANING("저수조청소업"),
     CONSTRUCTION_WASTE_TREATMENT("건설폐기물처리업"),
     CULTURE_ARTS_CORPORATION("문화예술법인"),
-    MUSEUM_ART_GALLERY("박물관,미술관");
+    MUSEUM_ART_GALLERY("박물관,미술관"),
+    TOBACCO_IMPORT_SALE("담배수입판매업체"),
+    TOBACCO_WHOLESALE("담배도매업"),
+    TOBACCO_RETAIL("담배소매업");
 
     private final String code;
 

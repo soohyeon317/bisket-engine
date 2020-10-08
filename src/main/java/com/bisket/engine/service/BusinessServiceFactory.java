@@ -177,6 +177,9 @@ public class BusinessServiceFactory {
     private final ConstructionWasteTreatmentService constructionWasteTreatmentService;
     private final CultureArtsCorporationService cultureArtsCorporationService;
     private final MuseumArtGalleryService museumArtGalleryService;
+    private final TobaccoImportSaleService tobaccoImportSaleService;
+    private final TobaccoWholesaleService tobaccoWholesaleService;
+    private final TobaccoRetailService tobaccoRetailService;
 
     public BusinessBaseService getOneBusinessCategoryService(BusinessCategory businessCategory) throws NoSuchObjectException {
         BusinessBaseService businessBaseService;
@@ -681,6 +684,15 @@ public class BusinessServiceFactory {
                 break;
             case MUSEUM_ART_GALLERY:
                 businessBaseService = museumArtGalleryService;
+                break;
+            case TOBACCO_IMPORT_SALE:
+                businessBaseService = tobaccoImportSaleService;
+                break;
+            case TOBACCO_WHOLESALE:
+                businessBaseService = tobaccoWholesaleService;
+                break;
+            case TOBACCO_RETAIL:
+                businessBaseService = tobaccoRetailService;
                 break;
             default:
                 throw new NoSuchObjectException("Business Category - NoSuchObjectException");
