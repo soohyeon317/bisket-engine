@@ -44,8 +44,7 @@ public class BusinessService {
         Integer updateCountSum = 0;
         BusinessUpdateHistory businessUpdateHistory = null;
         try {
-            String resourceFolderPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource(
-                    String.format("%s", XML_FILE_DIRECTORY_NAME))).getPath();
+            String resourceFolderPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource(XML_FILE_DIRECTORY_NAME)).getPath();
             File xmlFileResource = new File(resourceFolderPath);
             String[] xmlFileNameArray = xmlFileResource.list();
             List<String> xmlFileNameList = Arrays.asList(Objects.requireNonNull(xmlFileNameArray));
