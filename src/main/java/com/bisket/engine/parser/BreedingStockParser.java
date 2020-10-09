@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.LivestockBreeding;
+import com.bisket.engine.domain.BreedingStock;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class LivestockBreedingParser {
+public class BreedingStockParser {
 
-    public static List<LivestockBreeding> getListFromXml(Document xml) {
-        List<LivestockBreeding> objectList = new ArrayList<>();
+    public static List<BreedingStock> getListFromXml(Document xml) {
+        List<BreedingStock> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class LivestockBreedingParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            LivestockBreeding object = new LivestockBreeding();
+            BreedingStock object = new BreedingStock();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력

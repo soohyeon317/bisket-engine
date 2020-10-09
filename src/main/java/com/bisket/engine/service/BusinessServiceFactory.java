@@ -33,7 +33,7 @@ public class BusinessServiceFactory {
     private final LivestockArtificialInseminationCenterService livestockArtificialInseminationCenterService;
     private final AnimalFuneralService animalFuneralService;
     private final AnimalSaleService animalSaleService;
-    private final LivestockBreedingService livestockBreedingService;
+    private final BreedingStockService breedingStockService;
     private final MilkCollectionService milkCollectionService;
     private final LivestockProductTransportService livestockProductTransportService;
     private final LivestockProductStorageService livestockProductStorageService;
@@ -273,8 +273,8 @@ public class BusinessServiceFactory {
             case ANIMAL_SALE:
                 businessBaseService = animalSaleService;
                 break;
-            case LIVESTOCK_BREEDING:
-                businessBaseService = livestockBreedingService;
+            case BREEDING_STOCK:
+                businessBaseService = breedingStockService;
                 break;
             case MILK_COLLECTION:
                 businessBaseService = milkCollectionService;

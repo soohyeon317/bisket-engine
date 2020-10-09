@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.LivestockBreeding;
-import com.bisket.engine.parser.LivestockBreedingParser;
-import com.bisket.engine.repository.LivestockBreedingRepository;
+import com.bisket.engine.domain.BreedingStock;
+import com.bisket.engine.parser.BreedingStockParser;
+import com.bisket.engine.repository.BreedingStockRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class LivestockBreedingService implements BusinessBaseService {
-    private final LivestockBreedingRepository livestockBreedingRepository;
+public class BreedingStockService implements BusinessBaseService {
+    private final BreedingStockRepository breedingStockRepository;
 
-    public LivestockBreedingService(LivestockBreedingRepository livestockBreedingRepository) {
-        this.livestockBreedingRepository = livestockBreedingRepository;
+    public BreedingStockService(BreedingStockRepository breedingStockRepository) {
+        this.breedingStockRepository = breedingStockRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class LivestockBreedingService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<LivestockBreeding> parsedList = LivestockBreedingParser.getListFromXml(xml);
+        List<BreedingStock> parsedList = BreedingStockParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, LivestockBreeding> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<LivestockBreeding> foundList = livestockBreedingRepository.findAll();
+            Map<String, BreedingStock> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<BreedingStock> foundList = breedingStockRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (LivestockBreeding found : foundList) {
+                for (BreedingStock found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class LivestockBreedingService implements BusinessBaseService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                LivestockBreeding parsed = parsedList.get(i);
+                BreedingStock parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class LivestockBreedingService implements BusinessBaseService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    LivestockBreeding found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    BreedingStock found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    livestockBreedingRepository.save(parsed);
+                    breedingStockRepository.save(parsed);
                 }
             }
         }

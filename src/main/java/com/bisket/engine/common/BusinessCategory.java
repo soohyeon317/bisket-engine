@@ -24,7 +24,7 @@ public enum BusinessCategory {
     LIVESTOCK_ARTIFICIAL_INSEMINATION_CENTER("가축인공수정소"),
     ANIMAL_FUNERAL("동물장묘업"),
     ANIMAL_SALE("동물판매업"),
-    LIVESTOCK_BREEDING("종축업"),
+    BREEDING_STOCK("종축업"),
     MILK_COLLECTION("집유업"),
     LIVESTOCK_PRODUCT_TRANSPORT("축산물운반업"),
     LIVESTOCK_PRODUCT_STORAGE("축산물보관업"),

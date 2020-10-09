@@ -9,25 +9,25 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("livestock_breeding")
+@DiscriminatorValue("breeding_stock")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LivestockBreeding extends Business {
+public class BreedingStock extends Business {
     private String livestockJobClassificationName;
     private String livestockProductProcessingBusinessClassificationName;
     private String livestockSerialNumber;
     private String rightSubjectSerialNumber;
     private String employeeCount;
 
-    public void getAndSetIdentification(LivestockBreeding other) {
+    public void getAndSetIdentification(BreedingStock other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(LivestockBreeding other) {
+    public void update(BreedingStock other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자
