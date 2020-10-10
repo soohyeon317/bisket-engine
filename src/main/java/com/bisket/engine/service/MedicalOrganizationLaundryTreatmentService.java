@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SponsoredDoorToDoorSale;
-import com.bisket.engine.parser.SponsoredDoorToDoorSaleParser;
-import com.bisket.engine.repository.SponsoredDoorToDoorSaleRepository;
+import com.bisket.engine.domain.MedicalOrganizationLaundryTreatment;
+import com.bisket.engine.parser.MedicalOrganizationLaundryTreatmentParser;
+import com.bisket.engine.repository.MedicalOrganizationLaundryTreatmentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class SponsoredDoorToDoorSaleService implements BusinessBaseService {
-    private final SponsoredDoorToDoorSaleRepository sponsoredDoorToDoorSaleRepository;
+public class MedicalOrganizationLaundryTreatmentService implements BusinessBaseService {
+    private final MedicalOrganizationLaundryTreatmentRepository medicalOrganizationLaundryTreatmentRepository;
 
-    public SponsoredDoorToDoorSaleService(SponsoredDoorToDoorSaleRepository sponsoredDoorToDoorSaleRepository) {
-        this.sponsoredDoorToDoorSaleRepository = sponsoredDoorToDoorSaleRepository;
+    public MedicalOrganizationLaundryTreatmentService(MedicalOrganizationLaundryTreatmentRepository medicalOrganizationLaundryTreatmentRepository) {
+        this.medicalOrganizationLaundryTreatmentRepository = medicalOrganizationLaundryTreatmentRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class SponsoredDoorToDoorSaleService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<SponsoredDoorToDoorSale> parsedList = SponsoredDoorToDoorSaleParser.getListFromXml(xml);
+        List<MedicalOrganizationLaundryTreatment> parsedList = MedicalOrganizationLaundryTreatmentParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, SponsoredDoorToDoorSale> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<SponsoredDoorToDoorSale> foundList = sponsoredDoorToDoorSaleRepository.findAll();
+            Map<String, MedicalOrganizationLaundryTreatment> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<MedicalOrganizationLaundryTreatment> foundList = medicalOrganizationLaundryTreatmentRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (SponsoredDoorToDoorSale found : foundList) {
+                for (MedicalOrganizationLaundryTreatment found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class SponsoredDoorToDoorSaleService implements BusinessBaseService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                SponsoredDoorToDoorSale parsed = parsedList.get(i);
+                MedicalOrganizationLaundryTreatment parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class SponsoredDoorToDoorSaleService implements BusinessBaseService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    SponsoredDoorToDoorSale found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    MedicalOrganizationLaundryTreatment found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    sponsoredDoorToDoorSaleRepository.save(parsed);
+                    medicalOrganizationLaundryTreatmentRepository.save(parsed);
                 }
             }
         }

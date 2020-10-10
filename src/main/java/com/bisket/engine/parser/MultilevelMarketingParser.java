@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.SponsoredDoorToDoorSale;
+import com.bisket.engine.domain.MultilevelMarketing;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class SponsoredDoorToDoorSaleParser {
+public class MultilevelMarketingParser {
 
-    public static List<SponsoredDoorToDoorSale> getListFromXml(Document xml) {
-        List<SponsoredDoorToDoorSale> objectList = new ArrayList<>();
+    public static List<MultilevelMarketing> getListFromXml(Document xml) {
+        List<MultilevelMarketing> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class SponsoredDoorToDoorSaleParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            SponsoredDoorToDoorSale object = new SponsoredDoorToDoorSale();
+            MultilevelMarketing object = new MultilevelMarketing();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력

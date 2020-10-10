@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MedicalOrganizationLaundryProcessing;
-import com.bisket.engine.parser.MedicalOrganizationLaundryProcessingParser;
-import com.bisket.engine.repository.MedicalOrganizationLaundryProcessingRepository;
+import com.bisket.engine.domain.MultilevelMarketing;
+import com.bisket.engine.parser.MultilevelMarketingParser;
+import com.bisket.engine.repository.MultilevelMarketingRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class MedicalOrganizationLaundryProcessingService implements BusinessBaseService {
-    private final MedicalOrganizationLaundryProcessingRepository medicalOrganizationLaundryProcessingRepository;
+public class MultilevelMarketingService implements BusinessBaseService {
+    private final MultilevelMarketingRepository multilevelMarketingRepository;
 
-    public MedicalOrganizationLaundryProcessingService(MedicalOrganizationLaundryProcessingRepository medicalOrganizationLaundryProcessingRepository) {
-        this.medicalOrganizationLaundryProcessingRepository = medicalOrganizationLaundryProcessingRepository;
+    public MultilevelMarketingService(MultilevelMarketingRepository multilevelMarketingRepository) {
+        this.multilevelMarketingRepository = multilevelMarketingRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class MedicalOrganizationLaundryProcessingService implements BusinessBase
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<MedicalOrganizationLaundryProcessing> parsedList = MedicalOrganizationLaundryProcessingParser.getListFromXml(xml);
+        List<MultilevelMarketing> parsedList = MultilevelMarketingParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, MedicalOrganizationLaundryProcessing> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<MedicalOrganizationLaundryProcessing> foundList = medicalOrganizationLaundryProcessingRepository.findAll();
+            Map<String, MultilevelMarketing> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<MultilevelMarketing> foundList = multilevelMarketingRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (MedicalOrganizationLaundryProcessing found : foundList) {
+                for (MultilevelMarketing found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class MedicalOrganizationLaundryProcessingService implements BusinessBase
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                MedicalOrganizationLaundryProcessing parsed = parsedList.get(i);
+                MultilevelMarketing parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class MedicalOrganizationLaundryProcessingService implements BusinessBase
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    MedicalOrganizationLaundryProcessing found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    MultilevelMarketing found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    medicalOrganizationLaundryProcessingRepository.save(parsed);
+                    multilevelMarketingRepository.save(parsed);
                 }
             }
         }

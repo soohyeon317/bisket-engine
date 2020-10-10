@@ -18,9 +18,9 @@ public class BusinessServiceFactory {
     private final AffiliatedMedicalOrganizationService affiliatedMedicalOrganizationService;
     private final PostpartumCareService postpartumCareService;
     private final PharmacyService pharmacyService;
-    private final SimilarMedicalTreatmentService similarMedicalTreatmentService;
+    private final ParamedicalServiceService paramedicalServiceService;
     private final GlassesService glassesService;
-    private final MedicalOrganizationLaundryProcessingService medicalOrganizationLaundryProcessingService;
+    private final MedicalOrganizationLaundryTreatmentService medicalOrganizationLaundryTreatmentService;
     private final MedicalDeviceSaleLeaseService medicalDeviceSaleLeaseService;
     private final MedicalDeviceRepairService medicalDeviceRepairService;
     private final DentalLaboratoryService dentalLaboratoryService;
@@ -194,8 +194,8 @@ public class BusinessServiceFactory {
     private final DoorToDoorSaleService doorToDoorSaleService;
     private final ColdCallingSaleService coldCallingSaleService;
     private final TelemarketingService telemarketingService;
-    private final MultilevelSaleService multilevelSaleService;
-    private final SponsoredDoorToDoorSaleService sponsoredDoorToDoorSaleService;
+    private final MultilevelMarketingService multilevelMarketingService;
+    private final SinglelevelMarketingService singlelevelMarketingService;
     private final LocalCultureCenterService localCultureCenterService;
     private final OutdoorAdvertisingService outdoorAdvertisingService;
     private final PetroleumSaleService petroleumSaleService;
@@ -228,14 +228,14 @@ public class BusinessServiceFactory {
             case PHARMACY:
                 businessBaseService = pharmacyService;
                 break;
-            case SIMILAR_MEDICAL_TREATMENT:
-                businessBaseService = similarMedicalTreatmentService;
+            case PARAMEDICAL_SERVICE:
+                businessBaseService = paramedicalServiceService;
                 break;
             case GLASSES:
                 businessBaseService = glassesService;
                 break;
-            case MEDICAL_ORGANIZATION_LAUNDRY_PROCESSING:
-                businessBaseService = medicalOrganizationLaundryProcessingService;
+            case MEDICAL_ORGANIZATION_LAUNDRY_TREATMENT:
+                businessBaseService = medicalOrganizationLaundryTreatmentService;
                 break;
             case MEDICAL_DEVICE_SALE_LEASE:
                 businessBaseService = medicalDeviceSaleLeaseService;
@@ -756,11 +756,11 @@ public class BusinessServiceFactory {
             case TELEMARKETING:
                 businessBaseService = telemarketingService;
                 break;
-            case MULTILEVEL_SALE:
-                businessBaseService = multilevelSaleService;
+            case MULTILEVEL_MARKETING:
+                businessBaseService = multilevelMarketingService;
                 break;
-            case SPONSORED_DOOR_TO_DOOR_SALE:
-                businessBaseService = sponsoredDoorToDoorSaleService;
+            case SINGLELEVEL_MARKETING:
+                businessBaseService = singlelevelMarketingService;
                 break;
             case LOCAL_CULTURE_CENTER:
                 businessBaseService = localCultureCenterService;

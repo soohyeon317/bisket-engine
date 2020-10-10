@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.MedicalOrganizationLaundryProcessing;
+import com.bisket.engine.domain.SinglelevelMarketing;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class MedicalOrganizationLaundryProcessingParser {
+public class SinglelevelMarketingParser {
 
-    public static List<MedicalOrganizationLaundryProcessing> getListFromXml(Document xml) {
-        List<MedicalOrganizationLaundryProcessing> objectList = new ArrayList<>();
+    public static List<SinglelevelMarketing> getListFromXml(Document xml) {
+        List<SinglelevelMarketing> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class MedicalOrganizationLaundryProcessingParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            MedicalOrganizationLaundryProcessing object = new MedicalOrganizationLaundryProcessing();
+            SinglelevelMarketing object = new SinglelevelMarketing();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,20 +138,12 @@ public class MedicalOrganizationLaundryProcessingParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 수리대상 의료기기의 유형
-                            object.setRepairTargetMedicalDeviceType(itemValue);
+                            // 업종구분명
+                            object.setBusinessLineClassificationName(itemValue);
                             break;
                         case 59:
-                            // 다른 겸업 여부
-                            object.setSidejobFlag(itemValue);
-                            break;
-                        case 61:
-                            // 총규모
-                            object.setTotalScale(itemValue);
-                            break;
-                        case 63:
-                            // 영업규모
-                            object.setBusinessScale(itemValue);
+                            // 자본금의규모
+                            object.setCapitalScale(itemValue);
                             break;
                         default:
                             break;

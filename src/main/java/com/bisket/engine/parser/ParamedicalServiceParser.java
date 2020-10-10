@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.SimilarMedicalTreatment;
+import com.bisket.engine.domain.ParamedicalService;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class SimilarMedicalTreatmentParser {
+public class ParamedicalServiceParser {
 
-    public static List<SimilarMedicalTreatment> getListFromXml(Document xml) {
-        List<SimilarMedicalTreatment> objectList = new ArrayList<>();
+    public static List<ParamedicalService> getListFromXml(Document xml) {
+        List<ParamedicalService> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class SimilarMedicalTreatmentParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            SimilarMedicalTreatment object = new SimilarMedicalTreatment();
+            ParamedicalService object = new ParamedicalService();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력

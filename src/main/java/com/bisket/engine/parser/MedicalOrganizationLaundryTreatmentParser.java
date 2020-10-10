@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.MultilevelSale;
+import com.bisket.engine.domain.MedicalOrganizationLaundryTreatment;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class MultilevelSaleParser {
+public class MedicalOrganizationLaundryTreatmentParser {
 
-    public static List<MultilevelSale> getListFromXml(Document xml) {
-        List<MultilevelSale> objectList = new ArrayList<>();
+    public static List<MedicalOrganizationLaundryTreatment> getListFromXml(Document xml) {
+        List<MedicalOrganizationLaundryTreatment> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class MultilevelSaleParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            MultilevelSale object = new MultilevelSale();
+            MedicalOrganizationLaundryTreatment object = new MedicalOrganizationLaundryTreatment();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력
@@ -138,12 +138,20 @@ public class MultilevelSaleParser {
                             object.setYCoordinate(itemValue);
                             break;
                         case 57:
-                            // 업종구분명
-                            object.setBusinessLineClassificationName(itemValue);
+                            // 수리대상 의료기기의 유형
+                            object.setRepairTargetMedicalDeviceType(itemValue);
                             break;
                         case 59:
-                            // 자본금의규모
-                            object.setCapitalScale(itemValue);
+                            // 다른 겸업 여부
+                            object.setSidejobFlag(itemValue);
+                            break;
+                        case 61:
+                            // 총규모
+                            object.setTotalScale(itemValue);
+                            break;
+                        case 63:
+                            // 영업규모
+                            object.setBusinessScale(itemValue);
                             break;
                         default:
                             break;

@@ -9,9 +9,9 @@ public enum BusinessCategory {
     SAFETY_OFFICINAL_SALE("안전상비의약품판매업소"),
     POSTPARTUM_CARE("산후조리업"),
     PHARMACY("약국"),
-    SIMILAR_MEDICAL_TREATMENT("의료유사업"),
+    PARAMEDICAL_SERVICE("의료유사업"),
     GLASSES("안경업"),
-    MEDICAL_ORGANIZATION_LAUNDRY_PROCESSING("의료기관세탁물처리업"),
+    MEDICAL_ORGANIZATION_LAUNDRY_TREATMENT("의료기관세탁물처리업"),
     MEDICAL_DEVICE_SALE_LEASE("의료기기판매임대업"),
     MEDICAL_DEVICE_REPAIR("의료기기수리업"),
     DENTAL_LABORATORY("치과기공소"),
@@ -187,8 +187,8 @@ public enum BusinessCategory {
     DOOR_TO_DOOR_SALE("방문판매업"),
     COLD_CALLING_SALE("전화권유판매업"),
     TELEMARKETING("통신판매업"),
-    MULTILEVEL_SALE("다단계판매업체"),
-    SPONSORED_DOOR_TO_DOOR_SALE("후원방문판매업체"),
+    MULTILEVEL_MARKETING("다단계판매업체"),
+    SINGLELEVEL_MARKETING("후원방문판매업체"),
     LOCAL_CULTURE_CENTER("지방문화원"),
     OUTDOOR_ADVERTISING("옥외광고업");
 

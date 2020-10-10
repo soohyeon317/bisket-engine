@@ -9,22 +9,22 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("multilevel_sale")
+@DiscriminatorValue("singlelevel_marketing")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MultilevelSale extends Business {
+public class SinglelevelMarketing extends Business {
     private String businessLineClassificationName;
     private String capitalScale;
 
-    public void getAndSetIdentification(MultilevelSale other) {
+    public void getAndSetIdentification(SinglelevelMarketing other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(MultilevelSale other) {
+    public void update(SinglelevelMarketing other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자

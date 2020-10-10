@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SimilarMedicalTreatment;
-import com.bisket.engine.parser.SimilarMedicalTreatmentParser;
-import com.bisket.engine.repository.SimilarMedicalTreatmentRepository;
+import com.bisket.engine.domain.ParamedicalService;
+import com.bisket.engine.parser.ParamedicalServiceParser;
+import com.bisket.engine.repository.ParamedicalServiceRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class SimilarMedicalTreatmentService implements BusinessBaseService {
-    private final SimilarMedicalTreatmentRepository similarMedicalTreatmentRepository;
+public class ParamedicalServiceService implements BusinessBaseService {
+    private final ParamedicalServiceRepository paramedicalServiceRepository;
 
-    public SimilarMedicalTreatmentService(SimilarMedicalTreatmentRepository similarMedicalTreatmentRepository) {
-        this.similarMedicalTreatmentRepository = similarMedicalTreatmentRepository;
+    public ParamedicalServiceService(ParamedicalServiceRepository paramedicalServiceRepository) {
+        this.paramedicalServiceRepository = paramedicalServiceRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class SimilarMedicalTreatmentService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<SimilarMedicalTreatment> parsedList = SimilarMedicalTreatmentParser.getListFromXml(xml);
+        List<ParamedicalService> parsedList = ParamedicalServiceParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, SimilarMedicalTreatment> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<SimilarMedicalTreatment> foundList = similarMedicalTreatmentRepository.findAll();
+            Map<String, ParamedicalService> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<ParamedicalService> foundList = paramedicalServiceRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (SimilarMedicalTreatment found : foundList) {
+                for (ParamedicalService found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class SimilarMedicalTreatmentService implements BusinessBaseService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                SimilarMedicalTreatment parsed = parsedList.get(i);
+                ParamedicalService parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class SimilarMedicalTreatmentService implements BusinessBaseService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    SimilarMedicalTreatment found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    ParamedicalService found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    similarMedicalTreatmentRepository.save(parsed);
+                    paramedicalServiceRepository.save(parsed);
                 }
             }
         }

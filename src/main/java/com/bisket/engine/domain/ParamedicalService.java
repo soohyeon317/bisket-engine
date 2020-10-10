@@ -9,12 +9,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("similar_medical_treatment")
+@DiscriminatorValue("paramedical_service")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimilarMedicalTreatment extends Business {
+public class ParamedicalService extends Business {
     private String medicalOrganizationClassificationName;
     private String employeeCount;
     private String licenseHolderCount;
@@ -25,13 +25,13 @@ public class SimilarMedicalTreatment extends Business {
     private String bathRoomArea;
     private String totalArea;
 
-    public void getAndSetIdentification(SimilarMedicalTreatment other) {
+    public void getAndSetIdentification(ParamedicalService other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(SimilarMedicalTreatment other) {
+    public void update(ParamedicalService other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자

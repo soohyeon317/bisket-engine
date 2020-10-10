@@ -5,30 +5,26 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("medical_organization_laundry_processing")
+@DiscriminatorValue("multilevel_marketing")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MedicalOrganizationLaundryProcessing extends Business {
-    @Column(columnDefinition = "TEXT")
-    private String repairTargetMedicalDeviceType;
-    private String sidejobFlag;
-    private String totalScale;
-    private String businessScale;
+public class MultilevelMarketing extends Business {
+    private String businessLineClassificationName;
+    private String capitalScale;
 
-    public void getAndSetIdentification(MedicalOrganizationLaundryProcessing other) {
+    public void getAndSetIdentification(MultilevelMarketing other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(MedicalOrganizationLaundryProcessing other) {
+    public void update(MultilevelMarketing other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자
@@ -77,13 +73,9 @@ public class MedicalOrganizationLaundryProcessing extends Business {
         this.setXCoordinate(other.getXCoordinate());
         // 좌표정보(Y)
         this.setYCoordinate(other.getYCoordinate());
-        // 수리대상 의료기기의 유형
-        this.setRepairTargetMedicalDeviceType(other.getRepairTargetMedicalDeviceType());
-        // 다른 겸업 여부
-        this.setSidejobFlag(other.getSidejobFlag());
-        // 총규모
-        this.setTotalScale(other.getTotalScale());
-        // 영업규모
-        this.setBusinessScale(other.getBusinessScale());
+        // 업종구분명
+        this.setBusinessLineClassificationName(other.getBusinessLineClassificationName());
+        // 자본금의규모
+        this.setCapitalScale(other.getCapitalScale());
     }
 }

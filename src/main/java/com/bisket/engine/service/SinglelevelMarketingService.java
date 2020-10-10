@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MultilevelSale;
-import com.bisket.engine.parser.MultilevelSaleParser;
-import com.bisket.engine.repository.MultilevelSaleRepository;
+import com.bisket.engine.domain.SinglelevelMarketing;
+import com.bisket.engine.parser.SinglelevelMarketingParser;
+import com.bisket.engine.repository.SinglelevelMarketingRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class MultilevelSaleService implements BusinessBaseService {
-    private final MultilevelSaleRepository multilevelSaleRepository;
+public class SinglelevelMarketingService implements BusinessBaseService {
+    private final SinglelevelMarketingRepository singlelevelMarketingRepository;
 
-    public MultilevelSaleService(MultilevelSaleRepository multilevelSaleRepository) {
-        this.multilevelSaleRepository = multilevelSaleRepository;
+    public SinglelevelMarketingService(SinglelevelMarketingRepository singlelevelMarketingRepository) {
+        this.singlelevelMarketingRepository = singlelevelMarketingRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class MultilevelSaleService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<MultilevelSale> parsedList = MultilevelSaleParser.getListFromXml(xml);
+        List<SinglelevelMarketing> parsedList = SinglelevelMarketingParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, MultilevelSale> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
-            List<MultilevelSale> foundList = multilevelSaleRepository.findAll();
+            Map<String, SinglelevelMarketing> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            List<SinglelevelMarketing> foundList = singlelevelMarketingRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (MultilevelSale found : foundList) {
+                for (SinglelevelMarketing found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class MultilevelSaleService implements BusinessBaseService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                MultilevelSale parsed = parsedList.get(i);
+                SinglelevelMarketing parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class MultilevelSaleService implements BusinessBaseService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
                     /* 업데이트 진행 */
-                    MultilevelSale found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    SinglelevelMarketing found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    multilevelSaleRepository.save(parsed);
+                    singlelevelMarketingRepository.save(parsed);
                 }
             }
         }
