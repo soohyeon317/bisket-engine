@@ -38,15 +38,15 @@ public class PostpartumCareService implements BusinessBaseService {
         List<PostpartumCare> parsedList = PostpartumCareParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, PostpartumCare> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            Map<String, PostpartumCare> compositeKeyToFoundObjectMap = new HashMap<>();
             List<PostpartumCare> foundList = postpartumCareRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (PostpartumCare found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
-                    String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
-                    compositeUniqueKeyToFoundObjectMap.put(compositeUniqueKey, found);
+                    String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
+                    compositeKeyToFoundObjectMap.put(compositeKey, found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
@@ -54,12 +54,12 @@ public class PostpartumCareService implements BusinessBaseService {
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
-                String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
                 log.info("=======\nSequence: {}\nopenServiceId={}\nopenAutonomousBodyCode={}\nmanagementCode={}",
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
-                if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
+                if (compositeKeyToFoundObjectMap.containsKey(compositeKey)) {
                     /* 업데이트 진행 */
-                    PostpartumCare found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    PostpartumCare found = compositeKeyToFoundObjectMap.get(compositeKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

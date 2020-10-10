@@ -38,15 +38,15 @@ public class OverallSportsFacilityService implements BusinessBaseService {
         List<OverallSportsFacility> parsedList = OverallSportsFacilityParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, OverallSportsFacility> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            Map<String, OverallSportsFacility> compositeKeyToFoundObjectMap = new HashMap<>();
             List<OverallSportsFacility> foundList = overallSportsFacilityRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (OverallSportsFacility found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
-                    String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
-                    compositeUniqueKeyToFoundObjectMap.put(compositeUniqueKey, found);
+                    String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
+                    compositeKeyToFoundObjectMap.put(compositeKey, found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
@@ -54,12 +54,12 @@ public class OverallSportsFacilityService implements BusinessBaseService {
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
-                String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
                 log.info("=======\nSequence: {}\nopenServiceId={}\nopenAutonomousBodyCode={}\nmanagementCode={}",
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
-                if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
+                if (compositeKeyToFoundObjectMap.containsKey(compositeKey)) {
                     /* 업데이트 진행 */
-                    OverallSportsFacility found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    OverallSportsFacility found = compositeKeyToFoundObjectMap.get(compositeKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

@@ -38,15 +38,15 @@ public class DoorToDoorSaleService implements BusinessBaseService {
         List<DoorToDoorSale> parsedList = DoorToDoorSaleParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, DoorToDoorSale> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            Map<String, DoorToDoorSale> compositeKeyToFoundObjectMap = new HashMap<>();
             List<DoorToDoorSale> foundList = doorToDoorSaleRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (DoorToDoorSale found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
-                    String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
-                    compositeUniqueKeyToFoundObjectMap.put(compositeUniqueKey, found);
+                    String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
+                    compositeKeyToFoundObjectMap.put(compositeKey, found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
@@ -54,12 +54,12 @@ public class DoorToDoorSaleService implements BusinessBaseService {
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
-                String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
                 log.info("=======\nSequence: {}\nopenServiceId={}\nopenAutonomousBodyCode={}\nmanagementCode={}",
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
-                if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
+                if (compositeKeyToFoundObjectMap.containsKey(compositeKey)) {
                     /* 업데이트 진행 */
-                    DoorToDoorSale found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    DoorToDoorSale found = compositeKeyToFoundObjectMap.get(compositeKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);

@@ -38,15 +38,15 @@ public class TobaccoRetailService implements BusinessBaseService {
         List<TobaccoRetail> parsedList = TobaccoRetailParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, TobaccoRetail> compositeUniqueKeyToFoundObjectMap = new HashMap<>();
+            Map<String, TobaccoRetail> compositeKeyToFoundObjectMap = new HashMap<>();
             List<TobaccoRetail> foundList = tobaccoRetailRepository.findAll();
             if (!foundList.isEmpty()) {
                 for (TobaccoRetail found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
-                    String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
-                    compositeUniqueKeyToFoundObjectMap.put(compositeUniqueKey, found);
+                    String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
+                    compositeKeyToFoundObjectMap.put(compositeKey, found);
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
@@ -54,12 +54,12 @@ public class TobaccoRetailService implements BusinessBaseService {
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
-                String compositeUniqueKey = Commons.getCompositeUniqueKey(openServiceId, openAutonomousBodyCode, managementCode);
+                String compositeKey = Commons.getCompositeKey(openServiceId, openAutonomousBodyCode, managementCode);
                 log.info("=======\nSequence: {}\nopenServiceId={}\nopenAutonomousBodyCode={}\nmanagementCode={}",
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
-                if (compositeUniqueKeyToFoundObjectMap.containsKey(compositeUniqueKey)) {
+                if (compositeKeyToFoundObjectMap.containsKey(compositeKey)) {
                     /* 업데이트 진행 */
-                    TobaccoRetail found = compositeUniqueKeyToFoundObjectMap.get(compositeUniqueKey);
+                    TobaccoRetail found = compositeKeyToFoundObjectMap.get(compositeKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
