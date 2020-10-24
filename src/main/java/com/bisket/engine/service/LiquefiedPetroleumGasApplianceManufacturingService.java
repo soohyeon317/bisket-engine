@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.LiquefiedPetroleumGasApplianceManufacturing;
+import com.bisket.engine.entity.LiquefiedPetroleumGasApplianceManufacturing;
 import com.bisket.engine.parser.LiquefiedPetroleumGasApplianceManufacturingParser;
 import com.bisket.engine.repository.LiquefiedPetroleumGasApplianceManufacturingRepository;
 import lombok.extern.slf4j.Slf4j;

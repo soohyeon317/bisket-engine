@@ -2,8 +2,8 @@ package com.bisket.engine.service;
 
 import com.bisket.engine.common.BusinessCategory;
 import com.bisket.engine.common.FileExtension;
-import com.bisket.engine.domain.Business;
-import com.bisket.engine.domain.BusinessUpdateHistory;
+import com.bisket.engine.entity.Business;
+import com.bisket.engine.entity.BusinessUpdateHistory;
 import com.bisket.engine.repository.BusinessRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;

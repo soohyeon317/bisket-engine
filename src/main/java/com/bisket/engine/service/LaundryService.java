@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Laundry;
+import com.bisket.engine.entity.Laundry;
 import com.bisket.engine.parser.LaundryParser;
 import com.bisket.engine.repository.LaundryRepository;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MeterImport;
+import com.bisket.engine.entity.MeterImport;
 import com.bisket.engine.parser.MeterImportParser;
 import com.bisket.engine.repository.MeterImportRepository;
 import lombok.extern.slf4j.Slf4j;

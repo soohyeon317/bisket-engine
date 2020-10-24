@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.HealthFunctionalFoodDistributionSale;
+import com.bisket.engine.entity.HealthFunctionalFoodDistributionSale;
 import com.bisket.engine.parser.HealthFunctionalFoodDistributionSaleParser;
 import com.bisket.engine.repository.HealthFunctionalFoodDistributionSaleRepository;
 import lombok.extern.slf4j.Slf4j;

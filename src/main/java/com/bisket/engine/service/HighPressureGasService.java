@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.HighPressureGas;
+import com.bisket.engine.entity.HighPressureGas;
 import com.bisket.engine.parser.HighPressureGasParser;
 import com.bisket.engine.repository.HighPressureGasRepository;
 import lombok.extern.slf4j.Slf4j;

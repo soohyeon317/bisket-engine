@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.InternationalConferenceFacility;
+import com.bisket.engine.entity.InternationalConferenceFacility;
 import com.bisket.engine.parser.InternationalConferenceFacilityParser;
 import com.bisket.engine.repository.InternationalConferenceFacilityRepository;
 import lombok.extern.slf4j.Slf4j;

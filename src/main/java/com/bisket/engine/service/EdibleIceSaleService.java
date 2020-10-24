@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.EdibleIceSale;
+import com.bisket.engine.entity.EdibleIceSale;
 import com.bisket.engine.parser.EdibleIceSaleParser;
 import com.bisket.engine.repository.EdibleIceSaleRepository;
 import lombok.extern.slf4j.Slf4j;

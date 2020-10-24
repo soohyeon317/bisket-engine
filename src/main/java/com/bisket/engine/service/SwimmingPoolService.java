@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SwimmingPool;
+import com.bisket.engine.entity.SwimmingPool;
 import com.bisket.engine.parser.SwimmingPoolParser;
 import com.bisket.engine.repository.SwimmingPoolRepository;
 import lombok.extern.slf4j.Slf4j;

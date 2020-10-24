@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.KaraokeBar;
+import com.bisket.engine.entity.KaraokeBar;
 import com.bisket.engine.parser.KaraokeBarParser;
 import com.bisket.engine.repository.KaraokeBarRepository;
 import lombok.extern.slf4j.Slf4j;

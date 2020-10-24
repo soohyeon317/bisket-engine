@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.LivestockProcessing;
+import com.bisket.engine.entity.LivestockProcessing;
 import com.bisket.engine.parser.LivestockProcessingParser;
 import com.bisket.engine.repository.LivestockProcessingRepository;
 import lombok.extern.slf4j.Slf4j;

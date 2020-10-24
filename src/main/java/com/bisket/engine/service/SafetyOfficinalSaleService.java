@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SafetyOfficinalSale;
+import com.bisket.engine.entity.SafetyOfficinalSale;
 import com.bisket.engine.parser.SafetyOfficinalSaleParser;
 import com.bisket.engine.repository.SafetyOfficinalSaleRepository;
 import lombok.extern.slf4j.Slf4j;

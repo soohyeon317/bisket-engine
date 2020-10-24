@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.TourStage;
+import com.bisket.engine.entity.TourStage;
 import com.bisket.engine.parser.TourStageParser;
 import com.bisket.engine.repository.TourStageRepository;
 import lombok.extern.slf4j.Slf4j;

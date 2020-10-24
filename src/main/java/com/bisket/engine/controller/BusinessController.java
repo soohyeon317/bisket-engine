@@ -2,7 +2,7 @@ package com.bisket.engine.controller;
 
 import com.bisket.engine.service.BusinessService;
 import com.bisket.engine.common.FileExtension;
-import com.bisket.engine.domain.Business;
+import com.bisket.engine.entity.Business;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.GeneralCamp;
+import com.bisket.engine.entity.GeneralCamp;
 import com.bisket.engine.parser.GeneralCampParser;
 import com.bisket.engine.repository.GeneralCampRepository;
 import lombok.extern.slf4j.Slf4j;

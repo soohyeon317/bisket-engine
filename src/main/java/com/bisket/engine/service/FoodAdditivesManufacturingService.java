@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.FoodAdditivesManufacturing;
+import com.bisket.engine.entity.FoodAdditivesManufacturing;
 import com.bisket.engine.parser.FoodAdditivesManufacturingParser;
 import com.bisket.engine.repository.FoodAdditivesManufacturingRepository;
 import lombok.extern.slf4j.Slf4j;

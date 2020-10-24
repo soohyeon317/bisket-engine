@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.AnimalPharmacy;
+import com.bisket.engine.entity.AnimalPharmacy;
 import com.bisket.engine.parser.AnimalPharmacyParser;
 import com.bisket.engine.repository.AnimalPharmacyRepository;
 import lombok.extern.slf4j.Slf4j;

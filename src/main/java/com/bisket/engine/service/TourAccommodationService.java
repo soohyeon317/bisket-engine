@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.TourAccommodation;
+import com.bisket.engine.entity.TourAccommodation;
 import com.bisket.engine.parser.TourAccommodationParser;
 import com.bisket.engine.repository.TourAccommodationRepository;
 import lombok.extern.slf4j.Slf4j;

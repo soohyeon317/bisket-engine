@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.PotteryManufacturing;
+import com.bisket.engine.entity.PotteryManufacturing;
 import com.bisket.engine.parser.PotteryManufacturingParser;
 import com.bisket.engine.repository.PotteryManufacturingRepository;
 import lombok.extern.slf4j.Slf4j;

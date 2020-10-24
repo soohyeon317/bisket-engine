@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.ElectricTechnologyDesign;
+import com.bisket.engine.entity.ElectricTechnologyDesign;
 import com.bisket.engine.parser.ElectricTechnologyDesignParser;
 import com.bisket.engine.repository.ElectricTechnologyDesignRepository;
 import lombok.extern.slf4j.Slf4j;

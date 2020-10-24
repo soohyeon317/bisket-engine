@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.OutdoorAdvertising;
+import com.bisket.engine.entity.OutdoorAdvertising;
 import com.bisket.engine.parser.OutdoorAdvertisingParser;
 import com.bisket.engine.repository.OutdoorAdvertisingRepository;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.ElevatorMaintenance;
+import com.bisket.engine.entity.ElevatorMaintenance;
 import com.bisket.engine.parser.ElevatorMaintenanceParser;
 import com.bisket.engine.repository.ElevatorMaintenanceRepository;
 import lombok.extern.slf4j.Slf4j;

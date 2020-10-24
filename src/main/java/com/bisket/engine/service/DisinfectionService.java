@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Disinfection;
+import com.bisket.engine.entity.Disinfection;
 import com.bisket.engine.parser.DisinfectionParser;
 import com.bisket.engine.repository.DisinfectionRepository;
 import lombok.extern.slf4j.Slf4j;

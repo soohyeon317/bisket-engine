@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Publishing;
+import com.bisket.engine.entity.Publishing;
 import com.bisket.engine.parser.PublishingParser;
 import com.bisket.engine.repository.PublishingRepository;
 import lombok.extern.slf4j.Slf4j;

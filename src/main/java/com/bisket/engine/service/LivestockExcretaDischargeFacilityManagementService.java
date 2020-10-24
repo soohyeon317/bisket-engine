@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.LivestockExcretaDischargeFacilityManagement;
+import com.bisket.engine.entity.LivestockExcretaDischargeFacilityManagement;
 import com.bisket.engine.parser.LivestockExcretaDischargeFacilityManagementParser;
 import com.bisket.engine.repository.LivestockExcretaDischargeFacilityManagementRepository;
 import lombok.extern.slf4j.Slf4j;

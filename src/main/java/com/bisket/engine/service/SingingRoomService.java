@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SingingRoom;
+import com.bisket.engine.entity.SingingRoom;
 import com.bisket.engine.parser.SingingRoomParser;
 import com.bisket.engine.repository.SingingRoomRepository;
 import lombok.extern.slf4j.Slf4j;

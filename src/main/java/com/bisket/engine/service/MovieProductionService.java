@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MovieProduction;
+import com.bisket.engine.entity.MovieProduction;
 import com.bisket.engine.parser.MovieProductionParser;
 import com.bisket.engine.repository.MovieProductionRepository;
 import lombok.extern.slf4j.Slf4j;

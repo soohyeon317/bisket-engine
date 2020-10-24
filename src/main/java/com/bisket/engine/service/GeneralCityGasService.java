@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.GeneralCityGas;
+import com.bisket.engine.entity.GeneralCityGas;
 import com.bisket.engine.parser.GeneralCityGasParser;
 import com.bisket.engine.repository.GeneralCityGasRepository;
 import lombok.extern.slf4j.Slf4j;

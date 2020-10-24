@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.HanokExperience;
+import com.bisket.engine.entity.HanokExperience;
 import com.bisket.engine.parser.HanokExperienceParser;
 import com.bisket.engine.repository.HanokExperienceRepository;
 import lombok.extern.slf4j.Slf4j;

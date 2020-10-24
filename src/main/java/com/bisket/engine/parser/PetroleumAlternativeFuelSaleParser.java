@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.PetroleumAlternativeFuelSale;
+import com.bisket.engine.entity.PetroleumAlternativeFuelSale;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

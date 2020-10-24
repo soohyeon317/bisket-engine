@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.AnimalMedicalEquipmentSale;
+import com.bisket.engine.entity.AnimalMedicalEquipmentSale;
 import com.bisket.engine.parser.AnimalMedicalEquipmentSaleParser;
 import com.bisket.engine.repository.AnimalMedicalEquipmentSaleRepository;
 import lombok.extern.slf4j.Slf4j;

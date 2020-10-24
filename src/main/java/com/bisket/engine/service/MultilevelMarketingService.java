@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MultilevelMarketing;
+import com.bisket.engine.entity.MultilevelMarketing;
 import com.bisket.engine.parser.MultilevelMarketingParser;
 import com.bisket.engine.repository.MultilevelMarketingRepository;
 import lombok.extern.slf4j.Slf4j;

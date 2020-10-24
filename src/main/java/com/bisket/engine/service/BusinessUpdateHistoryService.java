@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.repository.BusinessUpdateHistoryRepository;
-import com.bisket.engine.domain.BusinessUpdateHistory;
+import com.bisket.engine.entity.BusinessUpdateHistory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

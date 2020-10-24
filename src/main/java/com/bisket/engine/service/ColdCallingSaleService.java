@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.ColdCallingSale;
+import com.bisket.engine.entity.ColdCallingSale;
 import com.bisket.engine.parser.ColdCallingSaleParser;
 import com.bisket.engine.repository.ColdCallingSaleRepository;
 import lombok.extern.slf4j.Slf4j;

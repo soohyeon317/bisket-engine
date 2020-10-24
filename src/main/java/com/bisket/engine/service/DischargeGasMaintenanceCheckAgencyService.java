@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.DischargeGasMaintenanceCheckAgency;
+import com.bisket.engine.entity.DischargeGasMaintenanceCheckAgency;
 import com.bisket.engine.parser.DischargeGasMaintenanceCheckAgencyParser;
 import com.bisket.engine.repository.DischargeGasMaintenanceCheckAgencyRepository;
 import lombok.extern.slf4j.Slf4j;

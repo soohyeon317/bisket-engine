@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MilkCollection;
+import com.bisket.engine.entity.MilkCollection;
 import com.bisket.engine.parser.MilkCollectionParser;
 import com.bisket.engine.repository.MilkCollectionRepository;
 import lombok.extern.slf4j.Slf4j;

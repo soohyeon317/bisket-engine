@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.AffiliatedMedicalOrganization;
+import com.bisket.engine.entity.AffiliatedMedicalOrganization;
 import com.bisket.engine.parser.AffiliatedMedicalOrganizationParser;
 import com.bisket.engine.repository.AffiliatedMedicalOrganizationRepository;
 import lombok.extern.slf4j.Slf4j;

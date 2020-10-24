@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MeatPackaging;
+import com.bisket.engine.entity.MeatPackaging;
 import com.bisket.engine.parser.MeatPackagingParser;
 import com.bisket.engine.repository.MeatPackagingRepository;
 import lombok.extern.slf4j.Slf4j;

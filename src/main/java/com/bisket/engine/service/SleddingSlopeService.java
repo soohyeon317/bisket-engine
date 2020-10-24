@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SleddingSlope;
+import com.bisket.engine.entity.SleddingSlope;
 import com.bisket.engine.parser.SleddingSlopeParser;
 import com.bisket.engine.repository.SleddingSlopeRepository;
 import lombok.extern.slf4j.Slf4j;

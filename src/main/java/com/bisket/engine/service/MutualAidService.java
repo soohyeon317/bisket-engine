@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MutualAid;
+import com.bisket.engine.entity.MutualAid;
 import com.bisket.engine.parser.MutualAidParser;
 import com.bisket.engine.repository.MutualAidRepository;
 import lombok.extern.slf4j.Slf4j;

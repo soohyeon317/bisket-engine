@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Incubation;
+import com.bisket.engine.entity.Incubation;
 import com.bisket.engine.parser.IncubationParser;
 import com.bisket.engine.repository.IncubationRepository;
 import lombok.extern.slf4j.Slf4j;

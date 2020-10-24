@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.IceRink;
+import com.bisket.engine.entity.IceRink;
 import com.bisket.engine.parser.IceRinkParser;
 import com.bisket.engine.repository.IceRinkRepository;
 import lombok.extern.slf4j.Slf4j;

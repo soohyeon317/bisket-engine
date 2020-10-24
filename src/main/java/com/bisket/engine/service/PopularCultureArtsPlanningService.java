@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.PopularCultureArtsPlanning;
+import com.bisket.engine.entity.PopularCultureArtsPlanning;
 import com.bisket.engine.parser.PopularCultureArtsPlanningParser;
 import com.bisket.engine.repository.PopularCultureArtsPlanningRepository;
 import lombok.extern.slf4j.Slf4j;

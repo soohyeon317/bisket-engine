@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.PhysicalFitnessCenter;
+import com.bisket.engine.entity.PhysicalFitnessCenter;
 import com.bisket.engine.parser.PhysicalFitnessCenterParser;
 import com.bisket.engine.repository.PhysicalFitnessCenterRepository;
 import lombok.extern.slf4j.Slf4j;

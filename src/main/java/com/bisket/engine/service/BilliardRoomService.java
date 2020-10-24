@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.BilliardRoom;
+import com.bisket.engine.entity.BilliardRoom;
 import com.bisket.engine.parser.BilliardRoomParser;
 import com.bisket.engine.repository.BilliardRoomRepository;
 import lombok.extern.slf4j.Slf4j;

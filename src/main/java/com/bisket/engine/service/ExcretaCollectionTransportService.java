@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.ExcretaCollectionTransport;
+import com.bisket.engine.entity.ExcretaCollectionTransport;
 import com.bisket.engine.parser.ExcretaCollectionTransportParser;
 import com.bisket.engine.repository.ExcretaCollectionTransportRepository;
 import lombok.extern.slf4j.Slf4j;

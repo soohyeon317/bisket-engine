@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.UndergroundWaterImpactAssessmentOrganization;
+import com.bisket.engine.entity.UndergroundWaterImpactAssessmentOrganization;
 import com.bisket.engine.parser.UndergroundWaterImpactAssessmentOrganizationParser;
 import com.bisket.engine.repository.UndergroundWaterImpactAssessmentOrganizationRepository;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.PostpartumCare;
+import com.bisket.engine.entity.PostpartumCare;
 import com.bisket.engine.parser.PostpartumCareParser;
 import com.bisket.engine.repository.PostpartumCareRepository;
 import lombok.extern.slf4j.Slf4j;

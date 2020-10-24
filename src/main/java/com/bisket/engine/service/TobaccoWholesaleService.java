@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.TobaccoWholesale;
+import com.bisket.engine.entity.TobaccoWholesale;
 import com.bisket.engine.parser.TobaccoWholesaleParser;
 import com.bisket.engine.repository.TobaccoWholesaleRepository;
 import lombok.extern.slf4j.Slf4j;

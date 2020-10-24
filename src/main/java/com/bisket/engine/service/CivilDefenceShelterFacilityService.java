@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.CivilDefenceShelterFacility;
+import com.bisket.engine.entity.CivilDefenceShelterFacility;
 import com.bisket.engine.parser.CivilDefenceShelterFacilityParser;
 import com.bisket.engine.repository.CivilDefenceShelterFacilityRepository;
 import lombok.extern.slf4j.Slf4j;

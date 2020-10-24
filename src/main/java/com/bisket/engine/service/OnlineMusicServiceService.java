@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.OnlineMusicService;
+import com.bisket.engine.entity.OnlineMusicService;
 import com.bisket.engine.parser.OnlineMusicServiceParser;
 import com.bisket.engine.repository.OnlineMusicServiceRepository;
 import lombok.extern.slf4j.Slf4j;

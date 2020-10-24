@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Haircutting;
+import com.bisket.engine.entity.Haircutting;
 import com.bisket.engine.parser.HaircuttingParser;
 import com.bisket.engine.repository.HaircuttingRepository;
 import lombok.extern.slf4j.Slf4j;

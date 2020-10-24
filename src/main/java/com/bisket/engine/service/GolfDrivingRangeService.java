@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.GolfDrivingRange;
+import com.bisket.engine.entity.GolfDrivingRange;
 import com.bisket.engine.parser.GolfDrivingRangeParser;
 import com.bisket.engine.repository.GolfDrivingRangeRepository;
 import lombok.extern.slf4j.Slf4j;

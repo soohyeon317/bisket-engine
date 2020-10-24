@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.VideoLittleTheater;
+import com.bisket.engine.entity.VideoLittleTheater;
 import com.bisket.engine.parser.VideoLittleTheaterParser;
 import com.bisket.engine.repository.VideoLittleTheaterRepository;
 import lombok.extern.slf4j.Slf4j;

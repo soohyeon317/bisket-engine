@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.CompositeVideoService;
+import com.bisket.engine.entity.CompositeVideoService;
 import com.bisket.engine.parser.CompositeVideoServiceParser;
 import com.bisket.engine.repository.CompositeVideoServiceRepository;
 import lombok.extern.slf4j.Slf4j;

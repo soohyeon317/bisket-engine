@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.VideoWatchingService;
+import com.bisket.engine.entity.VideoWatchingService;
 import com.bisket.engine.parser.VideoWatchingServiceParser;
 import com.bisket.engine.repository.VideoWatchingServiceRepository;
 import lombok.extern.slf4j.Slf4j;

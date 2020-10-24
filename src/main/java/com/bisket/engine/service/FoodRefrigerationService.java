@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.FoodRefrigeration;
+import com.bisket.engine.entity.FoodRefrigeration;
 import com.bisket.engine.parser.FoodRefrigerationParser;
 import com.bisket.engine.repository.FoodRefrigerationRepository;
 import lombok.extern.slf4j.Slf4j;

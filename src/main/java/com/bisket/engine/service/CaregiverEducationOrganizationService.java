@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.CaregiverEducationOrganization;
+import com.bisket.engine.entity.CaregiverEducationOrganization;
 import com.bisket.engine.parser.CaregiverEducationOrganizationParser;
 import com.bisket.engine.repository.CaregiverEducationOrganizationRepository;
 import lombok.extern.slf4j.Slf4j;

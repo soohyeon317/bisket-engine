@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MotorCamp;
+import com.bisket.engine.entity.MotorCamp;
 import com.bisket.engine.parser.MotorCampParser;
 import com.bisket.engine.repository.MotorCampRepository;
 import lombok.extern.slf4j.Slf4j;

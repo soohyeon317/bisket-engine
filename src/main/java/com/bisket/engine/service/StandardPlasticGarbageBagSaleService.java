@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.StandardPlasticGarbageBagSale;
+import com.bisket.engine.entity.StandardPlasticGarbageBagSale;
 import com.bisket.engine.parser.StandardPlasticGarbageBagSaleParser;
 import com.bisket.engine.repository.StandardPlasticGarbageBagSaleRepository;
 import lombok.extern.slf4j.Slf4j;

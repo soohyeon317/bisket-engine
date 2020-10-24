@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.domain.DischargeGasMaintenanceCheckAgency;
+import com.bisket.engine.entity.DischargeGasMaintenanceCheckAgency;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

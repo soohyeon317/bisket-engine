@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.DoorToDoorSale;
+import com.bisket.engine.entity.DoorToDoorSale;
 import com.bisket.engine.parser.DoorToDoorSaleParser;
 import com.bisket.engine.repository.DoorToDoorSaleRepository;
 import lombok.extern.slf4j.Slf4j;

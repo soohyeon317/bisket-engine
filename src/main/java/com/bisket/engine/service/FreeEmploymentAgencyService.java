@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.FreeEmploymentAgency;
+import com.bisket.engine.entity.FreeEmploymentAgency;
 import com.bisket.engine.parser.FreeEmploymentAgencyParser;
 import com.bisket.engine.repository.FreeEmploymentAgencyRepository;
 import lombok.extern.slf4j.Slf4j;

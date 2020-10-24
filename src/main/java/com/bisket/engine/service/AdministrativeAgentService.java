@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.AdministrativeAgent;
+import com.bisket.engine.entity.AdministrativeAgent;
 import com.bisket.engine.parser.AdministrativeAgentParser;
 import com.bisket.engine.repository.AdministrativeAgentRepository;
 import lombok.extern.slf4j.Slf4j;

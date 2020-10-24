@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.WaterSupplyConstructionAgency;
+import com.bisket.engine.entity.WaterSupplyConstructionAgency;
 import com.bisket.engine.parser.WaterSupplyConstructionAgencyParser;
 import com.bisket.engine.repository.WaterSupplyConstructionAgencyRepository;
 import lombok.extern.slf4j.Slf4j;

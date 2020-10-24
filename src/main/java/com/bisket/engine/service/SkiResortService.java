@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SkiResort;
+import com.bisket.engine.entity.SkiResort;
 import com.bisket.engine.parser.SkiResortParser;
 import com.bisket.engine.repository.SkiResortRepository;
 import lombok.extern.slf4j.Slf4j;

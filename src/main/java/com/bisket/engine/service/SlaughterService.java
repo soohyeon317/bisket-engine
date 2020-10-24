@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Slaughter;
+import com.bisket.engine.entity.Slaughter;
 import com.bisket.engine.parser.SlaughterParser;
 import com.bisket.engine.repository.SlaughterRepository;
 import lombok.extern.slf4j.Slf4j;

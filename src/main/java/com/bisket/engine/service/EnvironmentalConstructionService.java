@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.EnvironmentalConstruction;
+import com.bisket.engine.entity.EnvironmentalConstruction;
 import com.bisket.engine.parser.EnvironmentalConstructionParser;
 import com.bisket.engine.repository.EnvironmentalConstructionRepository;
 import lombok.extern.slf4j.Slf4j;

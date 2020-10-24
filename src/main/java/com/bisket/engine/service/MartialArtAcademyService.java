@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.MartialArtAcademy;
+import com.bisket.engine.entity.MartialArtAcademy;
 import com.bisket.engine.parser.MartialArtAcademyParser;
 import com.bisket.engine.repository.MartialArtAcademyRepository;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.GeneralAmusementFacility;
+import com.bisket.engine.entity.GeneralAmusementFacility;
 import com.bisket.engine.parser.GeneralAmusementFacilityParser;
 import com.bisket.engine.repository.GeneralAmusementFacilityRepository;
 import lombok.extern.slf4j.Slf4j;

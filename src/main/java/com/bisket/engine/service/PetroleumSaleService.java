@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.PetroleumSale;
+import com.bisket.engine.entity.PetroleumSale;
 import com.bisket.engine.parser.PetroleumSaleParser;
 import com.bisket.engine.repository.PetroleumSaleRepository;
 import lombok.extern.slf4j.Slf4j;

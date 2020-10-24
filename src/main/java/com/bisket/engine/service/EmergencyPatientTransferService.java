@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.EmergencyPatientTransfer;
+import com.bisket.engine.entity.EmergencyPatientTransfer;
 import com.bisket.engine.parser.EmergencyPatientTransferParser;
 import com.bisket.engine.repository.EmergencyPatientTransferRepository;
 import lombok.extern.slf4j.Slf4j;

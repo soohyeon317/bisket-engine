@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.OtherFoodSale;
+import com.bisket.engine.entity.OtherFoodSale;
 import com.bisket.engine.parser.OtherFoodSaleParser;
 import com.bisket.engine.repository.OtherFoodSaleRepository;
 import lombok.extern.slf4j.Slf4j;

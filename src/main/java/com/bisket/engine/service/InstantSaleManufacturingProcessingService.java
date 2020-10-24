@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.InstantSaleManufacturingProcessing;
+import com.bisket.engine.entity.InstantSaleManufacturingProcessing;
 import com.bisket.engine.parser.InstantSaleManufacturingProcessingParser;
 import com.bisket.engine.repository.InstantSaleManufacturingProcessingRepository;
 import lombok.extern.slf4j.Slf4j;

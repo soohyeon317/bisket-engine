@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Glasses;
+import com.bisket.engine.entity.Glasses;
 import com.bisket.engine.parser.GlassesParser;
 import com.bisket.engine.repository.GlassesRepository;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.LocalCultureCenter;
+import com.bisket.engine.entity.LocalCultureCenter;
 import com.bisket.engine.parser.LocalCultureCenterParser;
 import com.bisket.engine.repository.LocalCultureCenterRepository;
 import lombok.extern.slf4j.Slf4j;

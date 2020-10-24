@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.Stage;
+import com.bisket.engine.entity.Stage;
 import com.bisket.engine.parser.StageParser;
 import com.bisket.engine.repository.StageRepository;
 import lombok.extern.slf4j.Slf4j;

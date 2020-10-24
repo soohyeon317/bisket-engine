@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.DomesticTravel;
+import com.bisket.engine.entity.DomesticTravel;
 import com.bisket.engine.parser.DomesticTravelParser;
 import com.bisket.engine.repository.DomesticTravelRepository;
 import lombok.extern.slf4j.Slf4j;

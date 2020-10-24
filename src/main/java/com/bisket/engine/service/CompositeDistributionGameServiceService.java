@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.CompositeDistributionGameService;
+import com.bisket.engine.entity.CompositeDistributionGameService;
 import com.bisket.engine.parser.CompositeDistributionGameServiceParser;
 import com.bisket.engine.repository.CompositeDistributionGameServiceRepository;
 import lombok.extern.slf4j.Slf4j;

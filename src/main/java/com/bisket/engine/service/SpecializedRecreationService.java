@@ -1,7 +1,7 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.domain.SpecializedRecreation;
+import com.bisket.engine.entity.SpecializedRecreation;
 import com.bisket.engine.parser.SpecializedRecreationParser;
 import com.bisket.engine.repository.SpecializedRecreationRepository;
 import lombok.extern.slf4j.Slf4j;
