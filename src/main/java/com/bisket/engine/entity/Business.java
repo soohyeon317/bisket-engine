@@ -1,6 +1,10 @@
 package com.bisket.engine.entity;
 
-import lombok.*;
+import com.bisket.engine.common.BusinessCategory;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -54,4 +58,7 @@ public abstract class Business extends BaseEntity {
     private String businessTypeClassificationName;
     private String xCoordinate;
     private String yCoordinate;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "discriminator_type", nullable = false)
+    private BusinessCategory discriminatorType;
 }
