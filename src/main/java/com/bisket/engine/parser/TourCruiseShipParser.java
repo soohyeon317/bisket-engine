@@ -1,6 +1,6 @@
 package com.bisket.engine.parser;
 
-import com.bisket.engine.entity.TourCruiser;
+import com.bisket.engine.entity.TourCruiseShip;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class TourCruiserParser {
+public class TourCruiseShipParser {
 
-    public static List<TourCruiser> getListFromXml(Document xml) {
-        List<TourCruiser> objectList = new ArrayList<>();
+    public static List<TourCruiseShip> getListFromXml(Document xml) {
+        List<TourCruiseShip> objectList = new ArrayList<>();
 
         // root element 구하기
         Element element = xml.getDocumentElement();
@@ -21,7 +21,7 @@ public class TourCruiserParser {
 
         for (int i = 0; i < rowList.getLength(); i++) {
             NodeList childList = rowList.item(i).getChildNodes();
-            TourCruiser object = new TourCruiser();
+            TourCruiseShip object = new TourCruiseShip();
 
             for (int j = 0; j < childList.getLength(); j++) {
                 // 데이터가 있는 애들만 출력

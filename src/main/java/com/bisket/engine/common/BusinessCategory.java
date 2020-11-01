@@ -65,7 +65,7 @@ public enum BusinessCategory {
     TOUR_TRACK("관광궤도업"),
     INTERNATIONAL_CONFERENCE_FACILITY("국제회의시설업"),
     DOWNTOWN_CIRCULAR_TOUR("시내순환관광업"),
-    TOUR_CRUISER("관광유람선업"),
+    TOUR_CRUISE_SHIP("관광유람선업"),
     OTHER_AMUSEMENT_FACILITY("유원시설업기타"),
     TOUR_PENSION("관광펜션업"),
     MOTOR_CAMP("자동차야영장업"),

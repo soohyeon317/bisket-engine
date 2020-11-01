@@ -10,12 +10,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("tour_cruiser")
+@DiscriminatorValue("tour_cruise_ship")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TourCruiser extends Business {
+public class TourCruiseShip extends Business {
     private String cultureSportsBusinessLineName;
     private String culturalBusinessOperatorClassificationName;
     private String regionClassificationName;
@@ -57,13 +57,13 @@ public class TourCruiser extends Business {
     private String additionalFacilityDetails;
     private String facilityScale;
 
-    public void getAndSetIdentification(TourCruiser other) {
+    public void getAndSetIdentification(TourCruiseShip other) {
         this.setId(other.getId());
         this.setCreatedAt(other.getCreatedAt());
         this.setModifiedAt(other.getModifiedAt());
     }
     
-    public void update(TourCruiser other) {
+    public void update(TourCruiseShip other) {
         // 개방서비스명
         this.setOpenServiceName(other.getOpenServiceName());
         // 인허가일자

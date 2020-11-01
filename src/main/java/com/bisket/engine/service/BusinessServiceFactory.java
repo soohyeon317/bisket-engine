@@ -86,7 +86,7 @@ public class BusinessServiceFactory {
     private final SpecializedRecreationService specializedRecreationService;
     private final StageService stageService;
     private final TourAmusementRestaurantService tourAmusementRestaurantService;
-    private final TourCruiserService tourCruiserService;
+    private final TourCruiseShipService tourCruiseShipService;
     private final TourBusinessOperatorService tourBusinessOperatorService;
     private final TourPensionService tourPensionService;
     private final TourRestaurantService tourRestaurantService;
@@ -432,8 +432,8 @@ public class BusinessServiceFactory {
             case TOUR_AMUSEMENT_RESTAURANT:
                 businessBaseService = tourAmusementRestaurantService;
                 break;
-            case TOUR_CRUISER:
-                businessBaseService = tourCruiserService;
+            case TOUR_CRUISE_SHIP:
+                businessBaseService = tourCruiseShipService;
                 break;
             case TOUR_BUSINESS_OPERATOR:
                 businessBaseService = tourBusinessOperatorService;

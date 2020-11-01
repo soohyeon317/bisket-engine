@@ -1,9 +1,9 @@
 package com.bisket.engine.service;
 
 import com.bisket.engine.common.Commons;
-import com.bisket.engine.entity.TourCruiser;
-import com.bisket.engine.parser.TourCruiserParser;
-import com.bisket.engine.repository.TourCruiserRepository;
+import com.bisket.engine.entity.TourCruiseShip;
+import com.bisket.engine.parser.TourCruiseShipParser;
+import com.bisket.engine.repository.TourCruiseShipRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +22,11 @@ import java.util.Objects;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class TourCruiserService implements BusinessBaseService {
-    private final TourCruiserRepository tourCruiserRepository;
+public class TourCruiseShipService implements BusinessBaseService {
+    private final TourCruiseShipRepository tourCruiseShipRepository;
 
-    public TourCruiserService(TourCruiserRepository tourCruiserRepository) {
-        this.tourCruiserRepository = tourCruiserRepository;
+    public TourCruiseShipService(TourCruiseShipRepository tourCruiseShipRepository) {
+        this.tourCruiseShipRepository = tourCruiseShipRepository;
     }
 
     @Override
@@ -35,13 +35,13 @@ public class TourCruiserService implements BusinessBaseService {
         FileReader fileReader = new FileReader(URLDecoder.decode(filePath, StandardCharsets.UTF_8));
         InputSource inputSource = new InputSource(fileReader);
         Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
-        List<TourCruiser> parsedList = TourCruiserParser.getListFromXml(xml);
+        List<TourCruiseShip> parsedList = TourCruiseShipParser.getListFromXml(xml);
 
         if (!parsedList.isEmpty()) {
-            Map<String, TourCruiser> compositeKeyToFoundObjectMap = new HashMap<>();
-            List<TourCruiser> foundList = tourCruiserRepository.findAll();
+            Map<String, TourCruiseShip> compositeKeyToFoundObjectMap = new HashMap<>();
+            List<TourCruiseShip> foundList = tourCruiseShipRepository.findAll();
             if (!foundList.isEmpty()) {
-                for (TourCruiser found : foundList) {
+                for (TourCruiseShip found : foundList) {
                     String openServiceId = found.getOpenServiceId();
                     String openAutonomousBodyCode = found.getOpenAutonomousBodyCode();
                     String managementCode = found.getManagementCode();
@@ -50,7 +50,7 @@ public class TourCruiserService implements BusinessBaseService {
                 }
             }
             for (int i = 0; i < parsedList.size(); i++) {
-                TourCruiser parsed = parsedList.get(i);
+                TourCruiseShip parsed = parsedList.get(i);
                 String openServiceId = parsed.getOpenServiceId();
                 String openAutonomousBodyCode = parsed.getOpenAutonomousBodyCode();
                 String managementCode = parsed.getManagementCode();
@@ -59,14 +59,14 @@ public class TourCruiserService implements BusinessBaseService {
                         i+1, openServiceId, openAutonomousBodyCode, managementCode);
                 if (compositeKeyToFoundObjectMap.containsKey(compositeKey)) {
                     /* 업데이트 진행 */
-                    TourCruiser found = compositeKeyToFoundObjectMap.get(compositeKey);
+                    TourCruiseShip found = compositeKeyToFoundObjectMap.get(compositeKey);
                     parsed.getAndSetIdentification(found);
                     if (!Objects.equals(found, parsed)) {
                         found.update(parsed);
                     }
                 } else {
                     /* 인서트 진행 */
-                    tourCruiserRepository.save(parsed);
+                    tourCruiseShipRepository.save(parsed);
                 }
             }
         }
