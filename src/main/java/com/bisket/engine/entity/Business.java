@@ -59,6 +59,6 @@ public abstract class Business extends BaseEntity {
     private String xCoordinate;
     private String yCoordinate;
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "discriminator_type", nullable = false)
+    @Column(name = "discriminator_type", nullable = false, insertable = false, updatable = false)
     private BusinessCategory discriminatorType;
 }
