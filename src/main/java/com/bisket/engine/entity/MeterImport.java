@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("meter_import")
+@DiscriminatorValue("METER_IMPORT")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

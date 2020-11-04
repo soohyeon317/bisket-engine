@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("general_camp")
+@DiscriminatorValue("GENERAL_CAMP")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

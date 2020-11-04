@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("sledding_slope")
+@DiscriminatorValue("SLEDDING_SLOPE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

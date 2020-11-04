@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("local_culture_center")
+@DiscriminatorValue("LOCAL_CULTURE_CENTER")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

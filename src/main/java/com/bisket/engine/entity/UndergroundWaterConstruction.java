@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("underground_water_construction")
+@DiscriminatorValue("UNDERGROUND_WATER_CONSTRUCTION")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

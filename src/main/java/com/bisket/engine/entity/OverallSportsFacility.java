@@ -8,7 +8,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("overall_sports_facility")
+@DiscriminatorValue("OVERALL_SPORTS_FACILITY")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

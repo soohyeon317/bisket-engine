@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("golf_driving_range")
+@DiscriminatorValue("GOLF_DRIVING_RANGE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("safety_officinal_sale")
+@DiscriminatorValue("SAFETY_OFFICINAL_SALE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

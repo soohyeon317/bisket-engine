@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("postpartum_care")
+@DiscriminatorValue("POSTPARTUM_CARE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

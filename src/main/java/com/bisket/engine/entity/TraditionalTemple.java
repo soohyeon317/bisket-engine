@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("traditional_temple")
+@DiscriminatorValue("TRADITIONAL_TEMPLE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

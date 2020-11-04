@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("telemarketing")
+@DiscriminatorValue("TELEMARKETING")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

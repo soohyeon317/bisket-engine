@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("mutual_aid")
+@DiscriminatorValue("MUTUAL_AID")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("martial_art_academy")
+@DiscriminatorValue("MARTIAL_ART_ACADEMY")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

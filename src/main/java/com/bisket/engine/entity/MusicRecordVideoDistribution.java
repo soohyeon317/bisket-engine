@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("music_record_video_distribution")
+@DiscriminatorValue("MUSIC_RECORD_VIDEO_DISTRIBUTION")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

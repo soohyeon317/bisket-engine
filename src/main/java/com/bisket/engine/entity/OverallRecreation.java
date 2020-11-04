@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("overall_recreation")
+@DiscriminatorValue("OVERALL_RECREATION")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("stage")
+@DiscriminatorValue("STAGE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

@@ -10,7 +10,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("hanok_experience")
+@DiscriminatorValue("HANOK_EXPERIENCE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("administrative_agent")
+@DiscriminatorValue("ADMINISTRATIVE_AGENT")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
